@@ -17,7 +17,8 @@
     "paths": {
       "@univeex/shared-models": ["shared/models/src/index.ts"],
       "@univeex/shared-utils": ["shared/utils/src/index.ts"],
-      "@univeex/web-ui": ["web/ui/src/index.ts"]
+      "@univeex/web-ui": ["web/ui/src/index.ts"],
+      "src/*": ["apps/api/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

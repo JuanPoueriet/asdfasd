@@ -31,7 +31,14 @@ export class NotificationsService {
 
     const subscriptions = await this.pushSubscriptionRepository.find({ where: { userId } });
     for (const subscription of subscriptions) {
-      this.pushNotificationsService.sendPushNotification(subscription, { title, body });
+      const pushSubscription = {
+        endpoint: subscription.endpoint,
+        keys: {
+          p256dh: subscription.p256dh,
+          auth: subscription.auth,
+        },
+      };
+      this.pushNotificationsService.sendPushNotification(pushSubscription, { title, body });
     }
 
     return savedNotification;

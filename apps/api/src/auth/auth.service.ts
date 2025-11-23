@@ -770,9 +770,10 @@ export class AuthService {
     expiresIn?: string,
     secret?: string,
   ) {
+    const expiration = expiresIn || DEFAULT_ACCESS_EXPIRATION;
     return this.jwtService.sign(payload, {
       secret: secret || this.configService.get('JWT_SECRET'),
-      expiresIn: expiresIn || DEFAULT_ACCESS_EXPIRATION,
+      expiresIn: expiration,
     });
   }
 
