@@ -1,7 +1,6 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, ParseUUIDPipe } from '@nestjs/common';
-import { TaxesService } from './taxes.service';
-import { CreateTaxDto } from './dto/create-tax.dto';
-import { UpdateTaxDto } from './dto/update-tax.dto';
+import { TaxesService } from '@univeex/taxes/feature-api';
+import { CreateTaxDto, UpdateTaxDto } from '@univeex/taxes/data-access';
 import { JwtAuthGuard } from 'src/auth/guards/jwt/jwt.guard';
 import { CurrentUser } from 'src/auth/decorators/current-user.decorator';
 import { User } from 'src/users/entities/user.entity/user.entity';

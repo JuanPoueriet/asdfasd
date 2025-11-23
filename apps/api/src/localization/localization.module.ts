@@ -1,4 +1,3 @@
-
 import { Module, forwardRef } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { BullModule } from '@nestjs/bullmq';
@@ -7,7 +6,7 @@ import { LocalizationAdminController } from './controllers/localization-admin.co
 import { FiscalRegion } from './entities/fiscal-region.entity';
 import { TaxScheme } from './entities/tax-scheme.entity';
 import { ChartOfAccountsModule } from 'src/chart-of-accounts/chart-of-accounts.module';
-import { TaxesModule } from 'src/taxes/taxes.module';
+import { TaxesFeatureApiModule } from '@univeex/taxes/feature-api';
 import { LocalizationTemplate } from './entities/localization-template.entity';
 import { CoaTemplate } from './entities/coa-template.entity';
 import { TaxTemplate } from './entities/tax-template.entity';
@@ -34,7 +33,7 @@ import { LocalizationController } from './controllers/localization.controller';
       name: 'localization',
     }),
     forwardRef(() => ChartOfAccountsModule),
-    TaxesModule,
+    TaxesFeatureApiModule,
     SharedModule,
   ],
   providers: [LocalizationService, LocalizationConsumer],

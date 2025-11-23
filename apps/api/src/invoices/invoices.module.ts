@@ -53,7 +53,7 @@ import { InvoiceLineItem } from './entities/invoice-line-item.entity';
 import { AuthModule } from 'src/auth/auth.module';
 import { CustomersModule } from 'src/customers/customers.module';
 import { InventoryModule } from 'src/inventory/inventory.module';
-import { TaxesModule } from 'src/taxes/taxes.module';
+import { TaxesFeatureApiModule } from '@univeex/taxes/feature-api';
 import { ComplianceModule } from 'src/compliance/compliance.module';
 import { AccountingModule } from 'src/accounting/accounting.module';
 import { AccountingPeriod } from 'src/accounting/entities/accounting-period.entity';
@@ -78,7 +78,7 @@ import { SharedModule } from 'src/shared/shared.module';
     AuthModule,
     CustomersModule,
     InventoryModule,
-    TaxesModule,
+    TaxesFeatureApiModule,
     ComplianceModule,
     AccountingModule,
     forwardRef(() => SharedModule),

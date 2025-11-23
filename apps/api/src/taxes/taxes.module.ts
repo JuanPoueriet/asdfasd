@@ -1,18 +1,15 @@
-
-import { Module, forwardRef } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { TaxesService } from './taxes.service';
+import { Module } from '@nestjs/common';
 import { TaxesController } from './taxes.controller';
-import { Tax } from './entities/tax.entity';
+import { TaxesFeatureApiModule } from '@univeex/taxes/feature-api';
 import { AuthModule } from 'src/auth/auth.module';
+import { UsersModule } from 'src/users/users.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Tax]),
-    forwardRef(() => AuthModule)
+    TaxesFeatureApiModule,
+    AuthModule,
+    UsersModule
   ],
   controllers: [TaxesController],
-  providers: [TaxesService],
-  exports: [TaxesService],
 })
 export class TaxesModule {}

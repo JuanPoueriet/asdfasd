@@ -2,7 +2,7 @@ import { Processor, WorkerHost } from '@nestjs/bullmq';
 import { Job } from 'bullmq';
 import { Logger } from '@nestjs/common';
 import { ChartOfAccountsService } from 'src/chart-of-accounts/chart-of-accounts.service';
-import { TaxesService } from 'src/taxes/taxes.service';
+import { TaxesService } from '@univeex/taxes/feature-api';
 import { DocumentSequencesService } from 'src/shared/document-sequences/document-sequences.service';
 import { AccountTemplateDto } from '../entities/coa-template.entity';
 
