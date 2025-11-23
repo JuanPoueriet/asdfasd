@@ -1,0 +1,27 @@
+{
+  "name": "feature-api",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/taxes/feature-api/src",
+  "projectType": "library",
+  "tags": ["scope:taxes", "type:feature"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/taxes/feature-api",
+        "tsConfig": "libs/taxes/feature-api/tsconfig.lib.json",
+        "packageJson": "libs/taxes/feature-api/package.json",
+        "main": "libs/taxes/feature-api/src/index.ts",
+        "assets": ["libs/taxes/feature-api/*.md"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/taxes/feature-api/jest.config.ts"
+      }
+    }
+  }
+}

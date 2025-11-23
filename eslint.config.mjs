@@ -21,6 +21,10 @@ export default [
               onlyDependOnLibsWithTags: ['scope:shared'],
             },
             {
+              sourceTag: 'scope:taxes',
+              onlyDependOnLibsWithTags: ['scope:taxes', 'scope:shared'],
+            },
+            {
               sourceTag: 'type:feature',
               onlyDependOnLibsWithTags: [
                 'type:ui',
