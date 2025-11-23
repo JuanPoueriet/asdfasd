@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 import { AlertCircle, ArrowLeft, ArrowRight, BarChart2, Check, CheckCircle, LucideAngularModule, Package, Rocket } from 'lucide-angular';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { AuthService } from '../../../core/services/auth';
-import { RegisterPayload } from '../../../shared/interfaces/register-payload.interface';
+import { RegisterPayload } from '@univeex/shared/util-types';
 import { StepAccountInfo } from './steps/step-account-info/step-account-info';
 import { StepBusiness } from './steps/step-business/step-business';
 import { StepConfiguration } from './steps/step-configuration/step-configuration';

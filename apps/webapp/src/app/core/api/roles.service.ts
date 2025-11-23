@@ -4,23 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 // import { environment } from '../../../../environments/environment';
 
-// Interfaces que coinciden con los DTOs del Backend
-export interface Role {
-  id: string;
-  name: string;
-  description: string;
-  permissions: string[];
-  isSystemRole: boolean;
-}
-
-export interface CreateRoleDto {
-  name: string;
-  description?: string;
-  permissions: string[];
-}
-
-export type UpdateRoleDto = Partial<CreateRoleDto>;
-
+import { Role, CreateRoleDto, UpdateRoleDto } from '@univeex/shared/util-types';
 
 @Injectable({ providedIn: 'root' })
 export class RolesService {
