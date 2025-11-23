@@ -1,5 +1,5 @@
-import { Role } from '../../core/api/roles.service';
-import { UserStatus } from '../enums/user-status.enum';
+import { Role } from './role.interface';
+import { UserStatus } from './user-status.enum';
 
 export interface Organization {
   id: string;

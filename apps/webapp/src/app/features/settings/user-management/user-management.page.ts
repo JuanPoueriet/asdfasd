@@ -55,11 +55,10 @@ import {
   UpdateUserDto,
   UsersService,
 } from '../../../core/api/users.service';
-import { Role, RolesService } from '../../../core/api/roles.service';
+import { RolesService } from '../../../core/api/roles.service';
 import { AuthService } from '../../../core/services/auth';
 import { TranslateModule } from '@ngx-translate/core';
-import { User as ApiUser } from '../../../shared/interfaces/user.interface';
-import { UserStatus } from '../../../shared/enums/user-status.enum';
+import { User as ApiUser, Role, UserStatus } from '@univeex/shared/util-types';
 import { WebSocketService } from '../../../core/services/websocket.service';
 import { HasPermissionDirective } from '../../../shared/directives/has-permission.directive';
 import { debounceTime, distinctUntilChanged, Subject, Subscription } from 'rxjs';

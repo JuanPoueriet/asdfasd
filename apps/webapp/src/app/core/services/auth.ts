@@ -12,12 +12,8 @@ import {
   take,
 } from 'rxjs';
 
-import { RegisterPayload } from '../../shared/interfaces/register-payload.interface';
-import { User } from '../../shared/interfaces/user.interface';
-import { LoginCredentials } from '../../shared/interfaces/login-credentials.interface';
+import { RegisterPayload, User, LoginCredentials, UserPayload, UserStatus } from '@univeex/shared/util-types';
 import { AuthStatus } from '../../shared/enums/auth-status.enum';
-import { UserStatus } from '../../shared/enums/user-status.enum';
-import { UserPayload } from '../../shared/interfaces/user-payload.interface';
 import { NotificationService } from './notification';
 import { WebSocketService } from './websocket.service';
 import { ModalService } from '../../shared/service/modal.service';

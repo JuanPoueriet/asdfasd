@@ -4,24 +4,24 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { of, throwError } from 'rxjs';
 import { UserManagementPage } from './user-management.page';
 import { UsersService, InviteUserDto, UpdateUserDto } from '../../../core/api/users.service';
-import { RolesService, Role } from '../../../core/api/roles.service';
+import { RolesService } from '../../../core/api/roles.service';
+import { Role, UserStatus } from '@univeex/shared/util-types';
 import { NotificationService } from '../../../core/services/notification';
 import { WebSocketService } from '../../../core/services/websocket.service';
 import { AuthService } from '../../../core/services/auth';
 import { TranslateModule } from '@ngx-translate/core';
 import { HasPermissionDirective } from '../../../shared/directives/has-permission.directive';
 import { LucideAngularModule, UserPlus, Save, X, Send, User, History, Trash2, Key, Search, Filter, ArrowUpDown, ArrowUp, ArrowDown, MoreHorizontal, FilePenLine, Ban, UserCog, Mail, ChevronLeft, ChevronRight, Plus, RefreshCw, Power, PowerOff, Building, Lock, Archive, UserCheck, Zap, FileInput, FileOutput, UserCircle2, LogOut } from 'lucide-angular';
-import { User as ApiUser } from '../../../shared/interfaces/user.interface';
-import { UserStatus } from '../../../shared/enums/user-status.enum';
+import { User as ApiUser } from '@univeex/shared/util-types';
 
 const mockUsers: ApiUser[] = [
-  { id: '1', firstName: 'John', lastName: 'Doe', email: 'john@doe.com', status: UserStatus.ACTIVE, roles: [{id: '1', name: 'Admin'}], organizationId: '1', isOnline: true, createdAt: new Date() },
-  { id: '2', firstName: 'Jane', lastName: 'Doe', email: 'jane@doe.com', status: UserStatus.PENDING, roles: [{id: '2', name: 'User'}], organizationId: '1', isOnline: false, createdAt: new Date() },
+  { id: '1', firstName: 'John', lastName: 'Doe', email: 'john@doe.com', status: UserStatus.ACTIVE, roles: [{id: '1', name: 'Admin', description: 'Admin role', permissions: [], isSystemRole: true}], organization: {id: '1'}, isOnline: true, permissions: [], token: 'abc' },
+  { id: '2', firstName: 'Jane', lastName: 'Doe', email: 'jane@doe.com', status: UserStatus.PENDING, roles: [{id: '2', name: 'User', description: 'User role', permissions: [], isSystemRole: false}], organization: {id: '1'}, isOnline: false, permissions: [], token: 'abc' },
 ];
 
 const mockRoles: Role[] = [
-    { id: '1', name: 'Admin', permissions: [] },
-    { id: '2', name: 'User', permissions: [] },
+    { id: '1', name: 'Admin', permissions: [], description: 'Admin', isSystemRole: true },
+    { id: '2', name: 'User', permissions: [], description: 'User', isSystemRole: false },
 ]
 
 describe('UserManagementPage', () => {
@@ -105,7 +105,7 @@ describe('UserManagementPage', () => {
     expect(component.isEditMode()).toBe(true);
     expect(component.userModalOpen()).toBe(true);
     expect(component.selectedUser).toBe(userToEdit);
-    expect(component.userForm.value.firstName).toBe(userTo-edit.firstName);
+    expect(component.userForm.value.firstName).toBe(userToEdit.firstName);
   });
 
   it('should invite a new user', fakeAsync(() => {
