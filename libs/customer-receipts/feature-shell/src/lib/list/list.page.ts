@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { LucideAngularModule, PlusCircle } from 'lucide-angular';
 import { CustomerReceipt, CustomerReceiptsService } from '../../../core/services/customer-receipts';
-import { NotificationService } from '../../../core/services/notification';
+import { NotificationService } from '@univeex/notifications/data-access';
 // import { CustomerReceipt, CustomerReceiptsService } from '../../../../core/services/customer-receipts';
-// import { NotificationService } from '../../../../core/services/notification';
+// import { NotificationService } from '../@univeex/notifications/data-access';
 // import { CustomerReceiptsService, CustomerReceipt } from '../../../core/services/customer-receipts';
-// import { NotificationService } from '../../../core/services/notification';
+// import { NotificationService } from '@univeex/notifications/data-access';
 
 @Component({
   selector: 'app-customer-receipts-list-page',

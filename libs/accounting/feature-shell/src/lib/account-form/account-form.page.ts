@@ -7,7 +7,7 @@ import { ChartOfAccountsStateService } from '../../../core/state/chart-of-accoun
 import { take } from 'rxjs/operators';
 import { AccountType, AccountCategory, AccountNature, CashFlowCategory, RequiredDimension } from '@univeex/accounting/domain';
 import { LucideAngularModule, Save } from 'lucide-angular';
-import { NotificationService } from '../../../core/services/notification';
+import { NotificationService } from '@univeex/notifications/data-access';
 
 @Component({
   selector: 'app-account-form-page',

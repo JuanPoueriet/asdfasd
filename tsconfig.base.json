@@ -226,6 +226,33 @@
       "@univeex/localization/domain": ["libs/localization/domain/src/index.ts"],
       "@univeex/localization/data-access": [
         "libs/localization/data-access/src/index.ts"
+      ],
+      "@univeex/auth/domain": ["libs/auth/domain/src/index.ts"],
+      "@univeex/auth/data-access": ["libs/auth/data-access/src/index.ts"],
+      "@univeex/search/domain": ["libs/search/domain/src/index.ts"],
+      "@univeex/search/data-access": ["libs/search/data-access/src/index.ts"],
+      "@univeex/notifications/domain": [
+        "libs/notifications/domain/src/index.ts"
+      ],
+      "@univeex/notifications/data-access": [
+        "libs/notifications/data-access/src/index.ts"
+      ],
+      "@univeex/websockets/data-access": [
+        "libs/websockets/data-access/src/index.ts"
+      ],
+      "@univeex/shared/util-ui": ["libs/shared/util-ui/src/index.ts"],
+      "@univeex/shared/util-common": ["libs/shared/util-common/src/index.ts"],
+      "@univeex/accounts-payable/data-access": [
+        "libs/accounts-payable/data-access/src/index.ts"
+      ],
+      "@univeex/customer-receipts/data-access": [
+        "libs/customer-receipts/data-access/src/index.ts"
+      ],
+      "@univeex/invoices/data-access": [
+        "libs/invoices/data-access/src/index.ts"
+      ],
+      "@univeex/journal-entries/data-access": [
+        "libs/journal-entries/data-access/src/index.ts"
       ]
     }
   },

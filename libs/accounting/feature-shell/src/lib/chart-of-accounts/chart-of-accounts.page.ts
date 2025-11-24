@@ -6,7 +6,7 @@ import { Router, RouterLink } from '@angular/router';
 import { ChartOfAccountsStateService } from '../../../core/state/chart-of-accounts.state';
 import { LucideAngularModule, Plus, ChevronDown, ChevronRight, Edit, Trash, FileDown, Search, RefreshCcw, ArrowUpDown, ArrowUp, ArrowDown } from 'lucide-angular';
 import { Account, AccountType } from '@univeex/accounting/domain';
-import { FlattenedAccount } from '../../../core/models/flattened-account.model';
+import { FlattenedAccount } from '@univeex/accounting/domain';
 
 @Component({
   selector: 'app-chart-of-accounts-page',

@@ -3,8 +3,8 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { LucideAngularModule, Building2, Briefcase, Users, Globe, Landmark, Image, MapPin } from 'lucide-angular';
 import { Observable } from 'rxjs';
-import { FiscalRegion } from '../../../../../core/models/fiscal-region.model';
-import { LocalizationApiService } from '../../../../../core/api/localization.service';
+import { FiscalRegion } from '../../@univeex/localization/domain';
+import { LocalizationApiService } from '../../@univeex/localization/data-access';
 // import { FiscalRegion } from 'src/app/core/models/fiscal-region.model';
 // import { LocalizationApiService } from 'src/app/core/api/localization.service';
 

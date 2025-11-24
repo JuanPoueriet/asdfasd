@@ -21,8 +21,8 @@ import {
   Save,
   Image,
 } from 'lucide-angular';
-import { AuthService } from '../../../core/services/auth';
-import { NotificationService } from '../../../core/services/notification';
+import { AuthService } from '@univeex/auth/data-access';
+import { NotificationService } from '@univeex/notifications/data-access';
 
 @Component({
   selector: 'app-my-profile-page',

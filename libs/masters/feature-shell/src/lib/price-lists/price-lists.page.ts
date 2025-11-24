@@ -4,7 +4,7 @@ import { RouterLink } from '@angular/router';
 import { LucideAngularModule, PlusCircle, Filter, MoreHorizontal } from 'lucide-angular';
 import { PriceList } from '@univeex/price-lists/domain';
 import { PriceListsService } from '@univeex/price-lists/data-access';
-import { NotificationService } from '../../../core/services/notification';
+import { NotificationService } from '@univeex/notifications/data-access';
 
 @Component({
   selector: 'app-price-lists-page',

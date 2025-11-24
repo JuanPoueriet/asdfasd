@@ -13,7 +13,7 @@ import { CustomersService } from '@univeex/customers/data-access';
 import { InventoryService } from '@univeex/inventory/data-access';
 import { Customer } from '@univeex/customers/domain';
 import { Product } from '@univeex/inventory/domain';
-import { NotificationService } from '../../../core/services/notification';
+import { NotificationService } from '@univeex/notifications/data-access';
 
 @Component({
   selector: 'app-new-invoice-page',

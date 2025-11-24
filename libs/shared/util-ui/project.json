@@ -1,0 +1,26 @@
+{
+  "name": "util-ui",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/util-ui/src",
+  "projectType": "library",
+  "tags": ["type:util", "scope:shared"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared/util-ui",
+        "main": "libs/shared/util-ui/src/index.ts",
+        "tsConfig": "libs/shared/util-ui/tsconfig.lib.json",
+        "assets": ["libs/shared/util-ui/*.md"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/shared/util-ui/jest.config.ts"
+      }
+    }
+  }
+}

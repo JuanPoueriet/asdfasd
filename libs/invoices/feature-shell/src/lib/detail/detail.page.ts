@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterLink, ActivatedRoute } from '@angular/router';
 import { LucideAngularModule, Printer, Download, Mail, MoreVertical } from 'lucide-angular';
 import { Invoice, InvoicesService } from '../../../core/services/invoices';
-import { NotificationService } from '../../../core/services/notification';
+import { NotificationService } from '@univeex/notifications/data-access';
 
 @Component({
   selector: 'app-invoice-detail-page',

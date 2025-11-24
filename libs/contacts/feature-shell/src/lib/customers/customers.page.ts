@@ -5,7 +5,7 @@ import { RouterLink } from '@angular/router';
 import { LucideAngularModule, PlusCircle, Filter, MoreHorizontal } from 'lucide-angular';
 import { Customer } from '@univeex/customers/domain';
 import { CustomersService } from '@univeex/customers/data-access';
-import { NotificationService } from '../../../core/services/notification';
+import { NotificationService } from '@univeex/notifications/data-access';
 
 @Component({
   selector: 'app-customers-page',

@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule } fr
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { LucideAngularModule, ChevronLeft } from 'lucide-angular';
 import { AccountsPayableService, CreateVendorBillDto, UpdateVendorBillDto } from '../../../core/services/accounts-payable';
-import { NotificationService } from '../../../core/services/notification';
+import { NotificationService } from '@univeex/notifications/data-access';
 import { of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 

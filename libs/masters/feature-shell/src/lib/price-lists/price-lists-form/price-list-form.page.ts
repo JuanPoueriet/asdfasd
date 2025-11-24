@@ -6,7 +6,7 @@ import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } fr
 import { LucideAngularModule, Save, Plus, Trash2 } from 'lucide-angular';
 import { PriceListsService, CreatePriceListDto, UpdatePriceListDto } from '../@univeex/price-lists/data-access';
 import { InventoryService } from '@univeex/inventory/data-access';
-import { NotificationService } from '../../../../core/services/notification';
+import { NotificationService } from '../@univeex/notifications/data-access';
 import { Product } from '@univeex/inventory/domain';
 import { PriceListItem, PriceListStatus } from '../@univeex/price-lists/domain'; // <-- Corregido el import
 

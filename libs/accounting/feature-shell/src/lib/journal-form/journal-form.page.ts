@@ -2,11 +2,11 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { JournalsService } from '@univeex/accounting/data-access';
-import { NotificationService } from '../../../core/services/notification';
+import { NotificationService } from '@univeex/notifications/data-access';
 import { Journal } from '@univeex/accounting/domain';
 // import { JournalsService } from '@univeex/accounting/data-access';
 // import { Journal } from '@univeex/accounting/domain';
-// import { NotificationService } from '@univeex/shared/core/services/notification';
+// import { NotificationService } from '@univeex/notifications/data-access';
 
 @Component({
   selector: 'app-journal-form',

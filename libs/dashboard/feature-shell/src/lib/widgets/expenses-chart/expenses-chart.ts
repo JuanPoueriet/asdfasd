@@ -18,7 +18,7 @@ import {
 } from 'lucide-angular';
 
 import { DashboardWidget, DashboardService, ChartType } from '../../../../core/services/dashboard';
-import { BrandingService } from '../../../../core/services/branding';
+import { BrandingService } from '../@univeex/shared/util-ui';
 import { PointOptionsObject } from 'highcharts';
 
 type ExportingChart = Highcharts.Chart & {

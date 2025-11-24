@@ -1,1 +1,1 @@
-export * from './lib/localization-domain';
+export * from './lib/fiscal-region.model';

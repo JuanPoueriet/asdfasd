@@ -8,7 +8,7 @@ import { LucideAngularModule, Save } from 'lucide-angular';
 import { LedgersService, CreateLedgerDto, UpdateLedgerDto } from '@univeex/accounting/data-access';
 // FIX: Importar el tipo Ledger directamente desde su modelo, ya que el servicio no lo re-exporta.
 import { Ledger } from '@univeex/accounting/domain';
-import { NotificationService } from '../../../core/services/notification';
+import { NotificationService } from '@univeex/notifications/data-access';
 
 @Component({
   selector: 'app-ledger-form-page',

@@ -4,7 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LucideAngularModule, Save } from 'lucide-angular';
 import { SuppliersService, CreateSupplierDto, UpdateSupplierDto } from '../@univeex/suppliers/data-access';
-import { NotificationService } from '../../../../core/services/notification';
+import { NotificationService } from '../@univeex/notifications/data-access';
 
 @Component({
   selector: 'app-supplier-form-page',

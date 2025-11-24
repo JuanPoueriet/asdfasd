@@ -5,7 +5,7 @@ import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LucideAngularModule, Save } from 'lucide-angular';
 import { CustomersService, CreateCustomerDto, UpdateCustomerDto } from '@univeex/customers/data-access';
-import { NotificationService } from '../../../core/services/notification';
+import { NotificationService } from '@univeex/notifications/data-access';
 
 @Component({
   selector: 'app-customer-form-page',

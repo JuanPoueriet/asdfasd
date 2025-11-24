@@ -4,7 +4,7 @@ import { RouterLink } from '@angular/router';
 import { LucideAngularModule, PlusCircle, Filter, MoreHorizontal, Trash2 } from 'lucide-angular';
 import { Tax } from '@univeex/taxes/domain';
 import { TaxesService } from '@univeex/taxes/data-access';
-import { NotificationService } from '../../../core/services/notification';
+import { NotificationService } from '@univeex/notifications/data-access';
 import { HasPermissionDirective } from '../../../shared/directives/has-permission.directive';
 
 @Component({

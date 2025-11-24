@@ -5,7 +5,7 @@ import { AbstractControl, FormArray, FormBuilder, FormGroup, ReactiveFormsModule
 import { LucideAngularModule, Save, Plus, Trash2 } from 'lucide-angular';
 import { LanguageService } from '../../../core/services/language';
 import { JournalEntries } from '../../../core/services/journal-entries';
-import { NotificationService } from '../../../core/services/notification';
+import { NotificationService } from '@univeex/notifications/data-access';
 import { AccountingService } from '@univeex/accounting/data-access';
 import { Account } from '@univeex/accounting/domain';
 import { LedgersService } from '@univeex/accounting/data-access';

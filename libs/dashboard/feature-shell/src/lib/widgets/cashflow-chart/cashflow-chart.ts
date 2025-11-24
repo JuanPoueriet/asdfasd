@@ -19,7 +19,7 @@ import {
 } from 'lucide-angular';
 
 import { DashboardWidget, DashboardService, ChartType } from '../../../../core/services/dashboard';
-import { BrandingService } from '../../../../core/services/branding';
+import { BrandingService } from '../@univeex/shared/util-ui';
 import { DashboardApiService, CashFlowWaterfallDto } from '../@univeex/dashboard/data-access';
 
 // >>> ÚNICO CAMBIO NECESARIO PARA TRADUCCIÓN EN TS <<<

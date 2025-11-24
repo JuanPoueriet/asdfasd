@@ -4,7 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LucideAngularModule, Save } from 'lucide-angular';
 import { TaxesService, CreateTaxDto, UpdateTaxDto } from '../@univeex/taxes/data-access';
-import { NotificationService } from '../../../../core/services/notification';
+import { NotificationService } from '../@univeex/notifications/data-access';
 import { TaxType } from '../@univeex/taxes/domain';
 
 @Component({

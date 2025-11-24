@@ -7,7 +7,7 @@ import { LucideAngularModule, Plus, Edit, Trash, Copy, X } from 'lucide-angular'
 
 import { RolesService } from '@univeex/roles/data-access';
 import { Role, CreateRoleDto, UpdateRoleDto } from '@univeex/shared/util-types';
-import { NotificationService } from '../../../core/services/notification';
+import { NotificationService } from '@univeex/notifications/data-access';
 import { HasPermissionDirective } from '../../../shared/directives/has-permission.directive';
 
 interface PermissionGroup {

@@ -6,7 +6,7 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { LucideAngularModule, Lock, Eye, EyeOff, AlertCircle, Check, X } from 'lucide-angular';
 import { ReCaptchaV3Service, RecaptchaV3Module } from 'ng-recaptcha-19';
-import { AuthService } from '../../../core/services/auth';
+import { AuthService } from '@univeex/auth/data-access';
 
 // Validadores (copiados de reset-password para consistencia)
 const strongPasswordValidator = (): ValidatorFn => {
