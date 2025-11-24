@@ -6,12 +6,12 @@ import { LucideAngularModule, Save, Plus, Trash2 } from 'lucide-angular';
 import { LanguageService } from '../../../core/services/language';
 import { JournalEntries } from '../../../core/services/journal-entries';
 import { NotificationService } from '../../../core/services/notification';
-import { AccountingService } from '../../../core/api/accounting.service';
-import { Account } from '../../../core/models/account.model';
-import { LedgersService } from '../../../core/api/ledgers.service';
-import { JournalsService } from '../../../core/api/journals.service';
-import { Ledger } from '../../../core/models/ledger.model';
-import { Journal } from '../../../core/models/journal.model';
+import { AccountingService } from '@univeex/accounting/data-access';
+import { Account } from '@univeex/accounting/domain';
+import { LedgersService } from '@univeex/accounting/data-access';
+import { JournalsService } from '@univeex/accounting/data-access';
+import { Ledger } from '@univeex/accounting/domain';
+import { Journal } from '@univeex/accounting/domain';
 
 // Validador personalizado para el asiento contable
 export const journalEntryValidator = (control: AbstractControl): ValidationErrors | null => {

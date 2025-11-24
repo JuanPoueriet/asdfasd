@@ -194,6 +194,38 @@
       ],
       "@univeex/dashboard/feature-shell": [
         "libs/dashboard/feature-shell/src/index.ts"
+      ],
+      "@univeex/customers/domain": ["libs/customers/domain/src/index.ts"],
+      "@univeex/customers/data-access": [
+        "libs/customers/data-access/src/index.ts"
+      ],
+      "@univeex/accounting/domain": ["libs/accounting/domain/src/index.ts"],
+      "@univeex/accounting/data-access": [
+        "libs/accounting/data-access/src/index.ts"
+      ],
+      "@univeex/inventory/domain": ["libs/inventory/domain/src/index.ts"],
+      "@univeex/inventory/data-access": [
+        "libs/inventory/data-access/src/index.ts"
+      ],
+      "@univeex/users/domain": ["libs/users/domain/src/index.ts"],
+      "@univeex/users/data-access": ["libs/users/data-access/src/index.ts"],
+      "@univeex/roles/data-access": ["libs/roles/data-access/src/index.ts"],
+      "@univeex/suppliers/domain": ["libs/suppliers/domain/src/index.ts"],
+      "@univeex/suppliers/data-access": [
+        "libs/suppliers/data-access/src/index.ts"
+      ],
+      "@univeex/price-lists/domain": ["libs/price-lists/domain/src/index.ts"],
+      "@univeex/price-lists/data-access": [
+        "libs/price-lists/data-access/src/index.ts"
+      ],
+      "@univeex/taxes/domain": ["libs/taxes/domain/src/index.ts"],
+      "@univeex/dashboard/domain": ["libs/dashboard/domain/src/index.ts"],
+      "@univeex/dashboard/data-access": [
+        "libs/dashboard/data-access/src/index.ts"
+      ],
+      "@univeex/localization/domain": ["libs/localization/domain/src/index.ts"],
+      "@univeex/localization/data-access": [
+        "libs/localization/data-access/src/index.ts"
       ]
     }
   },

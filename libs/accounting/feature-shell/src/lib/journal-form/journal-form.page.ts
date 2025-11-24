@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { JournalsService } from '../../../core/api/journals.service';
+import { JournalsService } from '@univeex/accounting/data-access';
 import { NotificationService } from '../../../core/services/notification';
-import { Journal } from '../../../core/models/journal.model';
-// import { JournalsService } from '@univeex/shared/core/api/journals.service';
-// import { Journal } from '@univeex/shared/core/models/journal.model';
+import { Journal } from '@univeex/accounting/domain';
+// import { JournalsService } from '@univeex/accounting/data-access';
+// import { Journal } from '@univeex/accounting/domain';
 // import { NotificationService } from '@univeex/shared/core/services/notification';
 
 @Component({

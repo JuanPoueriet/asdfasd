@@ -1,8 +1,8 @@
 import { Component, ChangeDetectionStrategy, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LucideAngularModule, TrendingUp, TrendingDown, Minus, Target } from 'lucide-angular';
-import { Kpi } from '../../../../core/models/finance';
-import { DashboardApiService } from '../../../../core/api/dashboard-api.service';
+import { Kpi } from '../@univeex/dashboard/domain';
+import { DashboardApiService } from '../@univeex/dashboard/data-access';
 import { Observable, map } from 'rxjs';
 import { TranslateModule } from '@ngx-translate/core';
 

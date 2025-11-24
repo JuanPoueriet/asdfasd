@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
 import { LucideAngularModule, PlusCircle } from 'lucide-angular';
-import { LedgersService,  } from '../../../core/api/ledgers.service';
-import { Ledger } from '../../../core/models/ledger.model';
+import { LedgersService,  } from '@univeex/accounting/data-access';
+import { Ledger } from '@univeex/accounting/domain';
 
 @Component({
   selector: 'app-ledger-list-page',

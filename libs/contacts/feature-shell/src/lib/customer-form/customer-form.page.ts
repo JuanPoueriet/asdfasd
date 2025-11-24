@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LucideAngularModule, Save } from 'lucide-angular';
-import { CustomersService, CreateCustomerDto, UpdateCustomerDto } from '../../../core/api/customers.service';
+import { CustomersService, CreateCustomerDto, UpdateCustomerDto } from '@univeex/customers/data-access';
 import { NotificationService } from '../../../core/services/notification';
 
 @Component({

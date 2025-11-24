@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LucideAngularModule, AlertTriangle, CheckCircle } from 'lucide-angular';
-import { AlertItem } from '../../../../core/models/finance';
+import { AlertItem } from '../@univeex/dashboard/domain';
 
 @Component({
   selector: 'app-alerts-panel', standalone: true,
