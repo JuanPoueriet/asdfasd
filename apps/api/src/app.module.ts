@@ -30,7 +30,7 @@ import { CustomersModule } from './customers/customers.module';
 import { SuppliersModule } from './suppliers/suppliers.module';
 import { PriceListsModule } from './price-lists/price-lists.module';
 import { CurrenciesModule } from './currencies/currencies.module';
-import { TaxesFeatureApiModule } from '@univeex/taxes/feature-api';
+import { TaxesModule } from './taxes/taxes.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { ReconciliationModule } from './reconciliation/reconciliation.module';
 import { AccountsPayableModule } from './accounts-payable/accounts-payable.module';
@@ -128,7 +128,7 @@ const envValidation = Joi.object({
     SuppliersModule,
     PriceListsModule,
     CurrenciesModule,
-    TaxesFeatureApiModule,
+    TaxesModule,
     JournalEntriesModule,
     DashboardModule,
     ReconciliationModule,

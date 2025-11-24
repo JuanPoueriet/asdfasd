@@ -16,10 +16,9 @@ export class TaxRule {
   @Column()
   name!: string;
 
-  // TODO: Restore when localization module is refactored
-  // @ManyToOne(() => FiscalRegion)
-  // @JoinColumn({ name: 'fiscal_region_id' })
-  // fiscalRegion: FiscalRegion;
+  @ManyToOne("FiscalRegion")
+  @JoinColumn({ name: 'fiscal_region_id' })
+  fiscalRegion: any;
 
   @Column({ name: 'product_tax_category_id', nullable: true })
   productTaxCategoryId?: string;

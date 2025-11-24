@@ -43,7 +43,7 @@ import { Role } from 'src/roles/entities/role.entity';
       useFactory: (config: ConfigService): JwtModuleOptions => ({
         secret: config.get<string>('JWT_SECRET'),
         signOptions: {
-          expiresIn: config.get<string>('JWT_EXPIRATION_TIME', '1h'),
+          expiresIn: config.get<string>('JWT_EXPIRATION_TIME', '1h') as any,
         },
       }),
     }),

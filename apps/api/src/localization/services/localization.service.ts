@@ -9,7 +9,7 @@ import { Repository } from 'typeorm';
 import { FiscalRegion } from '../entities/fiscal-region.entity';
 import { Organization } from 'src/organizations/entities/organization.entity';
 import { ChartOfAccountsService } from 'src/chart-of-accounts/chart-of-accounts.service';
-import { TaxesService } from 'src/taxes/taxes.service';
+import { TaxesService } from '@univeex/taxes/feature-api';
 import { panamaCoaTemplate } from '../templates/pa-coa.template';
 import { panamaTaxTemplate } from '../templates/pa-taxes.template';
 import { AccountTemplateDto } from '../entities/coa-template.entity';

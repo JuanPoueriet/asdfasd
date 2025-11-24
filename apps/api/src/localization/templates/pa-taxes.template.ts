@@ -1,5 +1,5 @@
 
-import { TaxType } from "src/taxes/entities/tax.entity";
+import { TaxType } from "@univeex/taxes/data-access";
 
 
 

@@ -1,5 +1,5 @@
 
-import { CreateTaxDto } from "src/taxes/dto/create-tax.dto";
+import { CreateTaxDto } from "@univeex/taxes/data-access";
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
 import { LocalizationTemplate } from "./localization-template.entity";
 

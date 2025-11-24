@@ -1,6 +1,6 @@
 // src/localization/templates/do-fiscal-package.ts
 import { NcfType } from "src/compliance/entities/ncf-sequence.entity";
-import { TaxType } from "src/taxes/entities/tax.entity";
+import { TaxType } from "@univeex/taxes/data-access";
 import { AccountNature, AccountType, AccountCategory } from "src/chart-of-accounts/enums/account-enums";
 import { AccountTemplateDto } from "../entities/coa-template.entity";
 

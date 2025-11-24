@@ -773,7 +773,7 @@ export class AuthService {
     const expiration = expiresIn || DEFAULT_ACCESS_EXPIRATION;
     return this.jwtService.sign(payload, {
       secret: secret || this.configService.get('JWT_SECRET'),
-      expiresIn: expiration,
+      expiresIn: expiration as any, // <-- Cast to any to fix type error
     });
   }
 
@@ -785,7 +785,7 @@ export class AuthService {
     const payload: PasswordResetJwtPayload = { sub: userId, email };
     return await this.jwtService.signAsync(payload, {
       secret: this.configService.get<string>('JWT_RESET_PASSWORD_SECRET'),
-      expiresIn,
+      expiresIn: expiresIn as any, // <-- Cast to any to fix type error
     });
   }
 

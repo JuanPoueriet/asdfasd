@@ -46,15 +46,13 @@ export class Tax {
   @Column({ name: 'organization_id' })
   organizationId!: string;
 
-  // TODO: Restore when Organization domain is refactored
-  // @ManyToOne(() => Organization, { onDelete: 'CASCADE' })
-  // @JoinColumn({ name: 'organization_id' })
-  // organization: Organization;
+  @ManyToOne("Organization", { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'organization_id' })
+  organization: any; // Type is loose to avoid circular dependency
 
-  // TODO: Restore when Localization domain is refactored
-  // @ManyToOne(() => TaxGroup, group => group.taxes, { nullable: true })
-  // @JoinColumn({ name: 'tax_group_id' })
-  // taxGroup?: TaxGroup;
+  @ManyToOne("TaxGroup", (group: any) => group.taxes, { nullable: true })
+  @JoinColumn({ name: 'tax_group_id' })
+  taxGroup?: any;
 
   @Column({ name: 'tax_group_id', type: 'uuid', nullable: true })
   taxGroupId?: string;
