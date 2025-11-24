@@ -1,0 +1,9 @@
+{
+  "name": "sales-feature-api",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/sales/feature-api/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project sales-feature-api --web",
+  "targets": {}
+}

@@ -1,0 +1,9 @@
+{
+  "name": "workflows-feature-api",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/workflows/feature-api/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project workflows-feature-api --web",
+  "targets": {}
+}

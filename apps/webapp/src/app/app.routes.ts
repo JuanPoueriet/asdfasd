@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { authGuard } from './core/guards/auth-guard';
+import { authGuard } from '@univeex/shared/core';
 import { MainLayout } from './layout/main/main.layout';
-import { languageRedirectGuard } from './core/guards/language.guard';
+import { languageRedirectGuard } from '@univeex/shared/core';
 
 export const APP_ROUTES: Routes = [
   {
@@ -10,7 +10,7 @@ export const APP_ROUTES: Routes = [
       {
         path: 'auth',
         loadChildren: () =>
-          import('./features/auth/auth.routes').then((m) => m.AUTH_ROUTES),
+          import('@univeex/auth/feature-shell').then((m) => m.AUTH_ROUTES),
       },
       {
         path: '',
@@ -28,7 +28,7 @@ export const APP_ROUTES: Routes = [
         path: 'dashboard',
         title: 'Dashboard',
         loadComponent: () =>
-          import('./features/dashboard/dashboard.page').then(
+          import('@univeex/dashboard/feature-shell').then(
             (m) => m.DashboardPage
           ),
       },
@@ -36,13 +36,13 @@ export const APP_ROUTES: Routes = [
         path: 'my-work',
         title: 'My Work',
         loadComponent: () =>
-          import('./features/my-work/my-work.page').then((m) => m.MyWorkPage),
+          import('@univeex/my-work/feature-shell').then((m) => m.MyWorkPage),
       },
       {
         path: 'approvals',
         title: 'Approvals',
         loadComponent: () =>
-          import('./features/approvals/approvals.page').then(
+          import('@univeex/approvals/feature-shell').then(
             (m) => m.ApprovalsPage
           ),
       },
@@ -50,7 +50,7 @@ export const APP_ROUTES: Routes = [
         path: 'notifications',
         title: 'Notifications',
         loadComponent: () =>
-          import('./features/notifications/notifications.page').then(
+          import('@univeex/notifications/feature-shell').then(
             (m) => m.NotificationsPage
           ),
       },
@@ -58,7 +58,7 @@ export const APP_ROUTES: Routes = [
         path: 'global-search',
         title: 'Búsqueda',
         loadComponent: () =>
-          import('./features/global-search/global-search.page').then(
+          import('@univeex/global-search/feature-shell').then(
             (m) => m.GlobalSearchPage
           ),
       },
@@ -66,7 +66,7 @@ export const APP_ROUTES: Routes = [
         path: 'data-imports',
         title: 'Data Imports',
         loadComponent: () =>
-          import('./features/data-imports/data-imports.page').then(
+          import('@univeex/data-imports/feature-shell').then(
             (m) => m.DataImportsPage
           ),
       },
@@ -74,7 +74,7 @@ export const APP_ROUTES: Routes = [
         path: 'data-exports',
         title: 'Data Exports',
         loadComponent: () =>
-          import('./features/data-exports/data-exports.page').then(
+          import('@univeex/data-exports/feature-shell').then(
             (m) => m.DataExportsPage
           ),
       },
@@ -82,7 +82,7 @@ export const APP_ROUTES: Routes = [
         path: 'masters',
         title: 'Master Data',
         loadChildren: () =>
-          import('./features/masters/masters.routes').then(
+          import('@univeex/masters/feature-shell').then(
             (m) => m.MASTERS_ROUTES
           ),
       },
@@ -90,7 +90,7 @@ export const APP_ROUTES: Routes = [
         path: 'documents',
         title: 'Documents',
         loadComponent: () =>
-          import('./features/documents/layout/documents.layout').then(
+          import('@univeex/documents/feature-shell').then(
             (m) => m.DocumentsLayout
           ),
       },
@@ -98,13 +98,13 @@ export const APP_ROUTES: Routes = [
         path: 'sales',
         title: 'Ventas',
         loadChildren: () =>
-          import('./features/sales/sales.routes').then((m) => m.SALES_ROUTES),
+          import('@univeex/sales/feature-shell').then((m) => m.SALES_ROUTES),
       },
       {
         path: 'invoices',
         title: 'Facturas',
         loadChildren: () =>
-          import('./features/invoices/invoices.routes').then(
+          import('@univeex/invoices/feature-shell').then(
             (m) => m.INVOICES_ROUTES
           ),
       },
@@ -112,14 +112,14 @@ export const APP_ROUTES: Routes = [
         path: 'inventory',
         title: 'Inventario',
         loadChildren: () =>
-          import('./features/inventory/inventory.routes').then(
+          import('@univeex/inventory/feature-shell').then(
             (m) => m.INVENTORY_ROUTES
           ),
       },
       {
         path: 'documents',
         loadChildren: () =>
-          import('./features/documents/documents.routes').then(
+          import('@univeex/documents/feature-shell').then(
             (m) => m.DOCUMENTS_ROUTES
           ),
       },
@@ -127,7 +127,7 @@ export const APP_ROUTES: Routes = [
         path: 'contacts',
         title: 'Contactos',
         loadChildren: () =>
-          import('./features/contacts/contacts.routes').then(
+          import('@univeex/contacts/feature-shell').then(
             (m) => m.CONTACTS_ROUTES
           ),
       },
@@ -135,7 +135,7 @@ export const APP_ROUTES: Routes = [
         path: 'accounting',
         title: 'Accounting',
         loadChildren: () =>
-          import('./features/accounting/accounting.routes').then(
+          import('@univeex/accounting/feature-shell').then(
             (m) => m.ACCOUNTING_ROUTES
           ),
       },
@@ -143,7 +143,7 @@ export const APP_ROUTES: Routes = [
         path: 'settings',
         title: 'Configuración',
         loadChildren: () =>
-          import('./features/settings/settings.routes').then(
+          import('@univeex/settings/feature-shell').then(
             (m) => m.SETTINGS_ROUTES
           ),
       },
@@ -151,7 +151,7 @@ export const APP_ROUTES: Routes = [
         path: 'reports',
         title: 'Reports',
         loadChildren: () =>
-          import('./features/reports/reports.routes').then(
+          import('@univeex/reports/feature-shell').then(
             (m) => m.REPORTS_ROUTES
           ),
       },
@@ -159,7 +159,7 @@ export const APP_ROUTES: Routes = [
         path: 'purchasing',
         title: 'Purchasing',
         loadChildren: () =>
-          import('./features/purchasing/purchasing.routes').then(
+          import('@univeex/purchasing/feature-shell').then(
             (m) => m.PURCHASING_ROUTES
           ),
       },
@@ -167,7 +167,7 @@ export const APP_ROUTES: Routes = [
         path: 'accounts-payable',
         title: 'Cuentas por Pagar',
         loadChildren: () =>
-          import('./features/accounts-payable/accounts-payable.routes').then(
+          import('@univeex/accounts-payable/feature-shell').then(
             (m) => m.ACCOUNTS_PAYABLE_ROUTES
           ),
       },
@@ -175,7 +175,7 @@ export const APP_ROUTES: Routes = [
         path: 'customer-receipts',
         title: 'Recibos de Cliente',
         loadChildren: () =>
-          import('./features/customer-receipts/customer-receipts.routes').then(
+          import('@univeex/customer-receipts/feature-shell').then(
             (m) => m.CUSTOMER_RECEIPTS_ROUTES
           ),
       },
@@ -183,7 +183,7 @@ export const APP_ROUTES: Routes = [
         path: 'unauthorized',
         title: 'Acceso Denegado',
         loadComponent: () =>
-          import('./features/unauthorized/unauthorized.page').then(
+          import('@univeex/unauthorized/feature-shell').then(
             (m) => m.UnauthorizedPage
           ),
       },

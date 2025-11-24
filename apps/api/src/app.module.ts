@@ -11,45 +11,45 @@ import { GoogleRecaptchaModule } from '@nestlab/google-recaptcha';
 import { ScheduleModule } from '@nestjs/schedule';
 
 
-import { CacheModule } from './cache/cache.module';
+import { CacheModule } from '@univeex/cache/feature-api';
 
 
-import { AuthModule } from './auth/auth.module';
-import { UsersModule } from './users/users.module';
+import { AuthModule } from '@univeex/auth/feature-api';
+import { UsersModule } from '@univeex/users/feature-api';
 
-import { JournalEntriesModule } from './journal-entries/journal-entries.module';
-import { AccountingModule } from './accounting/accounting.module';
-import { ConsolidationModule } from './consolidation/consolidation.module';
-import { OrganizationsModule } from './organizations/organizations.module';
-import { SharedModule } from './shared/shared.module';
-import { ChartOfAccountsModule } from './chart-of-accounts/chart-of-accounts.module';
-import { RolesModule } from './roles/roles.module';
-import { InvoicesModule } from './invoices/invoices.module';
-import { InventoryModule } from './inventory/inventory.module';
-import { CustomersModule } from './customers/customers.module';
-import { SuppliersModule } from './suppliers/suppliers.module';
-import { PriceListsModule } from './price-lists/price-lists.module';
-import { CurrenciesModule } from './currencies/currencies.module';
-import { TaxesModule } from './taxes/taxes.module';
-import { DashboardModule } from './dashboard/dashboard.module';
-import { ReconciliationModule } from './reconciliation/reconciliation.module';
-import { AccountsPayableModule } from './accounts-payable/accounts-payable.module';
-import { FixedAssetsModule } from './fixed-assets/fixed-assets.module';
-import { BudgetsModule } from './budgets/budgets.module';
-import { DimensionsModule } from './dimensions/dimensions.module';
-import { MailModule } from './mail/mail.module';
-import { WebsocketsModule } from './websockets/websockets.module';
-import { AuditModule } from './audit/audit.module';
-import { ComplianceModule } from './compliance/compliance.module';
-import { QueuesModule } from './queues/queues.module';
-import { HealthModule } from './health/health.module';
-import { SearchModule } from './search/search.module';
-import { MyWorkModule } from './my-work/my-work.module';
-import { LocalizationModule } from './localization/localization.module';
-import { UnitsOfMeasureModule } from './units-of-measure/units-of-measure.module';
-import { NotificationsModule } from './notifications/notifications.module';
-import { PushNotificationsModule } from './push-notifications/push-notifications.module';
-import { BiModule } from './bi/bi.module';
+import { JournalEntriesModule } from '@univeex/journal-entries/feature-api';
+import { AccountingModule } from '@univeex/accounting/feature-api';
+import { ConsolidationModule } from '@univeex/consolidation/feature-api';
+import { OrganizationsModule } from '@univeex/organizations/feature-api';
+// import { SharedModule } from './shared/shared.module'; // Removed or Moved
+import { ChartOfAccountsModule } from '@univeex/chart-of-accounts/feature-api';
+import { RolesModule } from '@univeex/roles/feature-api';
+import { InvoicesModule } from '@univeex/invoices/feature-api';
+import { InventoryModule } from '@univeex/inventory/feature-api';
+import { CustomersModule } from '@univeex/customers/feature-api';
+import { SuppliersModule } from '@univeex/suppliers/feature-api';
+import { PriceListsModule } from '@univeex/price-lists/feature-api';
+import { CurrenciesModule } from '@univeex/currencies/feature-api';
+import { TaxesModule } from '@univeex/taxes/feature-api';
+import { DashboardModule } from '@univeex/dashboard/feature-api';
+import { ReconciliationModule } from '@univeex/reconciliation/feature-api';
+import { AccountsPayableModule } from '@univeex/accounts-payable/feature-api';
+import { FixedAssetsModule } from '@univeex/fixed-assets/feature-api';
+import { BudgetsModule } from '@univeex/budgets/feature-api';
+import { DimensionsModule } from '@univeex/dimensions/feature-api';
+import { MailModule } from '@univeex/mail/feature-api';
+import { WebsocketsModule } from '@univeex/websockets/feature-api';
+import { AuditModule } from '@univeex/audit/feature-api';
+import { ComplianceModule } from '@univeex/compliance/feature-api';
+import { QueuesModule } from '@univeex/queues/feature-api';
+import { HealthModule } from '@univeex/health/feature-api';
+import { SearchModule } from '@univeex/search/feature-api';
+import { MyWorkModule } from '@univeex/my-work/feature-api';
+import { LocalizationModule } from '@univeex/localization/feature-api';
+import { UnitsOfMeasureModule } from '@univeex/units-of-measure/feature-api';
+import { NotificationsModule } from '@univeex/notifications/feature-api';
+import { PushNotificationsModule } from '@univeex/push-notifications/feature-api';
+import { BiModule } from '@univeex/bi/feature-api';
 
 
 const envValidation = Joi.object({
@@ -119,7 +119,7 @@ const envValidation = Joi.object({
     AuthModule,
     UsersModule,
     OrganizationsModule,
-    SharedModule,
+    // SharedModule,
     ChartOfAccountsModule,
     RolesModule,
     InvoicesModule,

@@ -1,0 +1,9 @@
+{
+  "name": "price-lists-feature-api",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/price-lists/feature-api/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project price-lists-feature-api --web",
+  "targets": {}
+}
