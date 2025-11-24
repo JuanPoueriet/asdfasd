@@ -1,0 +1,9 @@
+{
+  "name": "reporting-feature-api",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/reporting/feature-api/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project reporting-feature-api --web",
+  "targets": {}
+}

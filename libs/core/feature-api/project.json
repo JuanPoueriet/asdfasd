@@ -1,0 +1,9 @@
+{
+  "name": "core-feature-api",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/feature-api/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project core-feature-api --web",
+  "targets": {}
+}

@@ -1,0 +1,9 @@
+{
+  "name": "websockets-feature-api",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/websockets/feature-api/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project websockets-feature-api --web",
+  "targets": {}
+}

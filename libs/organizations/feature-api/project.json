@@ -1,0 +1,9 @@
+{
+  "name": "organizations-feature-api",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/organizations/feature-api/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project organizations-feature-api --web",
+  "targets": {}
+}

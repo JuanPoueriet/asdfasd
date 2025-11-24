@@ -1,0 +1,9 @@
+{
+  "name": "bi-feature-api",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/bi/feature-api/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project bi-feature-api --web",
+  "targets": {}
+}
