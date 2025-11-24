@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LucideAngularModule, Save } from 'lucide-angular';
-import { TaxesService, CreateTaxDto, UpdateTaxDto } from '../../../../core/api/taxes.service';
+import { TaxesService, CreateTaxDto, UpdateTaxDto } from '../@univeex/taxes/data-access';
 import { NotificationService } from '../../../../core/services/notification';
-import { TaxType } from '../../../../core/models/tax.model';
+import { TaxType } from '../@univeex/taxes/domain';
 
 @Component({
   selector: 'app-tax-form-page',

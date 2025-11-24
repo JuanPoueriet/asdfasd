@@ -2,8 +2,8 @@ import { Component, ChangeDetectionStrategy, signal, inject, OnInit } from '@ang
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { LucideAngularModule, PlusCircle, Filter, MoreHorizontal, Trash2 } from 'lucide-angular';
-import { Tax } from '../../../core/models/tax.model';
-import { TaxesService } from '../../../core/api/taxes.service';
+import { Tax } from '@univeex/taxes/domain';
+import { TaxesService } from '@univeex/taxes/data-access';
 import { NotificationService } from '../../../core/services/notification';
 import { HasPermissionDirective } from '../../../shared/directives/has-permission.directive';
 

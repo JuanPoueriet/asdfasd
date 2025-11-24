@@ -1,7 +1,7 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LucideAngularModule, TrendingUp, TrendingDown } from 'lucide-angular';
-import { Kpi } from '../../../core/models/finance';
+import { Kpi } from '@univeex/dashboard/domain';
 
 @Component({
   selector: 'app-kpi-card',

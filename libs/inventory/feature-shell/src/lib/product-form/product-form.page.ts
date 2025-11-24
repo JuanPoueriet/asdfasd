@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LucideAngularModule, Save, Image } from 'lucide-angular';
-import { InventoryService, CreateProductDto, UpdateProductDto } from '../../../core/api/inventory.service';
+import { InventoryService, CreateProductDto, UpdateProductDto } from '@univeex/inventory/data-access';
 import { NotificationService } from '../../../core/services/notification';
-import { Product } from '../../../core/models/product.model';
+import { Product } from '@univeex/inventory/domain';
 import { HasPermissionDirective } from '../../../shared/directives/has-permission.directive';
 
 @Component({

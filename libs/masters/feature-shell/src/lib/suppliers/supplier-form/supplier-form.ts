@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LucideAngularModule, Save } from 'lucide-angular';
-import { SuppliersService, CreateSupplierDto, UpdateSupplierDto } from '../../../../core/api/suppliers.service';
+import { SuppliersService, CreateSupplierDto, UpdateSupplierDto } from '../@univeex/suppliers/data-access';
 import { NotificationService } from '../../../../core/services/notification';
 
 @Component({

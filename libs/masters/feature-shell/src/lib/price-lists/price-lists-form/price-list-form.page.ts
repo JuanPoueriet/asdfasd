@@ -4,11 +4,11 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LucideAngularModule, Save, Plus, Trash2 } from 'lucide-angular';
-import { PriceListsService, CreatePriceListDto, UpdatePriceListDto } from '../../../../core/api/price-lists.service';
-import { InventoryService } from '../../../../core/api/inventory.service';
+import { PriceListsService, CreatePriceListDto, UpdatePriceListDto } from '../@univeex/price-lists/data-access';
+import { InventoryService } from '@univeex/inventory/data-access';
 import { NotificationService } from '../../../../core/services/notification';
-import { Product } from '../../../../core/models/product.model';
-import { PriceListItem, PriceListStatus } from '../../../../core/models/price-list.model'; // <-- Corregido el import
+import { Product } from '@univeex/inventory/domain';
+import { PriceListItem, PriceListStatus } from '../@univeex/price-lists/domain'; // <-- Corregido el import
 
 @Component({
   selector: 'app-price-list-form-page',
