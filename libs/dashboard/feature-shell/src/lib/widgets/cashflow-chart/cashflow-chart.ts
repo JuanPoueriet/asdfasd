@@ -19,8 +19,8 @@ import {
 } from 'lucide-angular';
 
 import { DashboardWidget, DashboardService, ChartType } from '../../../../core/services/dashboard';
-import { BrandingService } from '../../../../core/services/branding';
-import { DashboardApiService, CashFlowWaterfallDto } from '../../../../core/api/dashboard-api.service';
+import { BrandingService } from '../@univeex/shared/util-ui';
+import { DashboardApiService, CashFlowWaterfallDto } from '../@univeex/dashboard/data-access';
 
 // >>> ÚNICO CAMBIO NECESARIO PARA TRADUCCIÓN EN TS <<<
 import { TranslateModule, TranslateService } from '@ngx-translate/core';

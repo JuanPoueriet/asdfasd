@@ -5,9 +5,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 // ✅ CORREGIDO: Se importa el ícono 'X' que se usará como CloseIcon.
 import { LucideAngularModule, Plus, Edit, Trash, Copy, X } from 'lucide-angular';
 
-import { RolesService } from '../../../core/api/roles.service';
+import { RolesService } from '@univeex/roles/data-access';
 import { Role, CreateRoleDto, UpdateRoleDto } from '@univeex/shared/util-types';
-import { NotificationService } from '../../../core/services/notification';
+import { NotificationService } from '@univeex/notifications/data-access';
 import { HasPermissionDirective } from '../../../shared/directives/has-permission.directive';
 
 interface PermissionGroup {

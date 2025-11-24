@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { LucideAngularModule, PlusCircle, Filter, MoreHorizontal } from 'lucide-angular';
 import { AccountsPayableService, VendorBill } from '../../../core/services/accounts-payable';
-import { NotificationService } from '../../../core/services/notification';
+import { NotificationService } from '@univeex/notifications/data-access';
 
 @Component({
   selector: 'app-vendor-bills-list-page',

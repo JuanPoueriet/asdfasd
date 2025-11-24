@@ -2,12 +2,12 @@ import { Component, OnInit, inject, ChangeDetectionStrategy, signal } from '@ang
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormArray } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { ChartOfAccountsApiService, CreateAccountDto, UpdateAccountDto } from '../../../core/api/chart-of-accounts.service';
+import { ChartOfAccountsApiService, CreateAccountDto, UpdateAccountDto } from '@univeex/accounting/data-access';
 import { ChartOfAccountsStateService } from '../../../core/state/chart-of-accounts.state';
 import { take } from 'rxjs/operators';
-import { AccountType, AccountCategory, AccountNature, CashFlowCategory, RequiredDimension } from '../../../core/models/account.model';
+import { AccountType, AccountCategory, AccountNature, CashFlowCategory, RequiredDimension } from '@univeex/accounting/domain';
 import { LucideAngularModule, Save } from 'lucide-angular';
-import { NotificationService } from '../../../core/services/notification';
+import { NotificationService } from '@univeex/notifications/data-access';
 
 @Component({
   selector: 'app-account-form-page',

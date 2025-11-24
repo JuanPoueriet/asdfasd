@@ -2,9 +2,9 @@ import { Component, ChangeDetectionStrategy, signal, inject, OnInit } from '@ang
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { LucideAngularModule, PlusCircle, Filter, MoreHorizontal } from 'lucide-angular';
-import { PriceList } from '../../../core/models/price-list.model';
-import { PriceListsService } from '../../../core/api/price-lists.service';
-import { NotificationService } from '../../../core/services/notification';
+import { PriceList } from '@univeex/price-lists/domain';
+import { PriceListsService } from '@univeex/price-lists/data-access';
+import { NotificationService } from '@univeex/notifications/data-access';
 
 @Component({
   selector: 'app-price-lists-page',

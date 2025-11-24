@@ -5,9 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { LucideAngularModule, Filter, FileDown, Calendar, UserCog, PowerOff, Ban, Trash2, Edit, Key } from 'lucide-angular';
 import { ActivatedRoute } from '@angular/router';
 import { finalize, switchMap } from 'rxjs/operators';
-import { GeneralLedgerLine, GeneralLedger as GeneralLedgerData } from '../../../core/models/general-ledger.model';
-import { LedgersService } from '../../../core/api/ledgers.service';
-import { NotificationService } from '../../../core/services/notification';
+import { GeneralLedgerLine, GeneralLedger as GeneralLedgerData } from '@univeex/accounting/domain';
+import { LedgersService } from '@univeex/accounting/data-access';
+import { NotificationService } from '@univeex/notifications/data-access';
 import { EMPTY } from 'rxjs';
 
 @Component({

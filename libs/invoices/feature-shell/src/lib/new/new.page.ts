@@ -9,11 +9,11 @@ import {
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { InvoicesService, CreateInvoiceDto } from '../../../core/services/invoices';
-import { CustomersService } from '../../../core/api/customers.service';
-import { InventoryService } from '../../../core/api/inventory.service';
-import { Customer } from '../../../core/models/customer.model';
-import { Product } from '../../../core/models/product.model';
-import { NotificationService } from '../../../core/services/notification';
+import { CustomersService } from '@univeex/customers/data-access';
+import { InventoryService } from '@univeex/inventory/data-access';
+import { Customer } from '@univeex/customers/domain';
+import { Product } from '@univeex/inventory/domain';
+import { NotificationService } from '@univeex/notifications/data-access';
 
 @Component({
   selector: 'app-new-invoice-page',

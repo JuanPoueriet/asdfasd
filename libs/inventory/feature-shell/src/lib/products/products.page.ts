@@ -2,11 +2,11 @@ import { Component, ChangeDetectionStrategy, inject, OnInit, signal, computed } 
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { LucideAngularModule, PlusCircle, MoreHorizontal, AlertCircle, Search } from 'lucide-angular';
-// import { Product } from '../../../core/models/product.model';
-import { InventoryService } from '../../../core/api/inventory.service';
-import { NotificationService } from '../../../core/services/notification';
+// import { Product } from '@univeex/inventory/domain';
+import { InventoryService } from '@univeex/inventory/data-access';
+import { NotificationService } from '@univeex/notifications/data-access';
 import { HasPermissionDirective } from '../../../shared/directives/has-permission.directive';
-import { Product } from '../../../core/models/product.model';
+import { Product } from '@univeex/inventory/domain';
 
 @Component({
   selector: 'app-products-page',

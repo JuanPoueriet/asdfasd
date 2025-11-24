@@ -1,0 +1,26 @@
+{
+  "name": "notifications-domain",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/notifications/domain/src",
+  "projectType": "library",
+  "tags": ["type:util", "scope:notifications"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/notifications/domain",
+        "main": "libs/notifications/domain/src/index.ts",
+        "tsConfig": "libs/notifications/domain/tsconfig.lib.json",
+        "assets": ["libs/notifications/domain/*.md"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/notifications/domain/jest.config.ts"
+      }
+    }
+  }
+}

@@ -16,7 +16,7 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { AuthService } from '../../../core/services/auth';
+import { AuthService } from '@univeex/auth/data-access';
 import {
   LucideAngularModule,
   Mail,

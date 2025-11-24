@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { AuthService } from '../../../../core/services/auth';
+import { AuthService } from '../@univeex/auth/data-access';
 import { LucideAngularModule, Lock, Eye, EyeOff, AlertCircle, CheckCircle, Check, X } from 'lucide-angular';
 
 const strongPasswordValidator = (): ValidatorFn => {

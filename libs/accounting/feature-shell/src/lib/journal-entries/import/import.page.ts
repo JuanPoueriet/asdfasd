@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { LucideAngularModule, UploadCloud, ChevronLeft } from 'lucide-angular';
 import { JournalEntries } from '../../../../core/services/journal-entries';
-import { NotificationService } from '../../../../core/services/notification';
+import { NotificationService } from '../@univeex/notifications/data-access';
 
 @Component({
   selector: 'app-journal-entry-import-page',

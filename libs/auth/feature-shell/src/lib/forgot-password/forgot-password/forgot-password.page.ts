@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { AuthService } from '../../../../core/services/auth';
+import { AuthService } from '../@univeex/auth/data-access';
 import { RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module, ReCaptchaV3Service } from 'ng-recaptcha-19';
 import { environment } from '../../../../../environments/environment';
 import { LucideAngularModule, Mail, AlertCircle, CheckCircle } from 'lucide-angular';

@@ -49,17 +49,17 @@ import {
   UserCircle2,
   LogOut,
 } from 'lucide-angular';
-import { NotificationService } from '../../../core/services/notification';
+import { NotificationService } from '@univeex/notifications/data-access';
 import {
   InviteUserDto,
   UpdateUserDto,
   UsersService,
-} from '../../../core/api/users.service';
-import { RolesService } from '../../../core/api/roles.service';
-import { AuthService } from '../../../core/services/auth';
+} from '@univeex/users/data-access';
+import { RolesService } from '@univeex/roles/data-access';
+import { AuthService } from '@univeex/auth/data-access';
 import { TranslateModule } from '@ngx-translate/core';
 import { User as ApiUser, Role, UserStatus } from '@univeex/shared/util-types';
-import { WebSocketService } from '../../../core/services/websocket.service';
+import { WebSocketService } from '@univeex/websockets/data-access';
 import { HasPermissionDirective } from '../../../shared/directives/has-permission.directive';
 import { debounceTime, distinctUntilChanged, Subject, Subscription } from 'rxjs';
 

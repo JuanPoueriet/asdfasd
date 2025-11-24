@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule } fr
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { LucideAngularModule, ChevronLeft } from 'lucide-angular';
 import { CustomerReceiptsService } from '../../../core/services/customer-receipts';
-import { NotificationService } from '../../../core/services/notification';
+import { NotificationService } from '@univeex/notifications/data-access';
 
 @Component({
   selector: 'app-customer-receipt-form-page',
