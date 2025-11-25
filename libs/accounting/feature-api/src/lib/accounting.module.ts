@@ -1,7 +1,6 @@
 
 import { Module, forwardRef } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AccountingPeriod } from './entities/accounting-period.entity';
 import { PeriodClosingService } from './period-closing.service';
 import { AccountingController } from './accounting.controller';
 import { AuthModule } from '@univeex/auth/feature-api';
@@ -10,28 +9,31 @@ import { Account } from 'src/chart-of-accounts/entities/account.entity';
 import { JournalEntry } from 'src/journal-entries/entities/journal-entry.entity';
 import { JournalEntryLine } from 'src/journal-entries/entities/journal-entry-line.entity';
 import { OrganizationSettings } from 'src/organizations/entities/organization-settings.entity';
-import { InflationIndex } from './entities/inflation-index.entity';
 import { InflationAdjustmentController } from './inflation-adjustment.controller';
 import { InflationAdjustmentService } from './inflation-adjustment.service';
 import { Organization } from 'src/organizations/entities/organization.entity';
 import { FiscalYearArchivingService } from './fiscal-year-archiving.service';
-import { FiscalYear } from './entities/fiscal-year.entity';
-import { Ledger } from './entities/ledger.entity';
 import { LedgersService } from './ledgers.service';
 import { LedgersController } from './ledgers.controller';
 import { YearEndCloseController } from './year-end-close.controller';
 import { YearEndCloseService } from './year-end-close.service';
-import { AccountPeriodLock } from './entities/account-period-lock.entity';
 import { PeriodLockGuard } from './guards/period-lock.guard';
 import { AuditModule } from 'src/audit/audit.module';
 import { ClosingAutomationService } from './closing-automation.service';
 import { FixedAssetsModule } from 'src/fixed-assets/fixed-assets.module';
 import { CurrenciesModule } from 'src/currencies/currencies.module';
-import { LedgerMappingRule } from './entities/ledger-mapping-rule.entity';
 import { LedgerMappingService } from './ledger-mapping.service';
 import { LedgerMappingController } from './ledger-mapping.controller';
 
-import { LedgerMappingRuleCondition } from './entities/ledger-mapping-rule-condition.entity';
+import {
+  AccountingPeriod,
+  InflationIndex,
+  FiscalYear,
+  Ledger,
+  AccountPeriodLock,
+  LedgerMappingRule,
+  LedgerMappingRuleCondition
+} from '@univeex/accounting/data-access';
 
 
 @Module({

@@ -9,8 +9,8 @@ import {
   ManyToMany,
   JoinTable,
 } from 'typeorm';
-import { Organization } from 'src/organizations/entities/organization.entity';
-import { Role } from 'src/roles/entities/role.entity';
+import { Organization } from '@univeex/organizations/feature-api';
+import { Role } from '@univeex/roles/feature-api';
 
 export enum UserStatus {
   PENDING = 'PENDING',

@@ -2,8 +2,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DataSource, Repository } from 'typeorm';
-import { Ledger } from './entities/ledger.entity';
-import { LedgerMappingRule } from './entities/ledger-mapping-rule.entity';
+import { Ledger, LedgerMappingRule } from '@univeex/accounting/data-access';
 import { CreateOrUpdateLedgerMapDto } from './dto/ledger-mapping.dto';
 
 @Injectable()

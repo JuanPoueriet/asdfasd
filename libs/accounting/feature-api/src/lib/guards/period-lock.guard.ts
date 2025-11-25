@@ -7,8 +7,7 @@ import {
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, LessThanOrEqual, MoreThanOrEqual } from 'typeorm';
-import { AccountingPeriod, PeriodStatus } from '../entities/accounting-period.entity';
-import { AccountPeriodLock } from '../entities/account-period-lock.entity';
+import { AccountingPeriod, PeriodStatus, AccountPeriodLock } from '@univeex/accounting/data-access';
 
 @Injectable()
 export class PeriodLockGuard implements CanActivate {

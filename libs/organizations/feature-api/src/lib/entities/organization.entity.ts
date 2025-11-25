@@ -1,6 +1,6 @@
 
-import { User } from 'src/users/entities/user.entity/user.entity';
-import { SsoConfig } from 'src/auth/sso-config.entity'; // <-- AÑADIR IMPORTACIÓN
+import { User } from '@univeex/users/feature-api';
+import { SsoConfig } from '@univeex/auth/feature-api';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -12,7 +12,7 @@ import {
   JoinColumn,
 } from 'typeorm';
 import { OrganizationSubsidiary } from './organization-subsidiary.entity';
-import { FiscalRegion } from 'src/localization/entities/fiscal-region.entity';
+import { FiscalRegion } from '@univeex/localization/feature-api';
 
 @Entity({ name: 'organizations' })
 export class Organization {

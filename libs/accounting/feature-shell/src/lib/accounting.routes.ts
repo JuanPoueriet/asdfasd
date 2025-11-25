@@ -79,7 +79,7 @@ export const ACCOUNTING_ROUTES: Routes = [
       {
         path: 'closing',
         loadChildren: () =>
-          import('./closing/closing.routes').then((m) => m.CLOSING_ROUTES),
+          import('@univeex/accounting/feature-closing').then((m) => m.CLOSING_ROUTES),
       },
       {
         path: 'reconciliation',
@@ -109,15 +109,23 @@ export const ACCOUNTING_ROUTES: Routes = [
         path: 'chart-of-accounts/new',
         title: 'New Account',
         loadComponent: () =>
-          import('./account-form/account-form.page').then(
+          import('@univeex/accounting/feature-account-form').then(
             (m) => m.AccountFormPage
+          ),
+      },
+      {
+        path: 'approvals',
+        title: 'Approvals',
+        loadComponent: () =>
+          import('@univeex/accounting/feature-approvals').then(
+            (m) => m.Approvals
           ),
       },
       {
         path: 'chart-of-accounts/:id/edit',
         title: 'Edit Account',
         loadComponent: () =>
-          import('./account-form/account-form.page').then(
+          import('@univeex/accounting/feature-account-form').then(
             (m) => m.AccountFormPage
           ),
       },

@@ -1,6 +1,6 @@
 import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { DataSource, In, Between } from 'typeorm';
-import { AccountingPeriod } from './entities/accounting-period.entity';
+import { AccountingPeriod } from '@univeex/accounting/data-access';
 import {
   JournalEntry,
   JournalEntryStatus,

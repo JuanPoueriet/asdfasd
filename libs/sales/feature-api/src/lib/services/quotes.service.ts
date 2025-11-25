@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, DataSource, LessThanOrEqual } from 'typeorm';
-import { Quote, QuoteStatus } from '../entities/quote.entity';
+import { Quote, QuoteStatus } from '@univeex/sales/data-access';
 import { CreateQuoteDto } from '../dto/create-quote.dto';
 import { CustomersService } from 'src/customers/customers.service';
 import { DocumentSequencesService } from 'src/shared/document-sequences/document-sequences.service';
