@@ -2,7 +2,7 @@ import { Component, Input, computed, signal, inject, ChangeDetectionStrategy } f
 import { CommonModule } from '@angular/common';
 import { HighchartsChartComponent } from 'highcharts-angular';
 import * as Highcharts from 'highcharts';
-import { DashboardWidget, DashboardService, ChartType } from '../../../../core/services/dashboard';
+import { DashboardWidget, DashboardService, ChartType } from '../@univeex/dashboard/data-access';
 import { LucideAngularModule, Settings, BarChart, AreaChart, PieChart } from 'lucide-angular';
 
 // Importar y activar el módulo de exportación de Highcharts para habilitar el menú contextual (imprimir, descargar, etc.)

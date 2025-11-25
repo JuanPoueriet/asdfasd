@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { LucideAngularModule, ChevronLeft } from 'lucide-angular';
-import { CustomerReceiptsService } from '../../../core/services/customer-receipts';
+import { CustomerReceiptsService } from '@univeex/customer-receipts/data-access';
 import { NotificationService } from '@univeex/notifications/data-access';
 
 @Component({

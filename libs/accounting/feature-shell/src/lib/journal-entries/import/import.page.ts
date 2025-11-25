@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, signal, inject } from '@angular/cor
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { LucideAngularModule, UploadCloud, ChevronLeft } from 'lucide-angular';
-import { JournalEntries } from '../../../../core/services/journal-entries';
+import { JournalEntries } from '../@univeex/journal-entries/data-access';
 import { NotificationService } from '../@univeex/notifications/data-access';
 
 @Component({

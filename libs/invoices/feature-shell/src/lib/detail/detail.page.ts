@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 // Se importa ActivatedRoute para acceder a los parámetros de la URL.
 import { Router, RouterLink, ActivatedRoute } from '@angular/router';
 import { LucideAngularModule, Printer, Download, Mail, MoreVertical } from 'lucide-angular';
-import { Invoice, InvoicesService } from '../../../core/services/invoices';
+import { Invoice, InvoicesService } from '@univeex/invoices/data-access';
 import { NotificationService } from '@univeex/notifications/data-access';
 
 @Component({

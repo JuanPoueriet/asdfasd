@@ -1,1 +1,1 @@
-export * from './lib/accounts-payable-data-access/accounts-payable-data-access';
+export * from './lib/accounts-payable.service';

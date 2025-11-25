@@ -31,7 +31,7 @@ import {
   Check
 } from 'lucide-angular';
 import { RecaptchaV3Module, ReCaptchaV3Service } from 'ng-recaptcha-19';
-import { LanguageService } from '../../../core/services/language';
+import { LanguageService } from '@univeex/localization/data-access';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({

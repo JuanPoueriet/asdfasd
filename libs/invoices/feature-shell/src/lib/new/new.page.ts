@@ -8,7 +8,7 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
-import { InvoicesService, CreateInvoiceDto } from '../../../core/services/invoices';
+import { InvoicesService, CreateInvoiceDto } from '@univeex/invoices/data-access';
 import { CustomersService } from '@univeex/customers/data-access';
 import { InventoryService } from '@univeex/inventory/data-access';
 import { Customer } from '@univeex/customers/domain';

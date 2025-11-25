@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, inject, OnInit, signal } from '@ang
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { LucideAngularModule, ChevronLeft, Edit, MoreVertical, Trash2 } from 'lucide-angular';
-import { AccountsPayableService, VendorBill } from '../../../core/services/accounts-payable';
+import { AccountsPayableService, VendorBill } from '@univeex/accounts-payable/data-access';
 import { NotificationService } from '@univeex/notifications/data-access';
 import { EMPTY, Observable } from 'rxjs';
 import { switchMap, catchError } from 'rxjs/operators';

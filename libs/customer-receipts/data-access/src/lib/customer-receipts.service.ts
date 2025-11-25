@@ -1,0 +1,22 @@
+import { inject, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+// import { environment } from '../../../environments/environment';
+
+export interface CustomerReceipt {
+  id: string;
+  receiptNumber: string;
+  customerName: string;
+  paymentDate: string;
+  amount: number;
+}
+
+@Injectable({ providedIn: 'root' })
+export class CustomerReceiptsService {
+  private http = inject(HttpClient);
+  private apiUrl = `/api/customer-payments`;
+
+  getReceipts(): Observable<CustomerReceipt[]> {
+    return this.http.get<CustomerReceipt[]>(this.apiUrl);
+  }
+}

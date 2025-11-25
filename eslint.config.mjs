@@ -21,21 +21,17 @@ export default [
               onlyDependOnLibsWithTags: ['scope:shared'],
             },
             {
-              sourceTag: 'scope:taxes',
-              onlyDependOnLibsWithTags: ['scope:taxes', 'scope:shared'],
-            },
-            {
               sourceTag: 'type:feature',
               onlyDependOnLibsWithTags: [
                 'type:ui',
                 'type:data-access',
                 'type:util',
-                'type:domain',
+                'type:domain', // Allow features to use domain objects directly if needed
               ],
             },
             {
               sourceTag: 'type:ui',
-              onlyDependOnLibsWithTags: ['type:util', 'type:ui'],
+              onlyDependOnLibsWithTags: ['type:util', 'type:domain', 'type:ui'],
             },
             {
               sourceTag: 'type:data-access',
@@ -53,6 +49,36 @@ export default [
               sourceTag: 'type:util',
               onlyDependOnLibsWithTags: ['type:util'],
             },
+            // Domain Scopes
+            {
+              sourceTag: 'scope:accounting',
+              onlyDependOnLibsWithTags: ['scope:accounting', 'scope:shared', 'scope:localization', 'scope:notifications'], // Accounting might need localization and notifications
+            },
+            {
+              sourceTag: 'scope:customers',
+              onlyDependOnLibsWithTags: ['scope:customers', 'scope:shared'],
+            },
+            {
+              sourceTag: 'scope:inventory',
+              onlyDependOnLibsWithTags: ['scope:inventory', 'scope:shared'],
+            },
+            {
+              sourceTag: 'scope:users',
+              onlyDependOnLibsWithTags: ['scope:users', 'scope:shared', 'scope:auth'], // Users might depend on auth context
+            },
+            {
+              sourceTag: 'scope:auth',
+              onlyDependOnLibsWithTags: ['scope:auth', 'scope:users', 'scope:shared', 'scope:localization'], // Auth uses users and localization
+            },
+            {
+              sourceTag: 'scope:invoices',
+              onlyDependOnLibsWithTags: ['scope:invoices', 'scope:shared', 'scope:customers', 'scope:inventory'], // Invoices need customers and inventory
+            },
+             {
+              sourceTag: 'scope:taxes',
+              onlyDependOnLibsWithTags: ['scope:taxes', 'scope:shared'],
+            },
+            // Add other scopes as needed, defaulting to restrictive
           ],
         },
       ],
