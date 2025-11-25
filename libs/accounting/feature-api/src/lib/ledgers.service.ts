@@ -2,7 +2,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, LessThan, Between } from 'typeorm';
-import { Ledger } from './entities/ledger.entity';
+import { Ledger } from '@univeex/accounting/data-access';
 import { Account } from 'src/chart-of-accounts/entities/account.entity';
 import { JournalEntryLine } from 'src/journal-entries/entities/journal-entry-line.entity';
 import { GeneralLedger } from 'src/core/models/general-ledger.model';

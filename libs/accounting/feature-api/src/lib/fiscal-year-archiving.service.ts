@@ -3,7 +3,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { Cron } from '@nestjs/schedule';
 import { InjectRepository } from '@nestjs/typeorm';
 import { LessThan, Repository } from 'typeorm';
-import { FiscalYear, FiscalYearStatus } from './entities/fiscal-year.entity';
+import { FiscalYear, FiscalYearStatus } from '@univeex/accounting/data-access';
 import { OrganizationSettings } from 'src/organizations/entities/organization-settings.entity';
 import { Organization } from 'src/organizations/entities/organization.entity';
 

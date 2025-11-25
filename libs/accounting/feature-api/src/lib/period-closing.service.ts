@@ -13,7 +13,9 @@ import {
   AccountingPeriod,
   ModuleSlug,
   PeriodStatus,
-} from './entities/accounting-period.entity';
+  Ledger,
+  AccountPeriodLock
+} from '@univeex/accounting/data-access';
 import {
   Account,
   AccountType,
@@ -26,9 +28,7 @@ import {
 import { JournalEntriesService } from 'src/journal-entries/journal-entries.service';
 import { OrganizationSettings } from 'src/organizations/entities/organization-settings.entity';
 import { Journal } from 'src/journal-entries/entities/journal.entity';
-import { Ledger } from './entities/ledger.entity';
 import { LockAccountInPeriodDto } from './dto/lock-account-period.dto';
-import { AccountPeriodLock } from './entities/account-period-lock.entity';
 import { CreateJournalEntryDto } from 'src/journal-entries/dto/create-journal-entry.dto';
 import { AccountBalance } from 'src/chart-of-accounts/entities/account-balance.entity';
 import { ReopenPeriodDto } from './dto/reopen-period.dto';

@@ -4,7 +4,7 @@ import { JwtAuthGuard } from '@univeex/auth/feature-api';
 import { CurrentUser } from '@univeex/auth/feature-api';
 import { User } from '@univeex/users/feature-api';
 import { LedgersService } from './ledgers.service';
-import { Ledger } from './entities/ledger.entity';
+import { Ledger } from '@univeex/accounting/data-access';
 
 @Controller('accounting/ledgers')
 @UseGuards(JwtAuthGuard)

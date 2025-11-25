@@ -2,13 +2,12 @@
 import { Injectable, NotFoundException, BadRequestException, Logger, InternalServerErrorException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DataSource, Not, Repository } from 'typeorm';
-import { InflationIndex } from './entities/inflation-index.entity';
+import { InflationIndex, Ledger } from '@univeex/accounting/data-access';
 import { Account } from 'src/chart-of-accounts/entities/account.entity';
 import { OrganizationSettings } from 'src/organizations/entities/organization-settings.entity';
 import { JournalEntriesService } from 'src/journal-entries/journal-entries.service';
 import { Journal } from 'src/journal-entries/entities/journal.entity';
 import { CreateJournalEntryLineDto, CreateJournalEntryDto } from 'src/journal-entries/dto/create-journal-entry.dto';
-import { Ledger } from './entities/ledger.entity';
 
 @Injectable()
 export class InflationAdjustmentService {
