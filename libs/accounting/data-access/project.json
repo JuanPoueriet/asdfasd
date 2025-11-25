@@ -4,11 +4,17 @@
   "sourceRoot": "libs/accounting/data-access/src",
   "prefix": "lib",
   "projectType": "library",
-  "tags": ["type:data-access", "scope:accounting"],
+  "tags": [
+    "platform:shared",
+    "scope:accounting",
+    "type:data-access"
+  ],
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "libs/accounting/data-access/jest.config.ts",
         "tsConfig": "libs/accounting/data-access/tsconfig.spec.json"

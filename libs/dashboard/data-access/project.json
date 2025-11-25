@@ -4,11 +4,17 @@
   "sourceRoot": "libs/dashboard/data-access/src",
   "prefix": "lib",
   "projectType": "library",
-  "tags": ["type:data-access", "scope:dashboard"],
+  "tags": [
+    "platform:shared",
+    "scope:dashboard",
+    "type:data-access"
+  ],
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "libs/dashboard/data-access/jest.config.ts",
         "tsConfig": "libs/dashboard/data-access/tsconfig.spec.json"

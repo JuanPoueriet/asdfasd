@@ -4,11 +4,17 @@
   "sourceRoot": "libs/suppliers/data-access/src",
   "prefix": "lib",
   "projectType": "library",
-  "tags": ["type:data-access", "scope:suppliers"],
+  "tags": [
+    "platform:shared",
+    "scope:suppliers",
+    "type:data-access"
+  ],
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "libs/suppliers/data-access/jest.config.ts",
         "tsConfig": "libs/suppliers/data-access/tsconfig.spec.json"

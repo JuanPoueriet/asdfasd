@@ -4,6 +4,7 @@
   "sourceRoot": "libs/contacts/data-access/src",
   "projectType": "library",
   "tags": [
+    "platform:shared",
     "scope:contacts",
     "type:data-access"
   ],

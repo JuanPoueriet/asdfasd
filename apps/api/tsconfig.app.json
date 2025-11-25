@@ -12,7 +12,6 @@
       "@univeex/shared-models": ["shared/models/src/index.ts"],
       "@univeex/shared-utils": ["shared/utils/src/index.ts"],
       "@univeex/web-ui": ["web/ui/src/index.ts"],
-      "@univeex/shared/util-types": ["libs/shared/util-types/src/index.ts"],
       "@univeex/taxes/data-access": ["libs/taxes/data-access/src/index.ts"],
       "@univeex/taxes/feature-api": ["libs/taxes/feature-api/src/index.ts"]
     }

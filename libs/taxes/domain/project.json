@@ -3,21 +3,17 @@
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/taxes/domain/src",
   "projectType": "library",
-  "tags": ["type:util", "scope:taxes"],
+  "tags": [
+    "platform:shared",
+    "scope:taxes",
+    "type:util"
+  ],
   "targets": {
-    "build": {
-      "executor": "@nx/js:tsc",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/libs/taxes/domain",
-        "main": "libs/taxes/domain/src/index.ts",
-        "tsConfig": "libs/taxes/domain/tsconfig.lib.json",
-        "assets": ["libs/taxes/domain/*.md"]
-      }
-    },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "libs/taxes/domain/jest.config.ts"
       }

@@ -27,9 +27,6 @@
       "@univeex/web-ui": [
         "web/ui/src/index.ts"
       ],
-      "@univeex/shared/util-types": [
-        "libs/shared/util-types/src/index.ts"
-      ],
       "@univeex/taxes/data-access": [
         "libs/taxes/data-access/src/index.ts"
       ],
@@ -122,9 +119,6 @@
       ],
       "@univeex/budgets/feature-api": [
         "libs/budgets/feature-api/src/index.ts"
-      ],
-      "@univeex/core/feature-api": [
-        "libs/core/feature-api/src/index.ts"
       ],
       "@univeex/push-notifications/feature-api": [
         "libs/push-notifications/feature-api/src/index.ts"

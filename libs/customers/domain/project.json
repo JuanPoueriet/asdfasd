@@ -3,21 +3,17 @@
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/customers/domain/src",
   "projectType": "library",
-  "tags": ["type:util", "scope:customers"],
+  "tags": [
+    "platform:shared",
+    "scope:customers",
+    "type:util"
+  ],
   "targets": {
-    "build": {
-      "executor": "@nx/js:tsc",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/libs/customers/domain",
-        "main": "libs/customers/domain/src/index.ts",
-        "tsConfig": "libs/customers/domain/tsconfig.lib.json",
-        "assets": ["libs/customers/domain/*.md"]
-      }
-    },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "libs/customers/domain/jest.config.ts"
       }

@@ -3,22 +3,17 @@
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/taxes/data-access/src",
   "projectType": "library",
-  "tags": ["scope:taxes", "type:data-access"],
+  "tags": [
+    "platform:shared",
+    "scope:taxes",
+    "type:data-access"
+  ],
   "targets": {
-    "build": {
-      "executor": "@nx/js:tsc",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/libs/taxes/data-access",
-        "tsConfig": "libs/taxes/data-access/tsconfig.lib.json",
-        "packageJson": "libs/taxes/data-access/package.json",
-        "main": "libs/taxes/data-access/src/index.ts",
-        "assets": ["libs/taxes/data-access/*.md"]
-      }
-    },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "libs/taxes/data-access/jest.config.ts"
       }

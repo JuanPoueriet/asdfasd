@@ -13,7 +13,7 @@ export default [
       '@nx/enforce-module-boundaries': [
         'error',
         {
-          enforceBuildableLibDependency: true,
+          enforceBuildableLibDependency: false,
           allow: ['^.*/eslint(\\.base)?\\.config\\.[cm]?[jt]s$'],
           depConstraints: [
             {
@@ -77,6 +77,19 @@ export default [
              {
               sourceTag: 'scope:taxes',
               onlyDependOnLibsWithTags: ['scope:taxes', 'scope:shared'],
+            },
+            // Platform constraints
+            {
+              sourceTag: 'platform:angular',
+              onlyDependOnLibsWithTags: ['platform:angular', 'platform:shared'],
+            },
+            {
+              sourceTag: 'platform:nest',
+              onlyDependOnLibsWithTags: ['platform:nest', 'platform:shared'],
+            },
+            {
+              sourceTag: 'platform:shared',
+              onlyDependOnLibsWithTags: ['platform:shared'],
             },
             // Add other scopes as needed, defaulting to restrictive
           ],

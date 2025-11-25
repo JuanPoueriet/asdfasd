@@ -4,6 +4,7 @@
   "sourceRoot": "libs/contacts/domain/src",
   "projectType": "library",
   "tags": [
+    "platform:shared",
     "scope:contacts",
     "type:domain"
   ],
