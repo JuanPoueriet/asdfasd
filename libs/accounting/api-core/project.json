@@ -1,0 +1,9 @@
+{
+  "name": "api-core",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "accounting/api-core/src",
+  "projectType": "library",
+  "tags": ["platform:api", "scope:accounting", "type:core"],
+  "// targets": "to see all targets run: nx show project api-core --web",
+  "targets": {}
+}

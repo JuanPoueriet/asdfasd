@@ -1,0 +1,21 @@
+{
+  "name": "feature-journal-entries",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "accounting/feature-journal-entries/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": ["platform:web", "scope:accounting", "type:feature"],
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "accounting/feature-journal-entries/jest.config.ts",
+        "tsConfig": "accounting/feature-journal-entries/tsconfig.spec.json"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

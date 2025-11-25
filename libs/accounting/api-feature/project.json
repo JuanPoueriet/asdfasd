@@ -1,0 +1,9 @@
+{
+  "name": "api-feature",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "accounting/api-feature/src",
+  "projectType": "library",
+  "tags": ["platform:api", "scope:accounting", "type:feature"],
+  "// targets": "to see all targets run: nx show project api-feature --web",
+  "targets": {}
+}
