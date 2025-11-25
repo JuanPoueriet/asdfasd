@@ -1,1 +1,1 @@
-export * from './lib/util-common';
+export * from './lib/tree.service';

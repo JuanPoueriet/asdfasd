@@ -17,7 +17,7 @@ import {
   Menu as MenuIcon, Maximize, FileDown, FileSpreadsheet, Printer
 } from 'lucide-angular';
 
-import { DashboardWidget, DashboardService, ChartType } from '../../../../core/services/dashboard';
+import { DashboardWidget, DashboardService, ChartType } from '../@univeex/dashboard/data-access';
 import { BrandingService } from '../@univeex/shared/util-ui';
 import { PointOptionsObject } from 'highcharts';
 

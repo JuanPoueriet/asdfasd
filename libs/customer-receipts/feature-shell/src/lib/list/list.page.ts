@@ -2,11 +2,11 @@ import { Component, ChangeDetectionStrategy, signal, inject, OnInit } from '@ang
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { LucideAngularModule, PlusCircle } from 'lucide-angular';
-import { CustomerReceipt, CustomerReceiptsService } from '../../../core/services/customer-receipts';
+import { CustomerReceipt, CustomerReceiptsService } from '@univeex/customer-receipts/data-access';
 import { NotificationService } from '@univeex/notifications/data-access';
-// import { CustomerReceipt, CustomerReceiptsService } from '../../../../core/services/customer-receipts';
+// import { CustomerReceipt, CustomerReceiptsService } from '../@univeex/customer-receipts/data-access';
 // import { NotificationService } from '../@univeex/notifications/data-access';
-// import { CustomerReceiptsService, CustomerReceipt } from '../../../core/services/customer-receipts';
+// import { CustomerReceiptsService, CustomerReceipt } from '@univeex/customer-receipts/data-access';
 // import { NotificationService } from '@univeex/notifications/data-access';
 
 @Component({

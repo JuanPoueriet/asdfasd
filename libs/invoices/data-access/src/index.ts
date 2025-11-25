@@ -1,1 +1,1 @@
-export * from './lib/invoices-data-access/invoices-data-access';
+export * from './lib/invoices.service';

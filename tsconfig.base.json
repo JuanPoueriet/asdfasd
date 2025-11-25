@@ -30,7 +30,6 @@
       ],
       "@univeex/auth/feature-api": ["libs/auth/feature-api/src/index.ts"],
       "@univeex/users/feature-api": ["libs/users/feature-api/src/index.ts"],
-      "@univeex/shared/core": ["libs/shared/core/src/index.ts"],
       "@univeex/sales/feature-api": ["libs/sales/feature-api/src/index.ts"],
       "@univeex/inventory/feature-api": [
         "libs/inventory/feature-api/src/index.ts"
@@ -253,7 +252,8 @@
       ],
       "@univeex/journal-entries/data-access": [
         "libs/journal-entries/data-access/src/index.ts"
-      ]
+      ],
+      "@univeex/shared/util-http": ["libs/shared/util-http/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

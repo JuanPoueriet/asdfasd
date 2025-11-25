@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, signal, inject, OnInit } from '@ang
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { LucideAngularModule, PlusCircle, Filter, MoreHorizontal } from 'lucide-angular';
-import { AccountsPayableService, VendorBill } from '../../../core/services/accounts-payable';
+import { AccountsPayableService, VendorBill } from '@univeex/accounts-payable/data-access';
 import { NotificationService } from '@univeex/notifications/data-access';
 
 @Component({

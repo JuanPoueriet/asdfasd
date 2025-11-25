@@ -15,7 +15,7 @@ import { StepPlan } from './steps/step-plan/step-plan';
 import { strongPasswordValidator } from '../../../shared/validators/password.validator';
 import { RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module, ReCaptchaV3Service } from 'ng-recaptcha-19';
 import { environment } from '../../../../environments/environment';
-import { LanguageService } from '../../../core/services/language';
+import { LanguageService } from '@univeex/localization/data-access';
 
 export function passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
   const password = control.get('password')?.value;
