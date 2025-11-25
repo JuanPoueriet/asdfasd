@@ -4,11 +4,17 @@
   "sourceRoot": "libs/accounts-payable/data-access/src",
   "prefix": "lib",
   "projectType": "library",
-  "tags": ["type:data-access", "scope:accounts-payable"],
+  "tags": [
+    "platform:shared",
+    "scope:accounts-payable",
+    "type:data-access"
+  ],
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "libs/accounts-payable/data-access/jest.config.ts",
         "tsConfig": "libs/accounts-payable/data-access/tsconfig.spec.json"

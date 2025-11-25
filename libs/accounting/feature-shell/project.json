@@ -4,11 +4,17 @@
   "sourceRoot": "libs/accounting/feature-shell/src",
   "prefix": "lib",
   "projectType": "library",
-  "tags": ["scope:accounting", "type:feature"],
+  "tags": [
+    "platform:angular",
+    "scope:accounting",
+    "type:feature"
+  ],
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "libs/accounting/feature-shell/jest.config.ts",
         "tsConfig": "libs/accounting/feature-shell/tsconfig.spec.json"

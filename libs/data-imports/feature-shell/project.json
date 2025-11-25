@@ -4,11 +4,15 @@
   "sourceRoot": "libs/data-imports/feature-shell/src",
   "prefix": "lib",
   "projectType": "library",
-  "tags": [],
+  "tags": [
+    "platform:angular"
+  ],
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "libs/data-imports/feature-shell/jest.config.ts",
         "tsConfig": "libs/data-imports/feature-shell/tsconfig.spec.json"

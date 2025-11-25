@@ -3,7 +3,9 @@
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/journal-entries/feature-api/src",
   "projectType": "library",
-  "tags": [],
+  "tags": [
+    "platform:nest"
+  ],
   "// targets": "to see all targets run: nx show project journal-entries-feature-api --web",
   "targets": {}
 }

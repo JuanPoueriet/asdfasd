@@ -3,21 +3,17 @@
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/price-lists/domain/src",
   "projectType": "library",
-  "tags": ["type:util", "scope:price-lists"],
+  "tags": [
+    "platform:shared",
+    "scope:price-lists",
+    "type:util"
+  ],
   "targets": {
-    "build": {
-      "executor": "@nx/js:tsc",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/libs/price-lists/domain",
-        "main": "libs/price-lists/domain/src/index.ts",
-        "tsConfig": "libs/price-lists/domain/tsconfig.lib.json",
-        "assets": ["libs/price-lists/domain/*.md"]
-      }
-    },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "libs/price-lists/domain/jest.config.ts"
       }

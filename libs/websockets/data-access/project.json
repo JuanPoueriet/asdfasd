@@ -4,11 +4,17 @@
   "sourceRoot": "libs/websockets/data-access/src",
   "prefix": "lib",
   "projectType": "library",
-  "tags": ["type:data-access", "scope:websockets"],
+  "tags": [
+    "platform:shared",
+    "scope:websockets",
+    "type:data-access"
+  ],
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "libs/websockets/data-access/jest.config.ts",
         "tsConfig": "libs/websockets/data-access/tsconfig.spec.json"

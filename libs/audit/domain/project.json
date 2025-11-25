@@ -4,6 +4,7 @@
   "sourceRoot": "libs/audit/domain/src",
   "projectType": "library",
   "tags": [
+    "platform:shared",
     "scope:audit",
     "type:domain"
   ],

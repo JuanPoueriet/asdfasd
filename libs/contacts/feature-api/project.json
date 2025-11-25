@@ -4,6 +4,7 @@
   "sourceRoot": "libs/contacts/feature-api/src",
   "projectType": "library",
   "tags": [
+    "platform:nest",
     "scope:contacts",
     "type:feature-api"
   ],

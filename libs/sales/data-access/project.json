@@ -4,6 +4,7 @@
   "sourceRoot": "libs/sales/data-access/src",
   "projectType": "library",
   "tags": [
+    "platform:shared",
     "scope:sales",
     "type:data-access"
   ],

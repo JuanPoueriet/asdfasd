@@ -5,6 +5,7 @@
   "prefix": "lib",
   "projectType": "library",
   "tags": [
+    "platform:shared",
     "scope:accounting",
     "type:feature"
   ],

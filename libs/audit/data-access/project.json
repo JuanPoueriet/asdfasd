@@ -4,6 +4,7 @@
   "sourceRoot": "libs/audit/data-access/src",
   "projectType": "library",
   "tags": [
+    "platform:shared",
     "scope:audit",
     "type:data-access"
   ],
