@@ -9,72 +9,74 @@ export const ACCOUNTING_ROUTES: Routes = [
       {
         path: 'chart-of-accounts',
         title: 'Chart of Accounts',
-        loadComponent: () =>
-          import('./chart-of-accounts/chart-of-accounts.page').then(
-            (m) => m.ChartOfAccountsPage
+        loadChildren: () =>
+          import('@univeex/accounting/feature-chart-of-accounts').then(
+            (m) => m.CHART_OF_ACCOUNTS_ROUTES
           ),
       },
       {
         path: 'ledgers',
-        loadComponent: () =>
-          import('./ledger-list/ledger-list.page').then(
-            (m) => m.LedgerListPage
+        loadChildren: () =>
+          import('@univeex/accounting/feature-ledger-list').then(
+            (m) => m.LEDGER_LIST_ROUTES
           ),
         title: 'Libros Contables',
       },
       {
         path: 'journals', // <- NUEVA RUTA
         title: 'Journals',
-        loadComponent: () =>
-          import('./journal-list/journal-list.page').then(
-            (m) => m.JournalListPage
+        loadChildren: () =>
+          import('@univeex/accounting/feature-journal-list').then(
+            (m) => m.JOURNAL_LIST_ROUTES
           ),
       },
       {
         path: 'journals/new', // <- NUEVA RUTA
         title: 'New Journal',
-        loadComponent: () =>
-          import('./journal-form/journal-form.page').then(
-            (m) => m.JournalFormPage
+        loadChildren: () =>
+          import('@univeex/accounting/feature-journal-form').then(
+            (m) => m.JOURNAL_FORM_ROUTES
           ),
       },
       {
         path: 'general-ledger/new', // Nueva ruta
         title: 'New General Ledger',
-        loadComponent: () =>
-          import('./ledger-form/app-ledger-form-page').then(
-            (m) => m.LedgerFormPage
+        loadChildren: () =>
+          import('@univeex/accounting/feature-ledger-form').then(
+            (m) => m.LEDGER_FORM_ROUTES
           ),
       },
       {
         path: 'journal-entries',
         title: 'Journal Entries',
-        loadComponent: () =>
-          import('./journal-entries/journal-entries.page').then(
-            (m) => m.JournalEntriesPage
+        loadChildren: () =>
+          import('@univeex/accounting/feature-journal-entries').then(
+            (m) => m.JOURNAL_ENTRIES_ROUTES
           ),
       },
       {
         path: 'daily-journal',
         title: 'Daily Journal',
-        loadComponent: () =>
-          import('./daily-journal/daily-journal.page').then(
-            (m) => m.DailyJournalPage
+        loadChildren: () =>
+          import('@univeex/accounting/feature-daily-journal').then(
+            (m) => m.DAILY_JOURNAL_ROUTES
           ),
       },
       {
         path: 'general-ledger',
         title: 'General Ledger',
-        loadComponent: () =>
-          import('./general-ledger/general-ledger.page').then(
-            (m) => m.GeneralLedgerPage
+        loadChildren: () =>
+          import('@univeex/accounting/feature-general-ledger').then(
+            (m) => m.GENERAL_LEDGER_ROUTES
           ),
       },
       {
         path: 'periods',
         title: 'Accounting Periods',
-        loadComponent: () =>
-          import('./periods/periods.page').then((m) => m.PeriodsPage),
+        loadChildren: () =>
+          import('@univeex/accounting/feature-periods').then(
+            (m) => m.PERIODS_ROUTES
+          ),
       },
       {
         path: 'closing',
@@ -84,10 +86,10 @@ export const ACCOUNTING_ROUTES: Routes = [
       {
         path: 'reconciliation',
         title: 'Account Reconciliation',
-        loadComponent: () =>
-          import(
-            './reconciliation/account-reconciliation/account-reconciliation.page'
-          ).then((m) => m.AccountReconciliationPage),
+        loadChildren: () =>
+          import('@univeex/accounting/feature-reconciliation').then(
+            (m) => m.RECONCILIATION_ROUTES
+          ),
       },
       {
         path: 'subsidiary-ledgers',
@@ -132,9 +134,9 @@ export const ACCOUNTING_ROUTES: Routes = [
       {
         path: 'journal-entries/new', // <- NUEVA RUTA
         title: 'New Journal Entry',
-        loadComponent: () =>
-          import('./journal-entry-form/journal-entry-form.page').then(
-            (m) => m.JournalEntryFormPage
+        loadChildren: () =>
+          import('@univeex/accounting/feature-journal-entry-form').then(
+            (m) => m.JOURNAL_ENTRY_FORM_ROUTES
           ),
       },
       {
