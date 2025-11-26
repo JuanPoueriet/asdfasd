@@ -58,9 +58,9 @@ import {
 import { RolesService } from '@univeex/roles/data-access';
 import { AuthService } from '@univeex/auth/data-access';
 import { TranslateModule } from '@ngx-translate/core';
-import { User as ApiUser, Role, UserStatus } from '@univeex/shared/util-types';
+import { User as ApiUser, Role, UserStatus } from '@univeex/users/domain';
 import { WebSocketService } from '@univeex/websockets/data-access';
-import { HasPermissionDirective } from '../../../shared/directives/has-permission.directive';
+import { HasPermissionDirective } from '@univeex/shared/ui';
 import { debounceTime, distinctUntilChanged, Subject, Subscription } from 'rxjs';
 
 @Component({

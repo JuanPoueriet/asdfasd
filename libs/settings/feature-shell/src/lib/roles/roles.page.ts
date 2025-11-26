@@ -2,13 +2,12 @@ import { Component, OnInit, inject, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray, FormControl } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-// ✅ CORREGIDO: Se importa el ícono 'X' que se usará como CloseIcon.
 import { LucideAngularModule, Plus, Edit, Trash, Copy, X } from 'lucide-angular';
 
 import { RolesService } from '@univeex/roles/data-access';
-import { Role, CreateRoleDto, UpdateRoleDto } from '@univeex/shared/util-types';
+import { Role, CreateRoleDto, UpdateRoleDto } from '@univeex/users/domain';
 import { NotificationService } from '@univeex/notifications/data-access';
-import { HasPermissionDirective } from '../../../shared/directives/has-permission.directive';
+import { HasPermissionDirective } from '@univeex/shared/ui';
 
 interface PermissionGroup {
   name: string;
@@ -32,7 +31,7 @@ export class RolesManagementPage implements OnInit {
   protected readonly EditIcon = Edit;
   protected readonly TrashIcon = Trash;
   protected readonly CloneIcon = Copy;
-  protected readonly CloseIcon = X; // ✅ CORREGIDO: Se define la propiedad para el ícono de cerrar.
+  protected readonly CloseIcon = X;
 
   /** Estado */
   readonly roles = signal<Role[]>([]);

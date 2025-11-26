@@ -3,8 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { LucideAngularModule, Save, Image } from 'lucide-angular';
 import { BrandingService, UiDensity, UiFont, UiMode, ContentWidth, LayoutStyle } from '@univeex/shared/util-ui';
-import { LivePreview } from '../../../shared/components/live-preview/live-preview';
-import { LanguageSelector } from '../../../shared/components/language-selector/language-selector';
+import { LivePreview, LanguageSelector } from '@univeex/shared/ui';
 import { TranslateModule } from '@ngx-translate/core';
 // import { LivePreview } from '../../shared/components/live-preview/live-preview'; // Importar el nuevo componente
 

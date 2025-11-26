@@ -6,7 +6,7 @@ import { LucideAngularModule, Save, Image } from 'lucide-angular';
 import { InventoryService, CreateProductDto, UpdateProductDto } from '@univeex/inventory/data-access';
 import { NotificationService } from '@univeex/notifications/data-access';
 import { Product } from '@univeex/inventory/domain';
-import { HasPermissionDirective } from '../../../shared/directives/has-permission.directive';
+import { HasPermissionDirective } from '@univeex/shared/ui';
 
 @Component({
   selector: 'app-product-form-page',

@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 // import { environment } from '../../../environments/environment';
 
-import { Role, CreateRoleDto, UpdateRoleDto } from '@univeex/shared/util-types';
+import { Role, CreateRoleDto, UpdateRoleDto } from '@univeex/users/domain';
 
 @Injectable({ providedIn: 'root' })
 export class RolesService {

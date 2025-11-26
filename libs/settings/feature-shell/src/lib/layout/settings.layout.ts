@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { LucideAngularModule, Building, Users, Palette, CreditCard } from 'lucide-angular';
-import { HasPermissionDirective } from '../../../shared/directives/has-permission.directive';
+import { HasPermissionDirective } from '@univeex/shared/ui';
 
 @Component({
   selector: 'app-settings-layout',

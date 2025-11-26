@@ -2,9 +2,9 @@ import { Component, ChangeDetectionStrategy, signal, inject, OnInit } from '@ang
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { LucideAngularModule, PlusCircle, Filter, MoreHorizontal } from 'lucide-angular';
-import { SuppliersService } from '../@univeex/suppliers/data-access';
-import { NotificationService } from '../@univeex/notifications/data-access';
-import { Supplier } from '../@univeex/suppliers/domain';
+import { SuppliersService } from '@univeex/suppliers/data-access';
+import { NotificationService } from '@univeex/notifications/data-access';
+import { Supplier } from '@univeex/suppliers/domain';
 
 @Component({
   selector: 'app-suppliers-page',

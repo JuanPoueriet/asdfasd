@@ -1,11 +1,12 @@
 import { Component, ChangeDetectionStrategy, inject, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { LucideAngularModule, Search, FileText, Package, User } from 'lucide-angular';
-import { SearchService, SearchResultGroup as BaseSearchResultGroup } from '../../core/services/search.service';
+import { LucideAngularModule, Search, FileText, Package, User, Icon } from 'lucide-angular';
+import { SearchService } from '@univeex/search/data-access';
+import { SearchResultGroup } from '@univeex/search/domain';
 
-interface SearchResultGroup extends BaseSearchResultGroup {
-  icon: any;
+interface EnhancedSearchResultGroup extends SearchResultGroup {
+  icon: Icon;
 }
 
 @Component({
@@ -20,21 +21,16 @@ export class GlobalSearchPage implements OnInit {
   private route = inject(ActivatedRoute);
   private searchService = inject(SearchService);
 
-  // Íconos
   protected readonly SearchIcon = Search;
-  protected readonly InvoiceIcon = FileText;
-  protected readonly ProductIcon = Package;
-  protected readonly CustomerIcon = User;
-  private iconMap = {
-    Invoices: this.InvoiceIcon,
-    Products: this.ProductIcon,
-    Customers: this.CustomerIcon,
+  private readonly iconMap: { [key: string]: Icon } = {
+    Invoices: FileText,
+    Products: Package,
+    Customers: User,
   };
 
-  // Estado
   searchQuery = signal('');
   totalResults = signal(0);
-  resultGroups = signal<SearchResultGroup[]>([]);
+  resultGroups = signal<EnhancedSearchResultGroup[]>([]);
   isLoading = signal(false);
 
   ngOnInit(): void {
@@ -63,8 +59,8 @@ export class GlobalSearchPage implements OnInit {
     
     this.isLoading.set(true);
     this.searchService.search(query).subscribe({
-      next: (groups) => {
-        const enhancedGroups = groups.map(group => ({
+      next: (groups: SearchResultGroup[]) => {
+        const enhancedGroups: EnhancedSearchResultGroup[] = groups.map(group => ({
           ...group,
           icon: this.iconMap[group.type]
         }));
@@ -77,7 +73,6 @@ export class GlobalSearchPage implements OnInit {
         this.isLoading.set(false);
         this.resultGroups.set([]);
         this.totalResults.set(0);
-        // Aquí podrías manejar el error, por ejemplo, mostrando un mensaje al usuario.
       }
     });
   }

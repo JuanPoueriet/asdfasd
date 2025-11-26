@@ -23,6 +23,7 @@ import {
 } from 'lucide-angular';
 import { AuthService } from '@univeex/auth/data-access';
 import { NotificationService } from '@univeex/notifications/data-access';
+import { User as AuthUser } from '@univeex/users/domain';
 
 @Component({
   selector: 'app-my-profile-page',
@@ -52,14 +53,12 @@ export class MyProfilePage implements OnInit {
   currentUser = this.authService.currentUser;
 
   ngOnInit(): void {
-    const user = this.currentUser();
+    const user = this.currentUser() as AuthUser | null;
 
     this.profileForm = this.fb.group({
       firstName: [user?.firstName, Validators.required],
       lastName: [user?.lastName, Validators.required],
       email: [{ value: user?.email, disabled: true }],
-    //   phone: [user?.phone || ''],
-    //   jobTitle: [user?.jobTitle || ''],
     });
 
     this.passwordForm = this.fb.group({

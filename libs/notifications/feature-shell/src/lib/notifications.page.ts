@@ -1,7 +1,8 @@
 import { Component, ChangeDetectionStrategy, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LucideAngularModule, Check, BellOff } from 'lucide-angular';
-import { NotificationCenterService, Notification } from '../../core/services/notification-center.service';
+import { NotificationCenterService } from '@univeex/notifications/data-access';
+import { Notification } from '@univeex/notifications/domain';
 
 interface NotificationGroup {
   period: string;
@@ -17,7 +18,7 @@ interface NotificationGroup {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotificationsPage {
-  notificationCenter = inject(NotificationCenterService);
+  notificationCenter: NotificationCenterService = inject(NotificationCenterService);
 
   // Íconos
   protected readonly MarkAllReadIcon = Check;

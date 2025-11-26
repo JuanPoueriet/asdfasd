@@ -1,14 +1,12 @@
 import { Routes } from '@angular/router';
 import { SettingsLayout } from './layout/settings.layout';
-// ✅ CORREGIDO: Se importa el guard
-import { permissionsGuard } from '../../core/guards/permissions-guard';
+import { permissionsGuard } from '@univeex/auth/data-access';
 
 export const SETTINGS_ROUTES: Routes = [
     {
         path: '',
         component: SettingsLayout,
         children: [
-
              {
                 path: 'my-profile',
                 title: 'Mi Perfil',
@@ -24,7 +22,7 @@ export const SETTINGS_ROUTES: Routes = [
                 title: 'Gestión de Usuarios',
                 loadComponent: () => import('./user-management/user-management.page').then(m => m.UserManagementPage),
                 canActivate: [permissionsGuard],
-                data: { permissions: ['users:view'] } // ✅ CORREGIDO: 'permissions' en plural
+                data: { permissions: ['users:view'] }
             },
             {
                 path: 'branding',
@@ -39,10 +37,9 @@ export const SETTINGS_ROUTES: Routes = [
             {
                 path: 'roles',
                 title: 'Roles y Permisos',
-                // ✅ CORREGIDO: Ruta de importación correcta
                 loadComponent: () => import('./roles/roles.page').then(m => m.RolesManagementPage),
                 canActivate: [permissionsGuard],
-                data: { permissions: ['roles:view'] } // ✅ CORREGIDO: 'permissions' en plural
+                data: { permissions: ['roles:view'] }
             },
             { path: '', redirectTo: 'profile', pathMatch: 'full' }
         ]
