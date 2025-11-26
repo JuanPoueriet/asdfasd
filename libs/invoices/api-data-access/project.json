@@ -1,0 +1,16 @@
+{
+  "name": "invoices-api-data-access",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/invoices/api-data-access/src",
+  "projectType": "library",
+  "tags": [
+    "scope:invoices",
+    "type:data-access",
+    "platform:api"
+  ],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

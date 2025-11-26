@@ -1,0 +1,16 @@
+{
+  "name": "workflows-api-feature",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/workflows/api-feature/src",
+  "projectType": "library",
+  "tags": [
+    "scope:workflows",
+    "type:feature",
+    "platform:api"
+  ],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

@@ -1,10 +1,10 @@
 {
-  "name": "data-access",
+  "name": "taxes-data-access",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/taxes/data-access/src",
   "projectType": "library",
   "tags": [
-    "platform:shared",
+    "platform:web",
     "scope:taxes",
     "type:data-access"
   ],

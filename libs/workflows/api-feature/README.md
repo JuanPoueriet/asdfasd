@@ -1,3 +1,3 @@
-# treasury-feature-api
+# workflows-api-feature
 
 This library was generated with [Nx](https://nx.dev).

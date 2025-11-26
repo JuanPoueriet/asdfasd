@@ -1,0 +1,16 @@
+{
+  "name": "treasury-api-feature",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/treasury/api-feature/src",
+  "projectType": "library",
+  "tags": [
+    "scope:treasury",
+    "type:feature",
+    "platform:api"
+  ],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

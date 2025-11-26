@@ -5,7 +5,9 @@
   "prefix": "lib",
   "projectType": "library",
   "tags": [
-    "platform:angular"
+    "platform:web",
+    "scope:invoices",
+    "type:feature-shell"
   ],
   "targets": {
     "test": {

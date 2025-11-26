@@ -26,7 +26,7 @@ export default [
                 'type:ui',
                 'type:data-access',
                 'type:util',
-                'type:domain', // Allow features to use domain objects directly if needed
+                'type:domain',
               ],
             },
             {
@@ -52,7 +52,7 @@ export default [
             // Domain Scopes
             {
               sourceTag: 'scope:accounting',
-              onlyDependOnLibsWithTags: ['scope:accounting', 'scope:shared', 'scope:localization', 'scope:notifications'], // Accounting might need localization and notifications
+              onlyDependOnLibsWithTags: ['scope:accounting', 'scope:shared', 'scope:localization', 'scope:notifications'],
             },
             {
               sourceTag: 'scope:customers',
@@ -64,15 +64,15 @@ export default [
             },
             {
               sourceTag: 'scope:users',
-              onlyDependOnLibsWithTags: ['scope:users', 'scope:shared', 'scope:auth'], // Users might depend on auth context
+              onlyDependOnLibsWithTags: ['scope:users', 'scope:shared', 'scope:auth'],
             },
             {
               sourceTag: 'scope:auth',
-              onlyDependOnLibsWithTags: ['scope:auth', 'scope:users', 'scope:shared', 'scope:localization'], // Auth uses users and localization
+              onlyDependOnLibsWithTags: ['scope:auth', 'scope:users', 'scope:shared', 'scope:localization'],
             },
             {
               sourceTag: 'scope:invoices',
-              onlyDependOnLibsWithTags: ['scope:invoices', 'scope:shared', 'scope:customers', 'scope:inventory'], // Invoices need customers and inventory
+              onlyDependOnLibsWithTags: ['scope:invoices', 'scope:shared', 'scope:customers', 'scope:inventory'],
             },
              {
               sourceTag: 'scope:taxes',
@@ -80,18 +80,17 @@ export default [
             },
             // Platform constraints
             {
-              sourceTag: 'platform:angular',
-              onlyDependOnLibsWithTags: ['platform:angular', 'platform:shared'],
+              sourceTag: 'platform:web',
+              onlyDependOnLibsWithTags: ['platform:web', 'platform:shared'],
             },
             {
-              sourceTag: 'platform:nest',
-              onlyDependOnLibsWithTags: ['platform:nest', 'platform:shared'],
+              sourceTag: 'platform:api',
+              onlyDependOnLibsWithTags: ['platform:api', 'platform:shared'],
             },
             {
               sourceTag: 'platform:shared',
               onlyDependOnLibsWithTags: ['platform:shared'],
             },
-            // Add other scopes as needed, defaulting to restrictive
           ],
         },
       ],
@@ -108,7 +107,6 @@ export default [
       '**/*.cjs',
       '**/*.mjs',
     ],
-    // Override or add rules here
     rules: {},
   },
 ];
