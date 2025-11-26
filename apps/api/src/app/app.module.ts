@@ -15,7 +15,7 @@ import { CacheModule } from '@univeex/cache/feature-api';
 
 
 import { AuthModule } from '@univeex/auth/feature-api';
-import { UsersModule } from '@univeex/users/feature-api';
+import { UsersModule } from '@univeex/users/backend/feature';
 
 import { JournalEntriesModule } from '@univeex/journal-entries/feature-api';
 import { AccountingModule } from '@univeex/accounting/feature-api';
@@ -24,13 +24,13 @@ import { OrganizationsModule } from '@univeex/organizations/feature-api';
 // import { SharedModule } from './shared/shared.module'; // Removed or Moved
 import { ChartOfAccountsModule } from '@univeex/chart-of-accounts/feature-api';
 import { RolesModule } from '@univeex/roles/feature-api';
-import { InvoicesModule } from '@univeex/invoices/feature-api';
+import { InvoicesModule } from '@univeex/invoices/backend/feature';
 import { InventoryModule } from '@univeex/inventory/feature-api';
 import { CustomersModule } from '@univeex/customers/feature-api';
 import { SuppliersModule } from '@univeex/suppliers/feature-api';
 import { PriceListsModule } from '@univeex/price-lists/feature-api';
 import { CurrenciesModule } from '@univeex/currencies/feature-api';
-import { TaxesModule } from '@univeex/taxes/feature-api';
+import { TaxesModule } from '@univeex/taxes/backend/feature';
 import { DashboardModule } from '@univeex/dashboard/feature-api';
 import { ReconciliationModule } from '@univeex/reconciliation/feature-api';
 import { AccountsPayableModule } from '@univeex/accounts-payable/feature-api';

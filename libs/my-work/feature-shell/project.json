@@ -1,0 +1,19 @@
+{
+  "name": "my-work-feature-shell",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/my-work/feature-shell/src",
+  "projectType": "library",
+  "tags": ["scope:my-work", "type:feature-shell", "platform:web"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/my-work/feature-shell/jest.config.ts"
+      }
+    }
+  }
+}

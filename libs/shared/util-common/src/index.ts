@@ -1,1 +1,1 @@
-export * from './lib/tree.service';
+export * from './lib/permissions';

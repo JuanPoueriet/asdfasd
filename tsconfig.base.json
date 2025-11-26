@@ -19,7 +19,7 @@
       "@univeex/shared-utils": ["shared/utils/src/index.ts"],
       "@univeex/web-ui": ["web/ui/src/index.ts"],
       "@univeex/taxes/data-access": ["libs/taxes/data-access/src/index.ts"],
-      "@univeex/taxes/feature-api": ["libs/taxes/feature-api/src/index.ts"],
+      "@univeex/taxes/backend/feature": ["libs/taxes/backend/feature/src/index.ts"],
       "@univeex/shared/ui": ["libs/shared/ui/src/index.ts"],
       "@univeex/accounting/feature-api": [
         "libs/accounting/feature-api/src/index.ts"
@@ -28,7 +28,8 @@
         "libs/accounting/feature-shell/src/index.ts"
       ],
       "@univeex/auth/feature-api": ["libs/auth/feature-api/src/index.ts"],
-      "@univeex/users/feature-api": ["libs/users/feature-api/src/index.ts"],
+      "@univeex/users/backend/data-access": ["libs/users/backend/data-access/src/index.ts"],
+      "@univeex/users/backend/feature": ["libs/users/backend/feature/src/index.ts"],
       "@univeex/sales/feature-api": ["libs/sales/feature-api/src/index.ts"],
       "@univeex/inventory/feature-api": [
         "libs/inventory/feature-api/src/index.ts"
@@ -50,9 +51,8 @@
       "@univeex/reporting/feature-api": [
         "libs/reporting/feature-api/src/index.ts"
       ],
-      "@univeex/invoices/feature-api": [
-        "libs/invoices/feature-api/src/index.ts"
-      ],
+      "@univeex/invoices/backend/data-access": ["libs/invoices/backend/data-access/src/index.ts"],
+      "@univeex/invoices/backend/feature": ["libs/invoices/backend/feature/src/index.ts"],
       "@univeex/intercompany/feature-api": [
         "libs/intercompany/feature-api/src/index.ts"
       ],
@@ -139,6 +139,7 @@
       ],
       "@univeex/audit/feature-api": ["libs/audit/feature-api/src/index.ts"],
       "@univeex/my-work/feature-api": ["libs/my-work/feature-api/src/index.ts"],
+      "@univeex/my-work/feature-shell": ["libs/my-work/feature-shell/src/index.ts"],
       "@univeex/invoices/feature-shell": [
         "libs/invoices/feature-shell/src/index.ts"
       ],
@@ -223,6 +224,7 @@
       "@univeex/dashboard/data-access": [
         "libs/dashboard/data-access/src/index.ts"
       ],
+      "@univeex/dashboard/ui": ["libs/dashboard/ui/src/index.ts"],
       "@univeex/localization/domain": ["libs/localization/domain/src/index.ts"],
       "@univeex/localization/data-access": [
         "libs/localization/data-access/src/index.ts"
@@ -242,6 +244,7 @@
       ],
       "@univeex/shared/util-ui": ["libs/shared/util-ui/src/index.ts"],
       "@univeex/shared/util-common": ["libs/shared/util-common/src/index.ts"],
+      "@univeex/shared/util-backend": ["libs/shared/util-backend/src/index.ts"],
       "@univeex/accounts-payable/data-access": [
         "libs/accounts-payable/data-access/src/index.ts"
       ],
@@ -267,6 +270,7 @@
       "@univeex/sales/data-access": ["libs/sales/data-access/src/index.ts"],
       "@univeex/audit/data-access": ["libs/audit/data-access/src/index.ts"],
       "@univeex/audit/domain": ["libs/audit/domain/src/index.ts"],
+      "@univeex/audit/ui": ["libs/audit/ui/src/index.ts"],
       "@univeex/contacts/data-access": [
         "libs/contacts/data-access/src/index.ts"
       ],
