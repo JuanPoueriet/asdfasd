@@ -1,11 +1,12 @@
 {
-  "name": "shared-util-common",
+  "name": "shared-util-backend",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/shared/util-common/src",
+  "sourceRoot": "libs/shared/util-backend/src",
   "projectType": "library",
   "tags": [
     "scope:shared",
-    "type:util"
+    "type:util",
+    "platform:nest"
   ],
   "targets": {
     "lint": {

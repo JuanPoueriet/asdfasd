@@ -1,0 +1,19 @@
+{
+  "name": "audit-ui",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/audit/ui/src",
+  "projectType": "library",
+  "tags": ["scope:audit", "type:ui", "platform:web"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/audit/ui/jest.config.ts"
+      }
+    }
+  }
+}
