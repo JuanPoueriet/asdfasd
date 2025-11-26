@@ -21,8 +21,8 @@
       "@univeex/taxes/data-access": ["libs/taxes/data-access/src/index.ts"],
       "@univeex/taxes/backend/feature": ["libs/taxes/backend/feature/src/index.ts"],
       "@univeex/shared/ui": ["libs/shared/ui/src/index.ts"],
-      "@univeex/accounting/feature-api": [
-        "libs/accounting/feature-api/src/index.ts"
+      "@univeex/accounting/api-feature-chart-of-accounts": [
+        "libs/accounting/api-feature-chart-of-accounts/src/index.ts"
       ],
       "@univeex/accounting/feature-shell": [
         "libs/accounting/feature-shell/src/index.ts"
