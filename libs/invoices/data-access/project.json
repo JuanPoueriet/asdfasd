@@ -5,7 +5,7 @@
   "prefix": "lib",
   "projectType": "library",
   "tags": [
-    "platform:shared",
+    "platform:web",
     "scope:invoices",
     "type:data-access"
   ],

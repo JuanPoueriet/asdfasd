@@ -1,0 +1,16 @@
+{
+  "name": "invoices-api-feature",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/invoices/api-feature/src",
+  "projectType": "library",
+  "tags": [
+    "scope:invoices",
+    "type:feature",
+    "platform:api"
+  ],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}
