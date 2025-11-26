@@ -19,8 +19,7 @@ import { JwtAuthGuard } from '@univeex/auth/feature-api';
 import { CurrentUser } from '@univeex/auth/feature-api';
 import { User } from '@univeex/users/backend/data-access';
 import { UsersApplicationService } from './users.application.service';
-import { InviteUserDto } from './dto/invite-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
+import { InviteUserDto, UpdateUserDto } from '@univeex/users/api-data-access';
 
 @Controller('users')
 @UseGuards(JwtAuthGuard)

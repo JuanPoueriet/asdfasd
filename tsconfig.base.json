@@ -30,7 +30,7 @@
       "@univeex/auth/feature-api": ["libs/auth/feature-api/src/index.ts"],
       "@univeex/users/backend/data-access": ["libs/users/backend/data-access/src/index.ts"],
       "@univeex/users/backend/feature": ["libs/users/backend/feature/src/index.ts"],
-      "@univeex/sales/feature-api": ["libs/sales/feature-api/src/index.ts"],
+      "@univeex/sales/api-feature": ["libs/sales/api-feature/src/index.ts"],
       "@univeex/inventory/feature-api": [
         "libs/inventory/feature-api/src/index.ts"
       ],
@@ -40,27 +40,27 @@
       "@univeex/customers/feature-api": [
         "libs/customers/feature-api/src/index.ts"
       ],
-      "@univeex/suppliers/feature-api": [
-        "libs/suppliers/feature-api/src/index.ts"
+      "@univeex/suppliers/api-feature": [
+        "libs/suppliers/api-feature/src/index.ts"
       ],
       "@univeex/organizations/feature-api": [
         "libs/organizations/feature-api/src/index.ts"
       ],
-      "@univeex/roles/feature-api": ["libs/roles/feature-api/src/index.ts"],
+      "@univeex/roles/api-feature": ["libs/roles/api-feature/src/index.ts"],
       "@univeex/reports/feature-api": ["libs/reports/feature-api/src/index.ts"],
       "@univeex/reporting/feature-api": [
         "libs/reporting/feature-api/src/index.ts"
       ],
       "@univeex/invoices/backend/data-access": ["libs/invoices/backend/data-access/src/index.ts"],
       "@univeex/invoices/backend/feature": ["libs/invoices/backend/feature/src/index.ts"],
-      "@univeex/intercompany/feature-api": [
-        "libs/intercompany/feature-api/src/index.ts"
+      "@univeex/intercompany/api-feature": [
+        "libs/intercompany/api-feature/src/index.ts"
       ],
-      "@univeex/units-of-measure/feature-api": [
-        "libs/units-of-measure/feature-api/src/index.ts"
+      "@univeex/units-of-measure/api-feature": [
+        "libs/units-of-measure/api-feature/src/index.ts"
       ],
-      "@univeex/notifications/feature-api": [
-        "libs/notifications/feature-api/src/index.ts"
+      "@univeex/notifications/api-feature": [
+        "libs/notifications/api-feature/src/index.ts"
       ],
       "@univeex/currencies/feature-api": [
         "libs/currencies/feature-api/src/index.ts"
@@ -215,6 +215,9 @@
       "@univeex/suppliers/data-access": [
         "libs/suppliers/data-access/src/index.ts"
       ],
+      "@univeex/suppliers/api-data-access": [
+        "libs/suppliers/api-data-access/src/index.ts"
+      ],
       "@univeex/price-lists/domain": ["libs/price-lists/domain/src/index.ts"],
       "@univeex/price-lists/data-access": [
         "libs/price-lists/data-access/src/index.ts"
@@ -258,6 +261,7 @@
         "libs/journal-entries/data-access/src/index.ts"
       ],
       "@univeex/shared/util-http": ["libs/shared/util-http/src/index.ts"],
+      "@univeex/shared/util-localization": ["libs/shared/util-localization/src/index.ts"],
       "@univeex/accounting/feature-account-form": [
         "libs/accounting/feature-account-form/src/index.ts"
       ],

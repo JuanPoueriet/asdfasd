@@ -1,0 +1,11 @@
+{
+  "name": "notifications-api-feature",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/notifications/api-feature/src",
+  "projectType": "library",
+  "tags": [
+    "platform:nest"
+  ],
+  "// targets": "to see all targets run: nx show project notifications-api-feature --web",
+  "targets": {}
+}

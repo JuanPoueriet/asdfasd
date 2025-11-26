@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LanguageService } from '@univeex/localization/data-access';
+import { LanguageService } from '@univeex/shared/util-localization';
 
 @Component({
   selector: 'app-language-selector',
