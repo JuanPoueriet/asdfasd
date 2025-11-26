@@ -2,7 +2,8 @@ import { Component, ChangeDetectionStrategy, inject, OnInit, signal } from '@ang
 import { CommonModule } from '@angular/common';
 import { LucideAngularModule, CreditCard, Download, CheckCircle, Info } from 'lucide-angular';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { BillingService, Subscription, PaymentMethod, PaymentHistoryItem } from '@univeex/accounting/data-access';
+import { BillingService } from '@univeex/accounting/web-data-access';
+import { Subscription, PaymentMethod, PaymentHistoryItem } from '@univeex/accounting/domain';
 
 @Component({
   selector: 'app-billing-page',
@@ -13,25 +14,21 @@ import { BillingService, Subscription, PaymentMethod, PaymentHistoryItem } from 
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BillingPage implements OnInit {
-  private billingService = inject(BillingService);
+  private billingService: BillingService = inject(BillingService);
 
-  // Íconos
   protected readonly CreditCardIcon = CreditCard;
   protected readonly DownloadIcon = Download;
   protected readonly CheckCircleIcon = CheckCircle;
   protected readonly InfoIcon = Info;
 
-  // Convertimos los datos del servicio en señales
-  subscription = toSignal(this.billingService.getSubscription());
-  paymentMethod = toSignal(this.billingService.getPaymentMethod());
-  paymentHistory = toSignal(this.billingService.getPaymentHistory());
+  subscription = toSignal(this.billingService.getSubscription(), { initialValue: {} as Subscription });
+  paymentMethod = toSignal(this.billingService.getPaymentMethod(), { initialValue: {} as PaymentMethod });
+  paymentHistory = toSignal(this.billingService.getPaymentHistory(), { initialValue: [] as PaymentHistoryItem[] });
 
-  // Estado para la UI
   selectedPlan = signal<'trial' | 'pro' | 'enterprise'>('pro');
   isSaving = signal(false);
 
   ngOnInit(): void {
-    // Inicializa el plan seleccionado con el plan actual del usuario
     const currentPlanId = this.subscription()?.planId;
     if (currentPlanId) {
       this.selectedPlan.set(currentPlanId);
@@ -46,7 +43,6 @@ export class BillingPage implements OnInit {
     this.isSaving.set(true);
     this.billingService.changePlan(this.selectedPlan()).subscribe({
       next: () => {
-        // En una app real, recargaríamos los datos de la suscripción
         console.log('Plan actualizado con éxito');
         this.isSaving.set(false);
       },

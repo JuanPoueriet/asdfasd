@@ -6,16 +6,16 @@ import {
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
-import { LanguageService } from '@univeex/localization/data-access';
+import { LocalizationService } from '../localization.service';
 
 export const languageRedirectGuard: CanActivateFn = (
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot
 ): boolean | UrlTree => {
   const router = inject(Router);
-  const languageService = inject(LanguageService);
+  const localizationService = inject(LocalizationService);
   const supportedLangs = ['en', 'es'];
-  const defaultLang = languageService.getInitialLanguage() || 'es';
+  const defaultLang = localizationService.getInitialLanguage() || 'es';
 
   const activatingRoutePath = route.routeConfig?.path;
 
@@ -23,7 +23,7 @@ export const languageRedirectGuard: CanActivateFn = (
     const langParam = route.params['lang'];
 
     if (supportedLangs.includes(langParam)) {
-      languageService.setLanguage(langParam);
+      localizationService.setLanguage(langParam);
       return true;
     } else {
       const urlSegments = state.url.split('/').filter(Boolean);

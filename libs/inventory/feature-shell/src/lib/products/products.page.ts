@@ -5,7 +5,7 @@ import { LucideAngularModule, PlusCircle, MoreHorizontal, AlertCircle, Search } 
 // import { Product } from '@univeex/inventory/domain';
 import { InventoryService } from '@univeex/inventory/data-access';
 import { NotificationService } from '@univeex/notifications/data-access';
-import { HasPermissionDirective } from '../../../shared/directives/has-permission.directive';
+import { HasPermissionDirective } from '@univeex/shared/ui';
 import { Product } from '@univeex/inventory/domain';
 
 @Component({

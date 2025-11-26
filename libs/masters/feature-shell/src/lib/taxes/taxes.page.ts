@@ -5,7 +5,7 @@ import { LucideAngularModule, PlusCircle, Filter, MoreHorizontal, Trash2 } from 
 import { Tax } from '@univeex/taxes/domain';
 import { TaxesService } from '@univeex/taxes/data-access';
 import { NotificationService } from '@univeex/notifications/data-access';
-import { HasPermissionDirective } from '../../../shared/directives/has-permission.directive';
+import { HasPermissionDirective } from '@univeex/shared/ui';
 
 @Component({
   selector: 'app-taxes-page',

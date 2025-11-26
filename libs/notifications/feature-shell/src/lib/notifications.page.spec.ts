@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { signal } from '@angular/core';
 import { NotificationsPage } from './notifications.page';
-import { NotificationCenterService, Notification } from '../../core/services/notification-center.service';
+import { NotificationCenterService } from '@univeex/notifications/data-access';
+import { Notification } from '@univeex/notifications/domain';
 
 class MockNotificationCenterService {
   notifications = signal<Notification[]>([]);
@@ -36,8 +37,8 @@ describe('NotificationsPage', () => {
 
   it('should display notifications from the service', () => {
     const mockNotifications: Notification[] = [
-      { id: '1', title: 'Test 1', body: 'Body 1', read: false, createdAt: new Date().toISOString() },
-      { id: '2', title: 'Test 2', body: 'Body 2', read: true, createdAt: new Date().toISOString() },
+      { id: '1', title: 'Test 1', body: 'Body 1', read: false, createdAt: new Date().toISOString(), type: 'default', link: '' },
+      { id: '2', title: 'Test 2', body: 'Body 2', read: true, createdAt: new Date().toISOString(), type: 'default', link: '' },
     ];
     notificationService.notifications.set(mockNotifications);
     fixture.detectChanges();
@@ -47,7 +48,7 @@ describe('NotificationsPage', () => {
 
   it('should call markAsRead when a notification is clicked', () => {
     const mockNotifications: Notification[] = [
-      { id: '1', title: 'Test 1', body: 'Body 1', read: false, createdAt: new Date().toISOString() }
+        { id: '1', title: 'Test 1', body: 'Body 1', read: false, createdAt: new Date().toISOString(), type: 'default', link: '' }
     ];
     notificationService.notifications.set(mockNotifications);
     fixture.detectChanges();

@@ -4,11 +4,11 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LucideAngularModule, Save, Plus, Trash2 } from 'lucide-angular';
-import { PriceListsService, CreatePriceListDto, UpdatePriceListDto } from '../@univeex/price-lists/data-access';
+import { PriceListsService, CreatePriceListDto, UpdatePriceListDto } from '@univeex/price-lists/data-access';
 import { InventoryService } from '@univeex/inventory/data-access';
-import { NotificationService } from '../@univeex/notifications/data-access';
+import { NotificationService } from '@univeex/notifications/data-access';
 import { Product } from '@univeex/inventory/domain';
-import { PriceListItem, PriceListStatus } from '../@univeex/price-lists/domain'; // <-- Corregido el import
+import { PriceListItem, PriceListStatus } from '@univeex/price-lists/domain';
 
 @Component({
   selector: 'app-price-list-form-page',
@@ -34,7 +34,7 @@ export class PriceListFormPage implements OnInit {
   priceListForm!: FormGroup;
   isEditMode = signal(false);
   isLoading = signal(true);
-  isSaving = signal(false); // <-- Añadido para controlar el estado de guardado
+  isSaving = signal(false);
   products = signal<Product[]>([]);
 
   statusOptions: PriceListStatus[] = [PriceListStatus.DRAFT, PriceListStatus.ACTIVE, PriceListStatus.INACTIVE];
@@ -77,9 +77,8 @@ export class PriceListFormPage implements OnInit {
           validTo: new Date(priceList.validTo).toISOString().split('T')[0],
         });
         
-        // Limpiamos las líneas existentes antes de añadir las nuevas
         this.lines.clear();
-        priceList.items.forEach((item: PriceListItem) => { // <-- Tipo explícito añadido
+        priceList.items.forEach((item: PriceListItem) => {
             this.lines.push(this.createLine(item.productId, item.price));
         });
 

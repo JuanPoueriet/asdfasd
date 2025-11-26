@@ -9,7 +9,7 @@ export const MASTERS_ROUTES: Routes = [
             { path: 'customers', title: 'Customers', loadComponent: () => import('./customers/customer-list/customer-list.page').then(m => m.CustomerListPage) },
             { path: 'suppliers', title: 'Suppliers', loadComponent: () => import('./suppliers/supplier-list/supplier-list.page').then(m => m.SupplierListPage) },
             { path: 'suppliers/new', title: 'Suppliers', loadComponent: () => import('./suppliers/supplier-form/supplier-form').then(m => m.SupplierForm) },
-            { path: 'products', title: 'Products', loadComponent: () => import('../../features/inventory/products/products.page').then(m => m.ProductsPage) },
+            { path: 'products', title: 'Products', loadComponent: () => import('@univeex/inventory/feature-shell').then(m => m.ProductsPage) },
             { path: 'price-lists', title: 'Price Lists', loadComponent: () => import('./price-lists/price-lists.page').then(m => m.PriceListsPage) },
             // { path: 'price-lists/new', title: 'New Price List', loadComponent: () => import('./price-lists/price-list-form/price-list-form.page').then(m => m.PriceListFormPage) },
             { path: 'price-lists/new', title: 'New Price List', loadComponent: () => import('./price-lists/price-lists-form/price-list-form.page').then(m => m.PriceListFormPage) },
