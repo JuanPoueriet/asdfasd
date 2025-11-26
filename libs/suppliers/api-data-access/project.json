@@ -1,0 +1,19 @@
+{
+  "name": "suppliers-api-data-access",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/suppliers/api-data-access/src",
+  "projectType": "library",
+  "tags": [
+    "platform:nest",
+    "type:data-access"
+  ],
+  "targets": {
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/suppliers/api-data-access/**/*.ts"]
+      }
+    }
+  }
+}

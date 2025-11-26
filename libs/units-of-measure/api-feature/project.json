@@ -1,0 +1,11 @@
+{
+  "name": "units-of-measure-api-feature",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/units-of-measure/api-feature/src",
+  "projectType": "library",
+  "tags": [
+    "platform:nest"
+  ],
+  "// targets": "to see all targets run: nx show project units-of-measure-api-feature --web",
+  "targets": {}
+}

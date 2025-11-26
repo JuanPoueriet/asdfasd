@@ -8,8 +8,7 @@ import { User, UsersService, UserStatus } from '@univeex/users/backend/data-acce
 import { RolesService } from '@univeex/roles/feature-api';
 import { MailService } from '@univeex/mail/feature-api';
 import { EventsGateway } from '@univeex/websockets/feature-api';
-import { UpdateUserDto } from './dto/update-user.dto';
-import { InviteUserDto } from './dto/invite-user.dto';
+import { UpdateUserDto, InviteUserDto } from '@univeex/users/api-data-access';
 import * as crypto from 'crypto';
 
 @Injectable()

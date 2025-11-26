@@ -16,10 +16,12 @@ export default [
           enforceBuildableLibDependency: false,
           allow: ['^.*/eslint(\\.base)?\\.config\\.[cm]?[jt]s$'],
           depConstraints: [
+            // Stricter Shared Scope
             {
               sourceTag: 'scope:shared',
               onlyDependOnLibsWithTags: ['scope:shared'],
             },
+            // Type Constraints
             {
               sourceTag: 'type:feature',
               onlyDependOnLibsWithTags: [
@@ -49,10 +51,27 @@ export default [
               sourceTag: 'type:util',
               onlyDependOnLibsWithTags: ['type:util'],
             },
-            // Domain Scopes
+            // Original Domain Scopes (to be refactored)
             {
               sourceTag: 'scope:accounting',
               onlyDependOnLibsWithTags: ['scope:accounting', 'scope:shared', 'scope:localization', 'scope:notifications'],
+            },
+            // New, Stricter Domain Scopes
+            {
+              sourceTag: 'scope:ledger',
+              onlyDependOnLibsWithTags: ['scope:ledger', 'scope:shared'],
+            },
+            {
+              sourceTag: 'scope:journals',
+              onlyDependOnLibsWithTags: ['scope:journals', 'scope:shared', 'scope:ledger'],
+            },
+            {
+              sourceTag: 'scope:periods',
+              onlyDependOnLibsWithTags: ['scope:periods', 'scope:shared', 'scope:ledger'],
+            },
+            {
+              sourceTag: 'scope:reconciliation',
+              onlyDependOnLibsWithTags: ['scope:reconciliation', 'scope:shared', 'scope:ledger'],
             },
             {
               sourceTag: 'scope:customers',
