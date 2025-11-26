@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { SearchController } from './search.controller';
 import { SearchService } from './search.service';
-import { InvoicesModule } from '../invoices/invoices.module';
-import { InventoryModule } from '../inventory/inventory.module';
-import { CustomersModule } from '../customers/customers.module';
+import { InvoicesModule } from '@univeex/invoices/backend/feature';
+import { InventoryModule } from '@univeex/inventory/feature-api';
+import { CustomersModule } from '@univeex/customers/feature-api';
 
 @Module({
   imports: [InvoicesModule, InventoryModule, CustomersModule],

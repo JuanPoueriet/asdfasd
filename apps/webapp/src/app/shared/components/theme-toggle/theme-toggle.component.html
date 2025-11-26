@@ -1,0 +1,4 @@
+<button (click)="themeService.toggleTheme()" class="theme-toggle-btn">
+  <lucide-icon name="sun" *ngIf="themeService.theme() === 'dark'"></lucide-icon>
+  <lucide-icon name="moon" *ngIf="themeService.theme() === 'light'"></lucide-icon>
+</button>

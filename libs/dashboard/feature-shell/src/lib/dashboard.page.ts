@@ -1,11 +1,11 @@
 import { Component, ChangeDetectionStrategy, inject, OnInit, signal, computed, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GridsterModule, GridsterConfig, GridType, CompactType, DisplayGrid } from 'angular-gridster2';
-import { DashboardService, DashboardWidget } from '../../core/services/dashboard';
+import { DashboardService, DashboardWidget } from '@univeex/dashboard/data-access';
 
 // ✅ CORRECCIÓN: Se importan TODOS los componentes de widgets que se usarán en la plantilla
-import { KpiCard } from '../../shared/components/kpi-card/kpi-card';
-import { StatCard } from '../../shared/components/stat-card/stat-card';
+import { KpiCard } from '@univeex/dashboard/ui';
+import { StatCard } from '@univeex/dashboard/ui';
 import { ComparisonChart } from './widgets/comparison-chart/comparison-chart';
 import { AlertsPanel } from './widgets/alerts-panel/alerts-panel';
 import { SalesChart } from './widgets/sales-chart/sales-chart';
@@ -14,7 +14,7 @@ import { LowStockProducts } from './widgets/low-stock-products/low-stock-product
 import { TopProductsChart } from './widgets/top-products-chart/top-products-chart';
 import { RecentActivity } from './widgets/recent-activity/recent-activity';
 import { LucideAngularModule, LayoutDashboard, Settings, Plus, X, Trash } from 'lucide-angular';
-import { AuthService } from '../../core/services/auth';
+import { AuthService } from '@univeex/auth/data-access';
 import { CashflowChart } from "./widgets/cashflow-chart/cashflow-chart";
 import { ExpensesChart } from "./widgets/expenses-chart/expenses-chart";
 import { ArAgingChart } from "./widgets/ar-aging-chart/ar-aging-chart";

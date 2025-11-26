@@ -1,17 +1,19 @@
 import { Component, ChangeDetectionStrategy, inject, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { LucideAngularModule, Search, FileText, Package, User, Icon } from 'lucide-angular';
+import { LucideAngularModule, Search, FileText, Package, User, Check } from 'lucide-angular';
 import { SearchService } from '@univeex/search/data-access';
 import { SearchResultGroup } from '@univeex/search/domain';
 
+type IconEntity = typeof Check;
+
 interface EnhancedSearchResultGroup extends SearchResultGroup {
-  icon: Icon;
+  icon: IconEntity;
 }
 
 @Component({
   selector: 'app-global-search-page',
-  standalone: true,
+  standalone: true,,
   imports: [CommonModule, RouterLink, LucideAngularModule],
   templateUrl: './global-search.page.html',
   styleUrls: ['./global-search.page.scss'],
@@ -22,7 +24,7 @@ export class GlobalSearchPage implements OnInit {
   private searchService = inject(SearchService);
 
   protected readonly SearchIcon = Search;
-  private readonly iconMap: { [key: string]: Icon } = {
+  private readonly iconMap: { [key: string]: IconEntity } = {
     Invoices: FileText,
     Products: Package,
     Customers: User,

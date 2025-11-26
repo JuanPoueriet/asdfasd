@@ -1,0 +1,14 @@
+<div class="stat-card">
+  <div class="stat-header">
+    <span class="stat-title">{{ data?.title }}</span>
+  </div>
+  <div class="stat-body">
+    <span class="stat-value">{{ data?.value }}</span>
+  </div>
+  <div class="stat-footer">
+    <span class="stat-change" [ngClass]="data?.changeType === 'increase' ? 'positive' : 'negative'">
+      <lucide-icon [name]="data?.changeType === 'increase' ? 'trending-up' : 'trending-down'"></lucide-icon>
+      {{ data?.change }}
+    </span>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 import { Directive, Input, OnDestroy, TemplateRef, ViewContainerRef, inject, computed } from '@angular/core';
-import { AuthService } from '../../core/services/auth';
+import { AuthService } from '@univeex/auth/data-access';
 import { combineLatest, Subscription } from 'rxjs';
 
 @Directive({

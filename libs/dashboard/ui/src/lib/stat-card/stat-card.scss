@@ -1,0 +1,40 @@
+.stat-card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius-md);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+.stat-header {
+  .stat-title {
+    color: var(--text-secondary);
+    font-weight: 600;
+  }
+}
+
+.stat-body {
+  .stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+}
+
+.stat-footer {
+  .stat-change {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+
+    &.positive {
+      color: #10b981;
+    }
+
+    &.negative {
+      color: #ef4444;
+    }
+  }
+}

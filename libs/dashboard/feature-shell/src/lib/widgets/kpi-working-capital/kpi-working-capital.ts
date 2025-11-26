@@ -1,8 +1,8 @@
 import { Component, ChangeDetectionStrategy, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LucideAngularModule, TrendingUp, TrendingDown, Minus, Wallet } from 'lucide-angular';
-import { Kpi } from '../@univeex/dashboard/domain';
-import { DashboardApiService } from '../@univeex/dashboard/data-access';
+import { Kpi } from '@univeex/dashboard/domain';
+import { DashboardApiService } from '@univeex/dashboard/data-access';
 import { Observable, map } from 'rxjs';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -26,7 +26,7 @@ export class KpiWorkingCapital implements OnInit {
 
   ngOnInit(): void {
     this.kpi$ = this.dashboardApiService.getWorkingCapital().pipe(
-      map(data => ({
+      map((data: { workingCapital: number }) => ({
         title: 'DASH.WIDGET.KPI_WORKING_CAPITAL.TITLE', // Usamos clave de traducción
         value: data.workingCapital.toString(), // CORRECCIÓN: Se envía el número directamente
         comparisonValue: '', // El backend no provee comparación aún

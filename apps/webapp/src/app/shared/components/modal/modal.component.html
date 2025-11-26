@@ -1,0 +1,21 @@
+<div class="modal-overlay" *ngIf="modalService.isOpen()">
+  <div class="modal-container">
+    <div class="modal-header">
+      <h3 class="modal-title">{{ modalService.config()?.title }}</h3>
+      <button (click)="modalService.close()" class="close-btn">
+        <lucide-icon name="x"></lucide-icon>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>{{ modalService.config()?.message }}</p>
+    </div>
+    <div class="modal-footer">
+      <button (click)="modalService.close(false)" class="btn btn-secondary" *ngIf="modalService.config()?.cancelText">
+        {{ modalService.config()?.cancelText }}
+      </button>
+      <button (click)="modalService.close(true)" class="btn btn-primary" *ngIf="modalService.config()?.confirmText">
+        {{ modalService.config()?.confirmText }}
+      </button>
+    </div>
+  </div>
+</div>

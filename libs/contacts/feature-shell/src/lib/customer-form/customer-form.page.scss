@@ -1,6 +1,6 @@
-@use '../../../../assets/styles/variables' as *;
-@use '../../../../assets/styles/forms' as mixins;
-@use '../../../../assets/styles/view-styles' as views;
+@use 'apps/webapp/src/assets/styles/variables' as *;
+@use 'apps/webapp/src/assets/styles/forms' as mixins;
+@use 'apps/webapp/src/assets/styles/view-styles' as views;
 
 // Aplica los estilos base para el contenedor y el encabezado de la vista
 :host {

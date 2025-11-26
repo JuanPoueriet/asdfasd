@@ -1,8 +1,8 @@
 import { Component, ChangeDetectionStrategy, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LucideAngularModule, TrendingUp, TrendingDown, Minus, Trophy } from 'lucide-angular';
-import { Kpi } from '../@univeex/dashboard/domain';
-import { DashboardApiService } from '../@univeex/dashboard/data-access';
+import { Kpi } from '@univeex/dashboard/domain';
+import { DashboardApiService } from '@univeex/dashboard/data-access';
 import { Observable, map } from 'rxjs';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -26,7 +26,7 @@ export class KpiRoe implements OnInit {
 
   ngOnInit(): void {
     this.kpi$ = this.dashboardApiService.getROE().pipe(
-      map(data => ({
+      map((data: { roe: number }) => ({
         title: 'DASH.WIDGET.KPI_ROE.TITLE',
         value: (data.roe / 100).toString(), // CORRECCIÓN: Se envía como decimal para el pipe 'percent'
         comparisonValue: '', // El backend no provee comparación aún

@@ -12,7 +12,8 @@ import {
   take,
 } from 'rxjs';
 
-import { RegisterPayload, User, LoginCredentials, UserPayload, UserStatus } from '@univeex/users/domain';
+import { RegisterPayload, LoginCredentials, UserPayload, UserStatus } from '@univeex/users/domain';
+import { User } from '@univeex/users/domain';
 // TODO: Refactor enum out of shared/enums or keep it if it is shared/util
 import { AuthStatus } from '@univeex/shared/util-types';
 // import { NotificationService } from './notification'; // Need to fix this dependency

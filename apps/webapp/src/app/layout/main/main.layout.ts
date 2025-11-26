@@ -19,14 +19,14 @@ import {
   RouterLinkActive,
   RouterOutlet,
 } from '@angular/router';
-import { AuthService } from '../../core/services/auth';
+import { AuthService } from '@univeex/auth/data-access';
 import { BrandingService } from '../../core/services/branding';
 import { NotificationCenterService } from '../../core/services/notification-center.service';
-import { ThemeToggle } from '../../shared/components/theme-toggle/theme-toggle';
+import { ThemeToggle } from '../../shared/components/theme-toggle/theme-toggle.component';
 import {
   SearchService,
   SearchResultGroup,
-} from '../../core/services/search.service';
+} from '@univeex/search/data-access';
 import { Subject, of, Subscription } from 'rxjs';
 import {
   debounceTime,

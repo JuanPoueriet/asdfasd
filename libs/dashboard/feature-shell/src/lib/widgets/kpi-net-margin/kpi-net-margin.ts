@@ -1,8 +1,8 @@
 import { Component, ChangeDetectionStrategy, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LucideAngularModule, TrendingUp, TrendingDown, Minus, Percent } from 'lucide-angular';
-import { Kpi } from '../@univeex/dashboard/domain';
-import { DashboardApiService } from '../@univeex/dashboard/data-access';
+import { Kpi } from '@univeex/dashboard/domain';
+import { DashboardApiService } from '@univeex/dashboard/data-access';
 import { Observable, map } from 'rxjs';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -26,7 +26,7 @@ export class KpiNetMarginComponent implements OnInit {
 
   ngOnInit(): void {
     this.kpi$ = this.dashboardApiService.getNetMargin().pipe(
-      map(data => ({
+      map((data: { netMargin: number }) => ({
         title: 'DASH.WIDGET.KPI_NET_MARGIN.TITLE',
         value: data.netMargin.toFixed(2) + '%',
         comparisonValue: '', // El backend no provee comparación aún

@@ -18,7 +18,7 @@
   <div class="form-panel">
     <div class="form-container">
       <div class="form-header">
-        <p>¿Ya tienes una cuenta? <a [routerLink]="['/', languageService.currentLang(), 'auth', 'login']" class="link">Inicia sesión</a></p>
+        <p>¿Ya tienes una cuenta? <a [routerLink]="['/', currentLang, 'auth', 'login']" class="link">Inicia sesión</a></p>
       </div>
       <div class="stepper-header">
         @for (step of [1,2,3,4]; track $index) {

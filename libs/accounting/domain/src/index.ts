@@ -4,3 +4,6 @@ export * from './lib/journal-entry.model';
 export * from './lib/ledger.model';
 export * from './lib/flattened-account.model';
 export * from './lib/general-ledger.model';
+export * from './lib/subscription.model';
+export * from './lib/payment-method.model';
+export * from './lib/payment-history-item.model';
