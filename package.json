@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "postinstall": "electron-builder install-app-deps",
+    "postinstall": "",
     "start": "nx serve",
     "start:webapp": "nx serve webapp",
     "start:api": "nx serve api",
@@ -55,7 +55,6 @@
     "angular-eslint": "^20.3.0",
     "browser-sync": "^3.0.0",
     "cypress": "^15.6.0",
-    "electron": "^34.5.6",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^10.0.0",
     "eslint-plugin-cypress": "^3.5.0",
