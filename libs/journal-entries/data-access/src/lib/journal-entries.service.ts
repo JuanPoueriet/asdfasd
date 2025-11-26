@@ -10,7 +10,7 @@ type CreateJournalEntryDto = Omit<JournalEntry, 'id' | 'organizationId' | 'creat
 @Injectable({
   providedIn: 'root'
 })
-export class JournalEntries {
+export class JournalEntriesService {
   private http = inject(HttpClient);
   private apiUrl = `/api/journal-entries`;
 

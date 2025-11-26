@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DataImportsPage } from './data-imports.page';
+import { describe, beforeEach, it, expect } from '@jest/globals';
 
 describe('DataImportsPage', () => {
   let component: DataImportsPage;
@@ -10,7 +11,7 @@ describe('DataImportsPage', () => {
       imports: [DataImportsPage],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(DataImports);
+    fixture = TestBed.createComponent(DataImportsPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

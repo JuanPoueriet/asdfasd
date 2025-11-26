@@ -260,6 +260,9 @@
       "@univeex/journal-entries/data-access": [
         "libs/journal-entries/data-access/src/index.ts"
       ],
+      "@univeex/journal-entries/api": [
+        "libs/journal-entries/api/src/index.ts"
+      ],
       "@univeex/shared/util-http": ["libs/shared/util-http/src/index.ts"],
       "@univeex/shared/util-localization": ["libs/shared/util-localization/src/index.ts"],
       "@univeex/accounting/feature-account-form": [
@@ -315,7 +318,9 @@
         "accounting/feature-reconciliation/src/index.ts"
       ],
       "@univeex/api-feature": ["accounting/api-feature/src/index.ts"],
-      "@univeex/api-core": ["accounting/api-core/src/index.ts"]
+      "@univeex/api-core": ["accounting/api-core/src/index.ts"],
+      "@univeex/webapp/environments": ["apps/webapp/src/environments/environment.ts"],
+      "@univeex/shared/util-types": ["libs/shared/util-types/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -81,6 +81,10 @@ export class RegisterPage implements OnInit {
   isRegistering = signal(false);
   stepsCompleted = signal<boolean[]>(new Array(4).fill(false));
 
+  get currentLang(): string {
+    return this.languageService.currentLang();
+  }
+
   ngOnInit(): void {
     this.registerForm = this.fb.group({
       accountInfo: this.fb.group({

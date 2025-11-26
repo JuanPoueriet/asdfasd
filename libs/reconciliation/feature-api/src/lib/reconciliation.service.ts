@@ -13,23 +13,21 @@ import {
 import { Repository, Between, DataSource, In } from 'typeorm';
 import { UploadStatementDto } from './dto/upload-statement.dto';
 import { CsvParserService } from './parsers/csv-parser.service';
-import { Account } from 'src/chart-of-accounts/entities/account.entity';
+import { Account } from '@univeex/chart-of-accounts/domain';
 import {
   BankTransaction,
   TransactionStatus,
 } from './entities/bank-transaction.entity';
-import { JournalEntryLine } from 'src/journal-entries/entities/journal-entry-line.entity';
+import { JournalEntryLine, CreateJournalEntryDto, Journal } from '@univeex/journal-entries/domain';
 import {
   ReconciliationRule,
   RuleConditionOperator,
   RuleConditionField,
 } from './entities/reconciliation-rule.entity';
-import { JournalEntriesService } from 'src/journal-entries/journal-entries.service';
+import { JournalEntriesService } from '@univeex/journal-entries/api';
 import { MatchTransactionsDto } from './dto/match-transactions.dto';
 import { addDays, subDays } from 'date-fns';
-import { Journal } from 'src/journal-entries/entities/journal.entity';
-import { Ledger } from 'src/accounting/entities/ledger.entity';
-import { CreateJournalEntryDto } from 'src/journal-entries/dto/create-journal-entry.dto';
+import { Ledger } from '@univeex/accounting/domain';
 
 @Injectable()
 export class ReconciliationService {
@@ -44,6 +42,8 @@ export class ReconciliationService {
     private readonly journalEntryLineRepository: Repository<JournalEntryLine>,
     @InjectRepository(ReconciliationRule)
     private readonly ruleRepository: Repository<ReconciliationRule>,
+    @InjectRepository(Ledger)
+    private readonly ledgerRepository: Repository<Ledger>,
     private readonly csvParser: CsvParserService,
     private readonly dataSource: DataSource,
     private readonly journalEntriesService: JournalEntriesService,
@@ -178,13 +178,13 @@ export class ReconciliationService {
         return;
       }
 
-      const defaultLedger = await manager.findOneBy(Ledger, { organizationId, isDefault: true });
+      const defaultLedger = await this.ledgerRepository.findOne({ where: { organizationId, isDefault: true } });
       if (!defaultLedger) {
         this.logger.error(`Libro contable por defecto no encontrado para la organización ${organizationId}. El proceso se omitirá.`);
         return;
       }
       
-      const reconciliationJournal = await manager.findOneBy(Journal, { organizationId, code: 'CONCIL' });
+      const reconciliationJournal = await manager.findOne(Journal, { where: { organizationId, code: 'CONCIL' } });
       if (!reconciliationJournal) {
           throw new BadRequestException('Diario de Conciliación (CONCIL) no encontrado.');
       }

@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 // import { environment } from '../../../environments/environment';
-import { User } from '@univeex/shared/util-types';
+import { User } from '@univeex/users/domain';
 
 export interface InviteUserDto {
   firstName: string;

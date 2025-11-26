@@ -1,5 +1,5 @@
-@use "../../../../assets/styles/view-styles" as views;
-@use "../../../../assets/styles/forms" as mixins;
+@use 'apps/webapp/src/assets/styles/view-styles' as views;
+@use 'apps/webapp/src/assets/styles/forms' as mixins;
 
 // Reutiliza los estilos de la vista de Libro Mayor
 @use "../general-ledger/general-ledger.page.scss";

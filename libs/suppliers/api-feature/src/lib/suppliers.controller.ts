@@ -12,9 +12,8 @@ import {
 import { SuppliersService } from './suppliers.service';
 import { CreateSupplierDto } from './dto/create-supplier.dto';
 import { UpdateSupplierDto } from './dto/update-supplier.dto';
-import { JwtAuthGuard } from 'src/auth/guards/jwt/jwt.guard';
-import { CurrentUser } from 'src/auth/decorators/current-user.decorator';
-import { User } from 'src/users/entities/user.entity/user.entity';
+import { JwtAuthGuard, GetUser } from '@univeex/auth/feature-api';
+import { User } from '@univeex/users/domain';
 
 @Controller('suppliers')
 @UseGuards(JwtAuthGuard)
@@ -22,17 +21,17 @@ export class SuppliersController {
   constructor(private readonly suppliersService: SuppliersService) {}
 
   @Post()
-  create(@Body() createSupplierDto: CreateSupplierDto, @CurrentUser() user: User) {
+  create(@Body() createSupplierDto: CreateSupplierDto, @GetUser() user: User) {
     return this.suppliersService.create(createSupplierDto, user.organizationId);
   }
 
   @Get()
-  findAll(@CurrentUser() user: User) {
+  findAll(@GetUser() user: User) {
     return this.suppliersService.findAll(user.organizationId);
   }
 
   @Get(':id')
-  findOne(@Param('id', ParseUUIDPipe) id: string, @CurrentUser() user: User) {
+  findOne(@Param('id', ParseUUIDPipe) id: string, @GetUser() user: User) {
     return this.suppliersService.findOne(id, user.organizationId);
   }
 
@@ -40,13 +39,13 @@ export class SuppliersController {
   update(
     @Param('id', ParseUUIDPipe) id: string,
     @Body() updateSupplierDto: UpdateSupplierDto,
-    @CurrentUser() user: User,
+    @GetUser() user: User,
   ) {
     return this.suppliersService.update(id, updateSupplierDto, user.organizationId);
   }
 
   @Delete(':id')
-  remove(@Param('id', ParseUUIDPipe) id: string, @CurrentUser() user: User) {
+  remove(@Param('id', ParseUUIDPipe) id: string, @GetUser() user: User) {
     return this.suppliersService.remove(id, user.organizationId);
   }
 }

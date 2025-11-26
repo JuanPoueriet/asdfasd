@@ -10,4 +10,5 @@ export interface UserPayload {
   email: string;
   roleId: string; // El ID del rol que se va a asignar
   department?: string; // Opcional
+  organizationId: string;
 }

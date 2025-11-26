@@ -6,14 +6,14 @@ import {
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
-import { LocalizationService } from '../localization.service';
+import { LocalizationApiService } from '../localization.service';
 
 export const languageRedirectGuard: CanActivateFn = (
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot
 ): boolean | UrlTree => {
   const router = inject(Router);
-  const localizationService = inject(LocalizationService);
+  const localizationService = inject(LocalizationApiService);
   const supportedLangs = ['en', 'es'];
   const defaultLang = localizationService.getInitialLanguage() || 'es';
 

@@ -2,10 +2,9 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Forbidden
 import { RolesService } from './roles.service';
 import { CreateRoleDto } from './dto/create-role.dto';
 import { UpdateRoleDto } from './dto/update-role.dto';
-import { JwtAuthGuard } from 'src/auth/guards/jwt/jwt.guard';
-import { CurrentUser } from 'src/auth/decorators/current-user.decorator';
-import * as jwtPayloadInterface from 'src/auth/interfaces/jwt-payload.interface';
-import { ALL_PERMISSIONS } from 'src/shared/permissions';
+import { JwtAuthGuard, GetUser } from '@univeex/auth/feature-api';
+import { UserPayload as jwtPayloadInterface } from '@univeex/users/domain';
+import { ALL_PERMISSIONS } from '@univeex/shared/util-common';
 
 @Controller('roles')
 @UseGuards(JwtAuthGuard)
@@ -18,27 +17,27 @@ export class RolesController {
   }
 
   @Post()
-  create(@Body() createRoleDto: CreateRoleDto, @CurrentUser() user: jwtPayloadInterface.JwtPayload) {
+  create(@Body() createRoleDto: CreateRoleDto, @GetUser() user: jwtPayloadInterface) {
     return this.rolesService.create(createRoleDto, user.organizationId);
   }
 
   @Post('clone/:id')
-  clone(@Param('id', ParseUUIDPipe) id: string, @CurrentUser() user: jwtPayloadInterface.JwtPayload) {
+  clone(@Param('id', ParseUUIDPipe) id: string, @GetUser() user: jwtPayloadInterface) {
     return this.rolesService.cloneRole(id, user.organizationId);
   }
 
   @Get()
-  findAll(@CurrentUser() user: jwtPayloadInterface.JwtPayload) {
+  findAll(@GetUser() user: jwtPayloadInterface) {
     return this.rolesService.findAllByOrg(user.organizationId);
   }
 
   @Patch(':id')
-  update(@Param('id', ParseUUIDPipe) id: string, @Body() updateRoleDto: UpdateRoleDto, @CurrentUser() user: jwtPayloadInterface.JwtPayload) {
+  update(@Param('id', ParseUUIDPipe) id: string, @Body() updateRoleDto: UpdateRoleDto, @GetUser() user: jwtPayloadInterface) {
     return this.rolesService.update(id, updateRoleDto, user.organizationId);
   }
 
   @Delete(':id')
-  remove(@Param('id', ParseUUIDPipe) id: string, @CurrentUser() user: jwtPayloadInterface.JwtPayload) {
+  remove(@Param('id', ParseUUIDPipe) id: string, @GetUser() user: jwtPayloadInterface) {
     return this.rolesService.remove(id, user.organizationId);
   }
 }

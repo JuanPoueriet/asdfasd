@@ -1,7 +1,7 @@
 export * from './lib/auth.module';
 export * from './lib/auth.service';
-export * from './lib/guards/jwt-auth.guard';
-export * from './lib/guards/roles.guard';
+export { JwtAuthGuard } from './lib/guards/jwt/jwt.guard';
+export * from './lib/guards/roles/roles.guard';
 export * from './lib/decorators/roles.decorator';
-export * from './lib/decorators/get-user.decorator';
+export { GetUser } from './lib/decorators/get-user.decorator';
 export * from './lib/sso-config.entity';

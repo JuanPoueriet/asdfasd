@@ -1,8 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ThemeService } from './core/services/theme';
-import { LanguageService } from './core/services/language';
-import { AuthService } from './core/services/auth';
+import { ThemeService } from './core/services/theme.service';
+import { LanguageService } from '@univeex/localization/data-access';
+import { AuthService } from '@univeex/auth/data-access';
 import { ModalService } from './shared/service/modal.service';
 import { ModalComponent } from './shared/components/modal/modal.component';
 import { CommonModule } from '@angular/common';

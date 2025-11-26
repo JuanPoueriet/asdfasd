@@ -1,6 +1,6 @@
-@use '../../../../assets/styles/variables' as *;
-@use '../../../../assets/styles/forms' as mixins;
-@use '../../sales/history/history.page.scss'; // Reutiliza la base
+@use 'apps/webapp/src/assets/styles/variables' as *;
+@use 'apps/webapp/src/assets/styles/forms' as mixins;
+@use 'libs/sales/feature-shell/src/lib/history/history.page.scss'; // Reutiliza la base
 
 .form-grid {
     display: grid;

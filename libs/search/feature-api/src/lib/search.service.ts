@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { InvoicesService } from '../invoices/invoices.service';
-import { InventoryService } from '../inventory/inventory.service';
-import { CustomersService } from '../customers/customers.service';
+import { InvoicesService } from '@univeex/invoices/backend/feature';
+import { InventoryService } from '@univeex/inventory/feature-api';
+import { CustomersService } from '@univeex/customers/feature-api';
 
 @Injectable()
 export class SearchService {

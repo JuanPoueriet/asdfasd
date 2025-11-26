@@ -64,6 +64,7 @@ export interface User {
   originalUserId?: string;
 
   organization: Organization;
+  organizationId: string;
 
   preferredLanguage?: string;
 }

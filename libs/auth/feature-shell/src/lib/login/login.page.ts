@@ -77,10 +77,8 @@ export class LoginPage implements OnInit {
     }
   }
 
-  constructor(
-    public languageService: LanguageService,
-    private translate: TranslateService
-  ) {}
+  languageService = inject(LanguageService);
+  private translate = inject(TranslateService);
 
   ngOnDestroy(): void {
     // Lógica de limpieza si es necesaria

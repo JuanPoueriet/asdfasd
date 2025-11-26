@@ -9,7 +9,7 @@ import { PointOptionsObject } from 'highcharts';
 
 import {
   DashboardWidget, DashboardService, ChartType
-} from '../@univeex/dashboard/data-access';
+} from '@univeex/dashboard/data-access';
 
 import {
   LucideAngularModule,
