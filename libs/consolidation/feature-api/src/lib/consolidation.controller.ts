@@ -4,9 +4,9 @@ import { JwtAuthGuard } from '@univeex/auth/feature-api';
 import { ConsolidationService } from './consolidation.service';
 import { RunConsolidationDto } from './dto/run-consolidation.dto';
 import { CurrentUser } from '@univeex/auth/feature-api';
-import { User } from 'src/users/entities/user.entity/user.entity';
+import { User } from '@univeex/users/api-data-access';
 import { HasPermission } from '@univeex/auth/feature-api';
-import { PERMISSIONS } from 'src/shared/permissions';
+import { PERMISSIONS } from '@univeex/shared/util-common';
 
 @Controller('consolidation')
 @UseGuards(JwtAuthGuard)

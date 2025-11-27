@@ -26,14 +26,14 @@ import { Account } from './entities/account.entity';
 import { CreateAccountDto } from './dto/create-account.dto';
 import { UpdateAccountDto } from './dto/update-account.dto';
 import { AccountNature, AccountType } from './enums/account-enums';
-import { JournalEntryLine } from 'src/journal-entries/entities/journal-entry-line.entity';
+import { JournalEntryLine } from '@univeex/journal-entries/feature-api';
 import { AccountSegment } from './entities/account-segment.entity';
-import { AuditTrailService } from 'src/audit/audit.service';
-import { ActionType } from 'src/audit/entities/audit-log.entity';
+import { AuditTrailService } from '@univeex/audit/feature-api';
+import { ActionType } from '@univeex/audit/feature-api';
 import { AccountHistory } from './entities/account-history.entity';
 import { AccountSegmentDefinition } from './entities/account-segment-definition.entity';
 import { Ledger } from '@univeex/accounting/api-data-access';
-import { JournalEntryLineValuation } from 'src/journal-entries/entities/journal-entry-line-valuation.entity';
+import { JournalEntryLineValuation } from '@univeex/journal-entries/feature-api';
 import { MergeAccountsDto } from './dto/merge-accounts.dto';
 import { AccountBalance } from './entities/account-balance.entity';
 

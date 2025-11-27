@@ -4,7 +4,7 @@ import { JwtAuthGuard } from '@univeex/auth/feature-api';
 import { ConsolidationMappingService } from './consolidation-mapping.service';
 import { CreateConsolidationMapDto } from './dto/create-consolidation-map.dto';
 import { CurrentUser } from '@univeex/auth/feature-api';
-import { User } from 'src/users/entities/user.entity/user.entity';
+import { User } from '@univeex/users/api-data-access';
 
 @Controller('consolidation/mapping')
 @UseGuards(JwtAuthGuard)

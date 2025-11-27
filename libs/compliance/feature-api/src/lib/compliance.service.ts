@@ -4,8 +4,14 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 import { Between, EntityManager, Repository, Not, IsNull } from 'typeorm';
 import { NcfSequence, NcfType } from './entities/ncf-sequence.entity';
-import { VendorBill } from 'src/accounts-payable/entities/vendor-bill.entity';
-import { Invoice, InvoiceType } from 'src/invoices/entities/invoice.entity';
+import { VendorBill } from '@univeex/accounts-payable/feature-api';
+import { Invoice } from '@univeex/invoices/backend/feature';
+
+export enum InvoiceType {
+  CREDIT_NOTE = 'CREDIT_NOTE',
+  DEBIT_NOTE = 'DEBIT_NOTE',
+  STANDARD = 'STANDARD'
+}
 
 @Injectable()
 export class ComplianceService {

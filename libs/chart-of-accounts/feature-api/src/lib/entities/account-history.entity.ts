@@ -9,7 +9,7 @@ import {
   Index,
 } from 'typeorm';
 import { Account } from './account.entity';
-import { User } from 'src/users/entities/user.entity/user.entity';
+import { User } from '@univeex/users/api-data-access';
 
 @Entity({ name: 'account_history' })
 @Index(['accountId'])

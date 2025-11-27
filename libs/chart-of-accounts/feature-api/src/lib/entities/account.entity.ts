@@ -15,7 +15,7 @@ import {
   OneToMany,
 } from 'typeorm';
 import { Organization } from '@univeex/organizations/feature-api';
-import { User } from 'src/users/entities/user.entity/user.entity';
+import { User } from '@univeex/users/api-data-access';
 import {
   AccountType,
   AccountCategory,
