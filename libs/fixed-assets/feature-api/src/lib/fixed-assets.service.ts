@@ -8,7 +8,7 @@ import { UpdateFixedAssetDto } from './dto/update-fixed-asset.dto';
 import { DisposeAssetDto } from './dto/dispose-asset.dto';
 import { JournalEntriesService } from 'src/journal-entries/journal-entries.service';
 import { Journal } from 'src/journal-entries/entities/journal.entity';
-import { Ledger } from 'src/accounting/entities/ledger.entity';
+import { Ledger } from '@univeex/accounting/api-data-access';
 import { CreateJournalEntryDto } from 'src/journal-entries/dto/create-journal-entry.dto';
 
 @Injectable()

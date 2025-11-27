@@ -8,8 +8,8 @@ import { JournalEntriesService } from 'src/journal-entries/journal-entries.servi
 import { OrganizationSettings } from 'src/organizations/entities/organization-settings.entity';
 import { Journal } from 'src/journal-entries/entities/journal.entity';
 import { Cron, CronExpression } from '@nestjs/schedule';
-import { Organization } from 'src/organizations/entities/organization.entity';
-import { Ledger } from 'src/accounting/entities/ledger.entity';
+import { Organization } from '@univeex/organizations/feature-api';
+import { Ledger } from '@univeex/accounting/api-data-access';
 import { CreateJournalEntryDto } from 'src/journal-entries/dto/create-journal-entry.dto';
 
 @Injectable()

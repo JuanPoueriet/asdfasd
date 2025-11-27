@@ -11,7 +11,7 @@ import { InjectQueue } from '@nestjs/bullmq';
 import { Queue } from 'bullmq';
 import { JournalEntriesService } from 'src/journal-entries/journal-entries.service';
 import { CreateIntercompanyTransactionDto } from './dto/create-intercompany-transaction.dto';
-import { Organization } from 'src/organizations/entities/organization.entity';
+import { Organization } from '@univeex/organizations/feature-api';
 import { OrganizationSettings } from 'src/organizations/entities/organization-settings.entity';
 import { IntercompanyTransaction, IntercompanyTransactionStatus } from './entities/intercompany-transaction.entity';
 import { ExchangeRate } from 'src/currencies/entities/exchange-rate.entity';

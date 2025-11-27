@@ -14,7 +14,7 @@ import {
   VersionColumn,
   OneToMany,
 } from 'typeorm';
-import { Organization } from 'src/organizations/entities/organization.entity';
+import { Organization } from '@univeex/organizations/feature-api';
 import { User } from 'src/users/entities/user.entity/user.entity';
 import {
   AccountType,

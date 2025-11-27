@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TaxesController } from './taxes.controller';
-import { AuthModule } from 'src/auth/auth.module';
-import { UsersModule } from 'src/users/users.module';
+import { AuthModule } from '@univeex/auth/feature-api';
+import { UsersModule } from '@univeex/users/api-feature';
 import { Tax, TaxCategory, TaxConfiguration, TaxRule } from '@univeex/taxes/data-access';
 import { TaxesService } from './taxes.service';
 import { TaxCalculationService } from './tax-calculation.service';

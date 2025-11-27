@@ -9,7 +9,7 @@ import {
 } from 'typeorm';
 
 // import { TaxGroup } from 'src/localization/entities/tax-group.entity';
-// import { Organization } from 'src/organizations/entities/organization.entity';
+// import { Organization } from '@univeex/organizations/feature-api';
 
 export enum TaxType {
   PERCENTAGE = 'Porcentaje',

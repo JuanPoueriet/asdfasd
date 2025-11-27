@@ -21,7 +21,7 @@ import * as puppeteer from 'puppeteer';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as handlebars from 'handlebars';
-import { Organization } from 'src/organizations/entities/organization.entity';
+import { Organization } from '@univeex/organizations/feature-api';
 import { OrganizationSettings } from 'src/organizations/entities/organization-settings.entity';
 import { JournalEntriesService } from 'src/journal-entries/journal-entries.service';
 import { NcfType } from 'src/compliance/entities/ncf-sequence.entity';

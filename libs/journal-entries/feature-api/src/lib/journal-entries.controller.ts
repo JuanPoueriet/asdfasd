@@ -22,11 +22,11 @@ import {
 import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
 import { JournalEntriesService } from './journal-entries.service';
 import { CreateJournalEntryDto } from './dto/create-journal-entry.dto';
-import { JwtAuthGuard } from 'src/auth/guards/jwt/jwt.guard';
-import { CurrentUser } from 'src/auth/decorators/current-user.decorator';
+import { JwtAuthGuard } from '@univeex/auth/feature-api';
+import { CurrentUser } from '@univeex/auth/feature-api';
 import { User } from 'src/users/entities/user.entity/user.entity';
-import { PermissionsGuard } from 'src/auth/guards/permissions/permissions.guard';
-import { HasPermission } from 'src/auth/decorators/permissions.decorator';
+import { PermissionsGuard } from '@univeex/auth/feature-api';
+import { HasPermission } from '@univeex/auth/feature-api';
 import { PERMISSIONS } from 'src/shared/permissions';
 import { PeriodLockGuard } from 'src/accounting/guards/period-lock.guard';
 import {

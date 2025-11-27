@@ -5,13 +5,13 @@ import { LocalizationService } from './services/localization.service';
 import { LocalizationAdminController } from './controllers/localization-admin.controller';
 import { FiscalRegion } from './entities/fiscal-region.entity';
 import { TaxScheme } from './entities/tax-scheme.entity';
-import { ChartOfAccountsModule } from 'src/chart-of-accounts/chart-of-accounts.module';
-import { TaxesFeatureApiModule } from '@univeex/taxes/feature-api';
+import { ChartOfAccountsModule } from '@univeex/chart-of-accounts/feature-api';
+import { TaxesModule } from '@univeex/taxes/feature-api';
 import { LocalizationTemplate } from './entities/localization-template.entity';
 import { CoaTemplate } from './entities/coa-template.entity';
 import { TaxTemplate } from './entities/tax-template.entity';
 import { LocalizationConsumer } from './consumers/localization.consumer';
-import { SharedModule } from 'src/shared/shared.module';
+import { SharedModule } from '@univeex/shared/util-backend';
 import { TaxGroup } from './entities/tax-group.entity';
 import { ReportDefinition } from './entities/report-definition.entity';
 import { EInvoiceProviderConfig } from './entities/einvoice-provider-config.entity';
@@ -33,7 +33,7 @@ import { LocalizationController } from './controllers/localization.controller';
       name: 'localization',
     }),
     forwardRef(() => ChartOfAccountsModule),
-    TaxesFeatureApiModule,
+    TaxesModule,
     SharedModule,
   ],
   providers: [LocalizationService, LocalizationConsumer],

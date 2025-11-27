@@ -5,7 +5,7 @@ import { CoaImportService } from './coa-import.service';
 import { ChartOfAccountsModule } from '../chart-of-accounts.module';
 import { JournalEntriesModule } from 'src/journal-entries/journal-entries.module';
 import { WebsocketsModule } from 'src/websockets/websockets.module';
-import { AuthModule } from 'src/auth/auth.module';
+import { AuthModule } from '@univeex/auth/feature-api';
 
 @Module({
   imports: [

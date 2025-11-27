@@ -4,7 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { CustomersService } from './customers.service';
 import { CustomersController } from './customers.controller';
 import { Customer } from './entities/customer.entity';
-import { AuthModule } from 'src/auth/auth.module';
+import { AuthModule } from '@univeex/auth/feature-api';
 import { CustomerPayment } from './entities/customer-payment.entity';
 import { CustomerPaymentLine } from './entities/customer-payment-line.entity';
 import { CustomerPaymentsController } from './customer-payments.controller';

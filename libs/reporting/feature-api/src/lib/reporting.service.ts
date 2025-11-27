@@ -5,7 +5,7 @@ import { Repository, DataSource } from 'typeorm';
 import { MonthlyAccountBalance } from './entities/monthly-account-balance.entity';
 import { Cron, CronExpression } from '@nestjs/schedule';
 import { JournalEntryLine } from 'src/journal-entries/entities/journal-entry-line.entity';
-import { Organization } from 'src/organizations/entities/organization.entity';
+import { Organization } from '@univeex/organizations/feature-api';
 
 @Injectable()
 export class ReportingService {

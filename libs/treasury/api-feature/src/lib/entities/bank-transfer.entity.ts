@@ -1,5 +1,5 @@
 import { Account } from 'src/chart-of-accounts/entities/account.entity';
-import { Organization } from 'src/organizations/entities/organization.entity';
+import { Organization } from '@univeex/organizations/feature-api';
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, CreateDateColumn } from 'typeorm';
 
 @Entity({ name: 'bank_transfers' })

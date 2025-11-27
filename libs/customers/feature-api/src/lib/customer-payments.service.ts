@@ -9,7 +9,7 @@ import { Invoice, InvoiceStatus } from 'src/invoices/entities/invoice.entity';
 import { JournalEntriesService } from 'src/journal-entries/journal-entries.service';
 import { OrganizationSettings } from 'src/organizations/entities/organization-settings.entity';
 import { Journal } from 'src/journal-entries/entities/journal.entity';
-import { Ledger } from 'src/accounting/entities/ledger.entity';
+import { Ledger } from '@univeex/accounting/api-data-access';
 import { CreateJournalEntryDto } from 'src/journal-entries/dto/create-journal-entry.dto';
 
 @Injectable()

@@ -8,7 +8,7 @@ import { BudgetLine } from './entities/budget-line.entity';
 import { JournalEntriesModule } from 'src/journal-entries/journal-entries.module';
 import { BudgetControlService } from './budget-control.service';
 import { JournalEntryLine } from 'src/journal-entries/entities/journal-entry-line.entity';
-import { AuthModule } from 'src/auth/auth.module';
+import { AuthModule } from '@univeex/auth/feature-api';
 
 @Module({
   imports: [

@@ -5,8 +5,8 @@ import { IntercompanyTransaction } from './entities/intercompany-transaction.ent
 import { IntercompanyService } from './intercompany.service';
 import { IntercompanyController } from './intercompany.controller';
 import { JournalEntriesModule } from 'src/journal-entries/journal-entries.module';
-import { AuthModule } from 'src/auth/auth.module';
-import { Organization } from 'src/organizations/entities/organization.entity';
+import { AuthModule } from '@univeex/auth/feature-api';
+import { Organization } from '@univeex/organizations/feature-api';
 import { OrganizationSettings } from 'src/organizations/entities/organization-settings.entity';
 import { ExchangeRate } from 'src/currencies/entities/exchange-rate.entity';
 
