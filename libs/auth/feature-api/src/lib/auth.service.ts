@@ -19,13 +19,13 @@ import { LoginUserDto } from './dto/login-user.dto';
 import { ForgotPasswordDto } from './dto/forgot-password.dto';
 import { ResetPasswordDto } from './dto/reset-password.dto';
 import { SetPasswordFromInvitationDto } from './dto/set-password-from-invitation.dto';
-import { User, UserStatus } from '@univeex/users/feature-api';
+import { User, UserStatus } from '@univeex/users/api-data-access';
 import { Organization } from '@univeex/organizations/feature-api';
-import { Role } from 'src/roles/entities/role.entity';
+import { Role } from '@univeex/roles/api-feature';
 import { JwtPayload } from './interfaces/jwt-payload.interface';
-import { MailService } from 'src/mail/mail.service';
-import { LocalizationService } from 'src/localization/services/localization.service';
-import { AccountSegmentsService } from 'src/chart-of-accounts/account-segments.service';
+import { MailService } from '@univeex/mail/feature-api';
+import { LocalizationService } from '@univeex/localization/feature-api';
+import { AccountSegmentsService } from '@univeex/chart-of-accounts/feature-api';
 import { MfaService } from './mfa.service'; // <-- Importar MfaService
 
 interface PasswordResetJwtPayload {

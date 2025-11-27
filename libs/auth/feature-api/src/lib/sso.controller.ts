@@ -2,7 +2,7 @@ import { Controller, Get, Post, Req, Res, UseGuards, Query } from '@nestjs/commo
 import { AuthGuard } from '@nestjs/passport';
 import type { Request, Response } from 'express'; // <-- CORRECCIÓN
 import { AuthService } from './auth.service';
-import { User } from '@univeex/users/feature-api';
+import { User } from '@univeex/users/api-data-access';
 
 @Controller('auth/sso')
 export class SsoController {

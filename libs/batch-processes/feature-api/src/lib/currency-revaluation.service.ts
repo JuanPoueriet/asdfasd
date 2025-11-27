@@ -2,13 +2,13 @@
 import { Injectable, Logger, BadRequestException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { LessThanOrEqual, Not, Repository, DataSource, In, EntityManager } from 'typeorm';
-import { Account } from 'src/chart-of-accounts/entities/account.entity';
-import { AccountBalance } from 'src/chart-of-accounts/entities/account-balance.entity';
-import { ExchangeRate } from 'src/currencies/entities/exchange-rate.entity';
-import { JournalEntriesService } from 'src/journal-entries/journal-entries.service';
-import { OrganizationSettings } from 'src/organizations/entities/organization-settings.entity';
-import { CreateJournalEntryDto, CreateJournalEntryLineDto } from 'src/journal-entries/dto/create-journal-entry.dto';
-import { Journal } from 'src/journal-entries/entities/journal.entity';
+import { Account } from '@univeex/chart-of-accounts/feature-api';
+import { AccountBalance } from '@univeex/chart-of-accounts/feature-api';
+import { ExchangeRate } from '@univeex/currencies/feature-api';
+import { JournalEntriesService } from '@univeex/journal-entries/feature-api';
+import { OrganizationSettings } from '@univeex/organizations/feature-api';
+import { CreateJournalEntryDto, CreateJournalEntryLineDto } from '@univeex/journal-entries/feature-api';
+import { Journal } from '@univeex/journal-entries/feature-api';
 import { Ledger } from '@univeex/accounting/api-data-access';
 
 @Injectable()

@@ -1,11 +1,11 @@
 import { Controller, Post, Body, UseGuards, Get, Patch, Delete, Param, ParseUUIDPipe } from '@nestjs/common';
 import { JwtAuthGuard } from './guards/jwt/jwt.guard';
 import { CurrentUser } from './decorators/current-user.decorator';
-import { User } from '@univeex/users/feature-api';
+import { User } from '@univeex/users/api-data-access';
 import { SsoService } from './sso.service';
 import { CreateSsoConfigDto, UpdateSsoConfigDto } from './dto/sso-config.dto';
 import { HasPermission } from './decorators/permissions.decorator';
-import { PERMISSIONS } from 'src/shared/permissions'; // Necesitarás añadir este permiso
+import { PERMISSIONS } from '@univeex/shared/util-common';
 
 @Controller('admin/sso')
 @UseGuards(JwtAuthGuard)

@@ -20,7 +20,7 @@ import { RegisterUserDto } from './dto/register-user.dto';
 import { LoginUserDto } from './dto/login-user.dto';
 import { JwtAuthGuard } from './guards/jwt/jwt.guard';
 import { CurrentUser } from './decorators/current-user.decorator';
-import { User } from '@univeex/users/feature-api';
+import { User } from '@univeex/users/api-data-access';
 import { Throttle } from '@nestjs/throttler';
 import { GoogleRecaptchaGuard } from '@nestlab/google-recaptcha';
 import { ForgotPasswordDto } from './dto/forgot-password.dto';

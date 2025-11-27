@@ -1,7 +1,6 @@
 
-
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
-import { User } from '@univeex/users/feature-api';
+import { User } from '@univeex/users/api-data-access';
 
 
 export const CurrentUser = createParamDecorator(

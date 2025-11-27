@@ -11,12 +11,12 @@ import { Repository, DataSource } from 'typeorm';
 import { VendorDebitNote } from './entities/vendor-debit-note.entity';
 import { CreateVendorDebitNoteDto } from './dto/create-vendor-debit-note.dto';
 import { VendorBill, VendorBillStatus } from './entities/vendor-bill.entity';
-import { JournalEntriesService } from 'src/journal-entries/journal-entries.service';
-import { OrganizationSettings } from 'src/organizations/entities/organization-settings.entity';
+import { JournalEntriesService } from '@univeex/journal-entries/feature-api';
+import { OrganizationSettings } from '@univeex/organizations/feature-api';
 import { UpdateVendorDebitNoteDto } from './dto/update-vendor-debit-note.dto';
-import { Journal } from 'src/journal-entries/entities/journal.entity';
+import { Journal } from '@univeex/journal-entries/feature-api';
 import { Ledger } from '@univeex/accounting/api-data-access';
-import { CreateJournalEntryDto } from 'src/journal-entries/dto/create-journal-entry.dto';
+import { CreateJournalEntryDto } from '@univeex/journal-entries/feature-api';
 
 @Injectable()
 export class VendorDebitNotesService {

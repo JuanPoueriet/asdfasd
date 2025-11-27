@@ -1,5 +1,4 @@
 
-
 import {
   Injectable,
   NotFoundException,
@@ -17,17 +16,17 @@ import {
   PaymentBatch,
   PaymentBatchStatus,
 } from './entities/payment-batch.entity';
-import { JournalEntriesService } from 'src/journal-entries/journal-entries.service';
-import { OrganizationSettings } from 'src/organizations/entities/organization-settings.entity';
+import { JournalEntriesService } from '@univeex/journal-entries/feature-api';
+import { OrganizationSettings } from '@univeex/organizations/feature-api';
 import { VendorPayment } from './entities/vendor-payment.entity';
 import { EventEmitter2, OnEvent } from '@nestjs/event-emitter';
-import { InventoryService } from 'src/inventory/inventory.service';
-import { CreateJournalEntryDto, CreateJournalEntryLineDto } from 'src/journal-entries/dto/create-journal-entry.dto';
-import { WorkflowsService } from 'src/workflows/workflows.service';
-import { DocumentTypeForApproval } from 'src/workflows/entities/approval-policy.entity';
-import { BudgetControlService } from 'src/budgets/budget-control.service';
-import { ExchangeRate } from 'src/currencies/entities/exchange-rate.entity';
-import { Journal } from 'src/journal-entries/entities/journal.entity';
+import { InventoryService } from '@univeex/inventory/feature-api';
+import { CreateJournalEntryDto, CreateJournalEntryLineDto } from '@univeex/journal-entries/feature-api';
+import { WorkflowsService } from '@univeex/workflows/feature-api';
+import { DocumentTypeForApproval } from '@univeex/workflows/feature-api';
+import { BudgetControlService } from '@univeex/budgets/feature-api';
+import { ExchangeRate } from '@univeex/currencies/feature-api';
+import { Journal } from '@univeex/journal-entries/feature-api';
 import { Ledger } from '@univeex/accounting/api-data-access';
 
 @Injectable()
