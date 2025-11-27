@@ -1,9 +1,9 @@
 
 import { Controller, Get, UseGuards, Post, Body, Query } from '@nestjs/common';
 import { ReportsService } from './reports.service';
-import { JwtAuthGuard } from 'src/auth/guards/jwt/jwt.guard';
+import { JwtAuthGuard } from '@univeex/auth/feature-api';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
-import { CurrentUser } from 'src/auth/decorators/current-user.decorator';
+import { CurrentUser } from '@univeex/auth/feature-api';
 import { User } from 'src/users/entities/user.entity/user.entity';
 import { GenerateReportDto } from './dto/generate-report.dto';
 import { GeneralLedgerReportDto } from 'src/journal-entries/dto/general-ledger-report.dto';

@@ -1,5 +1,5 @@
 
-import { FiscalYear } from 'src/accounting/entities/fiscal-year.entity';
+import { FiscalYear } from '@univeex/accounting/api-data-access';
 import { Journal } from 'src/journal-entries/entities/journal.entity';
 import { User } from 'src/users/entities/user.entity/user.entity';
 import {

@@ -32,7 +32,7 @@ import { AuditTrailService } from 'src/audit/audit.service';
 import { ActionType } from 'src/audit/entities/audit-log.entity';
 import { AccountHistory } from './entities/account-history.entity';
 import { AccountSegmentDefinition } from './entities/account-segment-definition.entity';
-import { Ledger } from 'src/accounting/entities/ledger.entity';
+import { Ledger } from '@univeex/accounting/api-data-access';
 import { JournalEntryLineValuation } from 'src/journal-entries/entities/journal-entry-line-valuation.entity';
 import { MergeAccountsDto } from './dto/merge-accounts.dto';
 import { AccountBalance } from './entities/account-balance.entity';

@@ -3,10 +3,10 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConsolidationService } from './consolidation.service';
 import { ConsolidationController } from './consolidation.controller';
-import { Organization } from 'src/organizations/entities/organization.entity';
+import { Organization } from '@univeex/organizations/feature-api';
 import { OrganizationSubsidiary } from 'src/organizations/entities/organization-subsidiary.entity';
 import { FinancialReportingModule } from 'src/financial-reporting/financial-reporting.module';
-import { AuthModule } from 'src/auth/auth.module';
+import { AuthModule } from '@univeex/auth/feature-api';
 import { ConsolidationMap } from './entities/consolidation-map.entity';
 
 

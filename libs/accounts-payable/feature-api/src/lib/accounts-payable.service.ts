@@ -28,7 +28,7 @@ import { DocumentTypeForApproval } from 'src/workflows/entities/approval-policy.
 import { BudgetControlService } from 'src/budgets/budget-control.service';
 import { ExchangeRate } from 'src/currencies/entities/exchange-rate.entity';
 import { Journal } from 'src/journal-entries/entities/journal.entity';
-import { Ledger } from 'src/accounting/entities/ledger.entity';
+import { Ledger } from '@univeex/accounting/api-data-access';
 
 @Injectable()
 export class AccountsPayableService {

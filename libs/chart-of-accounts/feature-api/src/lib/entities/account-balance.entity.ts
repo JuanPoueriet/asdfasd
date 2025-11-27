@@ -1,5 +1,5 @@
 
-import { Ledger } from 'src/accounting/entities/ledger.entity';
+import { Ledger } from '@univeex/accounting/api-data-access';
 import { Entity, Column, ManyToOne, JoinColumn, PrimaryColumn, VersionColumn } from 'typeorm';
 import { Account } from './account.entity';
 

@@ -1,11 +1,11 @@
 
 import { Controller, Post, Body, UseGuards } from '@nestjs/common';
-import { JwtAuthGuard } from 'src/auth/guards/jwt/jwt.guard';
+import { JwtAuthGuard } from '@univeex/auth/feature-api';
 import { ConsolidationService } from './consolidation.service';
 import { RunConsolidationDto } from './dto/run-consolidation.dto';
-import { CurrentUser } from 'src/auth/decorators/current-user.decorator';
+import { CurrentUser } from '@univeex/auth/feature-api';
 import { User } from 'src/users/entities/user.entity/user.entity';
-import { HasPermission } from 'src/auth/decorators/permissions.decorator';
+import { HasPermission } from '@univeex/auth/feature-api';
 import { PERMISSIONS } from 'src/shared/permissions';
 
 @Controller('consolidation')

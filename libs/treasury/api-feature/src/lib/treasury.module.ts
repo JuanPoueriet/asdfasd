@@ -4,7 +4,7 @@ import { TreasuryService } from './treasury.service';
 import { TreasuryController } from './treasury.controller';
 import { BankTransfer } from './entities/bank-transfer.entity';
 import { JournalEntriesModule } from 'src/journal-entries/journal-entries.module';
-import { AuthModule } from 'src/auth/auth.module';
+import { AuthModule } from '@univeex/auth/feature-api';
 
 @Module({
   imports: [

@@ -20,7 +20,7 @@ import { ForgotPasswordDto } from './dto/forgot-password.dto';
 import { ResetPasswordDto } from './dto/reset-password.dto';
 import { SetPasswordFromInvitationDto } from './dto/set-password-from-invitation.dto';
 import { User, UserStatus } from '@univeex/users/feature-api';
-import { Organization } from 'src/organizations/entities/organization.entity';
+import { Organization } from '@univeex/organizations/feature-api';
 import { Role } from 'src/roles/entities/role.entity';
 import { JwtPayload } from './interfaces/jwt-payload.interface';
 import { MailService } from 'src/mail/mail.service';

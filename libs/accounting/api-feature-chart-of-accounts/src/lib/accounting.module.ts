@@ -11,7 +11,7 @@ import { JournalEntryLine } from 'src/journal-entries/entities/journal-entry-lin
 import { OrganizationSettings } from 'src/organizations/entities/organization-settings.entity';
 import { InflationAdjustmentController } from './inflation-adjustment.controller';
 import { InflationAdjustmentService } from './inflation-adjustment.service';
-import { Organization } from 'src/organizations/entities/organization.entity';
+import { Organization } from '@univeex/organizations/feature-api';
 import { FiscalYearArchivingService } from './fiscal-year-archiving.service';
 import { LedgersService } from './ledgers.service';
 import { LedgersController } from './ledgers.controller';

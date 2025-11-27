@@ -4,7 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ConsolidationMap } from './entities/consolidation-map.entity';
 import { CreateConsolidationMapDto } from './dto/create-consolidation-map.dto';
-import { Organization } from 'src/organizations/entities/organization.entity';
+import { Organization } from '@univeex/organizations/feature-api';
 
 @Injectable()
 export class ConsolidationMappingService {

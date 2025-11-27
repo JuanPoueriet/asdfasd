@@ -1,4 +1,4 @@
-import { AccountNature, AccountType, AccountCategory } from "src/chart-of-accounts/enums/account-enums";
+import { AccountNature, AccountType, AccountCategory } from "@univeex/chart-of-accounts/feature-api";
 import { AccountTemplateDto } from "../entities/coa-template.entity";
 
 interface CoaTemplateDefinition {

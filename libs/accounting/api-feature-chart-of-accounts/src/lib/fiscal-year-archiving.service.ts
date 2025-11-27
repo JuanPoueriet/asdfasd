@@ -5,7 +5,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { LessThan, Repository } from 'typeorm';
 import { FiscalYear, FiscalYearStatus } from '@univeex/accounting/data-access';
 import { OrganizationSettings } from 'src/organizations/entities/organization-settings.entity';
-import { Organization } from 'src/organizations/entities/organization.entity';
+import { Organization } from '@univeex/organizations/feature-api';
 
 @Injectable()
 export class FiscalYearArchivingService {

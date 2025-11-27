@@ -15,7 +15,7 @@ import { JournalEntriesService } from 'src/journal-entries/journal-entries.servi
 import { OrganizationSettings } from 'src/organizations/entities/organization-settings.entity';
 import { UpdateVendorDebitNoteDto } from './dto/update-vendor-debit-note.dto';
 import { Journal } from 'src/journal-entries/entities/journal.entity';
-import { Ledger } from 'src/accounting/entities/ledger.entity';
+import { Ledger } from '@univeex/accounting/api-data-access';
 import { CreateJournalEntryDto } from 'src/journal-entries/dto/create-journal-entry.dto';
 
 @Injectable()

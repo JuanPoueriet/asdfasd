@@ -1,8 +1,8 @@
 
 import { Controller, Get, Param, UseGuards, ParseUUIDPipe } from '@nestjs/common';
-import { JwtAuthGuard } from 'src/auth/guards/jwt/jwt.guard';
+import { JwtAuthGuard } from '@univeex/auth/feature-api';
 import { ChartOfAccountsService } from './chart-of-accounts.service';
-import { CurrentUser } from 'src/auth/decorators/current-user.decorator';
+import { CurrentUser } from '@univeex/auth/feature-api';
 import { User } from 'src/users/entities/user.entity/user.entity';
 
 @Controller('chart-of-accounts/:accountId/history')

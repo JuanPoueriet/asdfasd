@@ -21,8 +21,8 @@ export class BillingPage implements OnInit {
   protected readonly CheckCircleIcon = CheckCircle;
   protected readonly InfoIcon = Info;
 
-  subscription = toSignal(this.billingService.getSubscription(), { initialValue: {} as Subscription });
-  paymentMethod = toSignal(this.billingService.getPaymentMethod(), { initialValue: {} as PaymentMethod });
+  subscription = toSignal(this.billingService.getSubscription());
+  paymentMethod = toSignal(this.billingService.getPaymentMethod());
   paymentHistory = toSignal(this.billingService.getPaymentHistory(), { initialValue: [] as PaymentHistoryItem[] });
 
   selectedPlan = signal<'trial' | 'pro' | 'enterprise'>('pro');

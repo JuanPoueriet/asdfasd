@@ -9,7 +9,7 @@ import { JournalEntriesService } from 'src/journal-entries/journal-entries.servi
 import { OrganizationSettings } from 'src/organizations/entities/organization-settings.entity';
 import { CreateJournalEntryDto, CreateJournalEntryLineDto } from 'src/journal-entries/dto/create-journal-entry.dto';
 import { Journal } from 'src/journal-entries/entities/journal.entity';
-import { Ledger } from 'src/accounting/entities/ledger.entity';
+import { Ledger } from '@univeex/accounting/api-data-access';
 
 @Injectable()
 export class CurrencyRevaluationService {
