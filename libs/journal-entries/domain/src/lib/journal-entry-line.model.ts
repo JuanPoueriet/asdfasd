@@ -5,4 +5,5 @@ export interface JournalEntryLine {
   credit: number;
   description: string;
   isReconciled: boolean;
+  valuations?: any[];
 }

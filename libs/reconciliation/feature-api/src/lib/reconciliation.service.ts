@@ -13,12 +13,13 @@ import {
 import { Repository, Between, DataSource, In } from 'typeorm';
 import { UploadStatementDto } from './dto/upload-statement.dto';
 import { CsvParserService } from './parsers/csv-parser.service';
-import { Account } from '@univeex/chart-of-accounts/domain';
+import { Account } from '@univeex/chart-of-accounts/feature-api';
 import {
   BankTransaction,
   TransactionStatus,
 } from './entities/bank-transaction.entity';
-import { JournalEntryLine, CreateJournalEntryDto, Journal } from '@univeex/journal-entries/domain';
+import { JournalEntryLine, Journal } from '@univeex/journal-entries/feature-api';
+import { CreateJournalEntryDto } from '@univeex/journal-entries/domain';
 import {
   ReconciliationRule,
   RuleConditionOperator,
@@ -27,7 +28,7 @@ import {
 import { JournalEntriesService } from '@univeex/journal-entries/api';
 import { MatchTransactionsDto } from './dto/match-transactions.dto';
 import { addDays, subDays } from 'date-fns';
-import { Ledger } from '@univeex/accounting/domain';
+import { Ledger } from '@univeex/accounting/api-data-access';
 
 @Injectable()
 export class ReconciliationService {
@@ -201,7 +202,7 @@ export class ReconciliationService {
           if (isMatch) {
             this.logger.log(`Regla "${rule.name}" coincidió para la transacción: ${transaction.description}`);
             
-            const entryDto: CreateJournalEntryDto = {
+            const entryDto: any = {
                 date: transaction.date.toISOString(),
                 description: `Conciliación Automática: ${transaction.description}`,
                 journalId: reconciliationJournal.id,

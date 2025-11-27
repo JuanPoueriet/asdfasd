@@ -5,9 +5,7 @@ import { Express } from 'express';
 import { Multer } from 'multer';
 import { ReconciliationService } from './reconciliation.service';
 import { UploadStatementDto } from './dto/upload-statement.dto';
-import { CurrentUser } from 'src/auth/decorators/current-user.decorator';
-import type { JwtPayload } from 'src/auth/interfaces/jwt-payload.interface';
-import { JwtAuthGuard } from 'src/auth/guards/jwt/jwt.guard';
+import { CurrentUser, JwtAuthGuard, JwtPayload } from '@univeex/auth/feature-api';
 
 @Controller('reconciliation')
 @UseGuards(JwtAuthGuard)

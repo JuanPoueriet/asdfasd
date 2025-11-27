@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { JournalEntry, JournalEntryLine } from '@univeex/journal-entries/domain';
+import { JournalEntry, JournalEntryLine } from '@univeex/journal-entries/feature-api';
 import { CreateJournalEntryDto } from '@univeex/journal-entries/domain';
 
 @Injectable()
@@ -17,7 +17,7 @@ export class JournalEntriesService {
     const journalEntry = this.journalEntryRepository.create({
       ...createJournalEntryDto,
       organizationId,
-    });
+    } as any);
     return this.journalEntryRepository.save(journalEntry);
   }
 

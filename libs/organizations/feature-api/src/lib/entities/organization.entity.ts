@@ -1,5 +1,5 @@
 
-import { User } from '@univeex/users/feature-api';
+import { User } from '@univeex/users/api-data-access';
 import { SsoConfig } from '@univeex/auth/feature-api';
 import {
   Entity,
@@ -60,5 +60,4 @@ export class Organization {
 
   @OneToMany(() => SsoConfig, (config) => config.organization)
   ssoConfigs: SsoConfig[];
-
 }

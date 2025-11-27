@@ -10,7 +10,7 @@ import {
   JoinTable,
 } from 'typeorm';
 import { Organization } from '@univeex/organizations/feature-api';
-import { Role } from '@univeex/roles/feature-api';
+import { Role } from '@univeex/roles/api-feature';
 
 export enum UserStatus {
   PENDING = 'PENDING',
