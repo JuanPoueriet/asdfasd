@@ -3,9 +3,8 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, ParseUUID
 import { PriceListsService } from './price-lists.service';
 import { CreatePriceListDto } from './dto/create-price-list.dto';
 import { UpdatePriceListDto } from './dto/update-price-list.dto';
-import { JwtAuthGuard } from 'src/auth/guards/jwt/jwt.guard';
-import { CurrentUser } from 'src/auth/decorators/current-user.decorator';
-import { User } from 'src/users/entities/user.entity/user.entity';
+import { JwtAuthGuard, CurrentUser } from '@univeex/auth/feature-api';
+import { User } from '@univeex/users/api-data-access';
 
 @Controller('price-lists')
 @UseGuards(JwtAuthGuard)

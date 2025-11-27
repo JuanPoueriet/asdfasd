@@ -6,10 +6,11 @@ import { ReconciliationService } from './reconciliation.service';
 import { BankStatement } from './entities/bank-statement.entity';
 import { BankTransaction } from './entities/bank-transaction.entity';
 import { CsvParserService } from './parsers/csv-parser.service';
-import { Account } from '@univeex/chart-of-accounts/domain';
+import { Account } from '@univeex/chart-of-accounts/feature-api';
 import { AuthModule } from '@univeex/auth/feature-api';
-import { JournalEntryLine } from '@univeex/journal-entries/domain';
+import { JournalEntryLine } from '@univeex/journal-entries/feature-api';
 import { ReconciliationRule } from './entities/reconciliation-rule.entity';
+import { Ledger } from '@univeex/accounting/api-data-access';
 
 import { JournalEntriesModule } from '@univeex/journal-entries/api';
 
@@ -21,6 +22,7 @@ import { JournalEntriesModule } from '@univeex/journal-entries/api';
       Account,
       JournalEntryLine,
       ReconciliationRule,
+      Ledger,
     ]),
     AuthModule,
     JournalEntriesModule,

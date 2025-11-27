@@ -1,5 +1,5 @@
 
-import { Product } from 'src/inventory/entities/product.entity';
+import { Product } from '@univeex/inventory/feature-api';
 import {
   Entity,
   PrimaryGeneratedColumn,

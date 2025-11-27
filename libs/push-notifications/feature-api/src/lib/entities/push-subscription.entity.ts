@@ -1,4 +1,4 @@
-import { User } from 'src/users/entities/user.entity/user.entity';
+import { User } from '@univeex/users/api-data-access';
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
 
 

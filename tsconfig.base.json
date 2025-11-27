@@ -19,6 +19,7 @@
       "@univeex/shared-utils": ["shared/utils/src/index.ts"],
       "@univeex/web-ui": ["web/ui/src/index.ts"],
       "@univeex/taxes/data-access": ["libs/taxes/data-access/src/index.ts"],
+      "@univeex/taxes/feature-api": ["libs/taxes/backend/feature/src/index.ts"],
       "@univeex/taxes/backend/feature": ["libs/taxes/backend/feature/src/index.ts"],
       "@univeex/shared/ui": ["libs/shared/ui/src/index.ts"],
       "@univeex/accounting/api-feature-chart-of-accounts": [
@@ -30,6 +31,8 @@
       "@univeex/auth/feature-api": ["libs/auth/feature-api/src/index.ts"],
       "@univeex/users/backend/data-access": ["libs/users/backend/data-access/src/index.ts"],
       "@univeex/users/backend/feature": ["libs/users/backend/feature/src/index.ts"],
+      "@univeex/users/api-data-access": ["libs/users/api-data-access/src/index.ts"],
+      "@univeex/users/api-feature": ["libs/users/api-feature/src/index.ts"],
       "@univeex/sales/api-feature": ["libs/sales/api-feature/src/index.ts"],
       "@univeex/inventory/feature-api": [
         "libs/inventory/feature-api/src/index.ts"
@@ -93,7 +96,7 @@
         "libs/price-lists/feature-api/src/index.ts"
       ],
       "@univeex/workflows/feature-api": [
-        "libs/workflows/feature-api/src/index.ts"
+        "libs/workflows/api-feature/src/index.ts"
       ],
       "@univeex/storage/feature-api": ["libs/storage/feature-api/src/index.ts"],
       "@univeex/financial-reporting/feature-api": [
@@ -132,6 +135,10 @@
       ],
       "@univeex/journal-entries/feature-api": [
         "libs/journal-entries/feature-api/src/index.ts"
+      ],
+      "@univeex/journal-entries/domain": ["libs/journal-entries/domain/src/index.ts"],
+      "@univeex/chart-of-accounts/domain": [
+        "libs/chart-of-accounts/domain/src/index.ts"
       ],
       "@univeex/search/feature-api": ["libs/search/feature-api/src/index.ts"],
       "@univeex/websockets/feature-api": [

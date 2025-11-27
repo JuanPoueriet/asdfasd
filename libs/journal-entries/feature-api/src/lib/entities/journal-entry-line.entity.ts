@@ -8,7 +8,7 @@ import {
   OneToMany,
 } from 'typeorm';
 import { JournalEntry } from './journal-entry.entity';
-import { Account } from 'src/chart-of-accounts/entities/account.entity';
+import { Account } from '@univeex/chart-of-accounts/feature-api';
 import { JournalEntryLineValuation } from './journal-entry-line-valuation.entity';
 
 @Entity({ name: 'journal_entry_lines' })

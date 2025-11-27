@@ -1,5 +1,5 @@
-import { Account } from 'src/chart-of-accounts/entities/account.entity';
-import { Organization } from 'src/organizations/entities/organization.entity';
+import { Account } from '@univeex/chart-of-accounts/feature-api';
+import { Organization } from '@univeex/organizations/feature-api';
 import {
   Column,
   CreateDateColumn,
