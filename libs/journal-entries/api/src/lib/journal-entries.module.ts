@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { JournalEntriesController } from './journal-entries.controller';
 import { JournalEntriesService } from './journal-entries.service';
-import { JournalEntry, JournalEntryLine } from '@univeex/journal-entries/domain';
+import { JournalEntry, JournalEntryLine } from '@univeex/journal-entries/feature-api';
 
 @Module({
   imports: [TypeOrmModule.forFeature([JournalEntry, JournalEntryLine])],

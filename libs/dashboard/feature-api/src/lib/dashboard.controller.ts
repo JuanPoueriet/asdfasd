@@ -2,7 +2,7 @@
 import { Controller, Get, UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from '@univeex/auth/feature-api';
 import { CurrentUser } from '@univeex/auth/feature-api';
-import { User } from 'src/users/entities/user.entity/user.entity';
+import { User } from '@univeex/users/api-data-access';
 import { DashboardService } from './dashboard.service';
 import { QuickRatioDto } from './dto/quick-ratio.dto';
 import { WorkingCapitalDto } from './dto/working-capital.dto';

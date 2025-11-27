@@ -1,6 +1,6 @@
 
 import { Controller, Post, UseGuards } from '@nestjs/common';
-import { JwtAuthGuard } from '../auth/guards/jwt/jwt.guard';
+import { JwtAuthGuard } from '@univeex/auth/feature-api';
 import { ExchangeRatesService } from './exchange-rates.service';
 
 @Controller('exchange-rates')

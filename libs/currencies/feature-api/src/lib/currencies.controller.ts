@@ -11,7 +11,7 @@ import {
 import { CurrenciesService } from './currencies.service';
 import { CreateCurrencyDto } from './dto/create-currency.dto';
 import { UpdateCurrencyDto } from './dto/update-currency.dto';
-import { JwtAuthGuard } from '../auth/guards/jwt/jwt.guard';
+import { JwtAuthGuard } from '@univeex/auth/feature-api';
 
 @UseGuards(JwtAuthGuard)
 @Controller('currencies')

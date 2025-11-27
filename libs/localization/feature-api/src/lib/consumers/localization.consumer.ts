@@ -1,9 +1,9 @@
 import { Processor, WorkerHost } from '@nestjs/bullmq';
 import { Job } from 'bullmq';
 import { Logger } from '@nestjs/common';
-import { ChartOfAccountsService } from 'src/chart-of-accounts/chart-of-accounts.service';
+import { ChartOfAccountsService } from '@univeex/chart-of-accounts/feature-api';
 import { TaxesService } from '@univeex/taxes/feature-api';
-import { DocumentSequencesService } from 'src/shared/document-sequences/document-sequences.service';
+import { DocumentSequencesService } from '@univeex/shared/util-backend';
 import { AccountTemplateDto } from '../entities/coa-template.entity';
 
 @Processor('localization')

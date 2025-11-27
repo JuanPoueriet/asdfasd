@@ -3,7 +3,7 @@ import { CustomerPaymentsService } from './customer-payments.service';
 import { CreateCustomerPaymentDto } from './dto/create-customer-payment.dto';
 import { JwtAuthGuard } from '@univeex/auth/feature-api';
 import { CurrentUser } from '@univeex/auth/feature-api';
-import { User } from 'src/users/entities/user.entity/user.entity';
+import { User } from '@univeex/users/api-data-access';
 
 @Controller('customer-payments')
 @UseGuards(JwtAuthGuard)

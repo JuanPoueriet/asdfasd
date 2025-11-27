@@ -6,7 +6,7 @@ import {
   JoinColumn,
 } from 'typeorm';
 import { CustomerPayment } from './customer-payment.entity';
-import { Invoice } from 'src/invoices/entities/invoice.entity';
+import { Invoice } from '@univeex/invoices/backend/feature';
 
 @Entity({ name: 'customer_payment_lines' })
 export class CustomerPaymentLine {

@@ -1,7 +1,7 @@
 
 import { Controller, Get, UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from '@univeex/auth/feature-api';
-import { BalanceUpdateService } from 'src/chart-of-accounts/balance-update.service';
+import { BalanceUpdateService } from '@univeex/chart-of-accounts/feature-api';
 
 @Controller('health')
 export class HealthController {

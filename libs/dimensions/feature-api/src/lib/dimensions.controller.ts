@@ -3,7 +3,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, ParseUUID
 import { DimensionsService } from './dimensions.service';
 import { JwtAuthGuard } from '@univeex/auth/feature-api';
 import { CurrentUser } from '@univeex/auth/feature-api';
-import { User } from 'src/users/entities/user.entity/user.entity';
+import { User } from '@univeex/users/api-data-access';
 import { CreateDimensionDto, UpdateDimensionDto } from './dto/dimension.dto';
 import { CreateDimensionRuleDto } from './dto/dimension-rule.dto';
 

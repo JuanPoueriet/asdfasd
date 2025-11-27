@@ -13,7 +13,7 @@ import {
 import { CustomerAddress } from './customer-address.entity';
 import { CustomerContact } from './customer-contact.entity';
 import { CustomerGroup } from './customer-group.entity';
-import { User } from 'src/users/entities/user.entity/user.entity';
+import { User } from '@univeex/users/api-data-access';
 
 export enum CustomerStatus {
   LEAD = 'LEAD',

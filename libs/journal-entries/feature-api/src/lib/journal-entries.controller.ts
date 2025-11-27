@@ -24,18 +24,18 @@ import { JournalEntriesService } from './journal-entries.service';
 import { CreateJournalEntryDto } from './dto/create-journal-entry.dto';
 import { JwtAuthGuard } from '@univeex/auth/feature-api';
 import { CurrentUser } from '@univeex/auth/feature-api';
-import { User } from 'src/users/entities/user.entity/user.entity';
+import { User } from '@univeex/users/api-data-access';
 import { PermissionsGuard } from '@univeex/auth/feature-api';
 import { HasPermission } from '@univeex/auth/feature-api';
-import { PERMISSIONS } from 'src/shared/permissions';
-import { PeriodLockGuard } from 'src/accounting/guards/period-lock.guard';
+import { PERMISSIONS } from '@univeex/shared/util-types';
+import { PeriodLockGuard } from '@univeex/accounting/feature-shell';
 import {
   UpdateJournalEntryDto,
   ReverseJournalEntryDto,
 } from './dto/journal-entry-actions.dto';
 import { JournalEntryImportService } from './journal-entry-import.service';
 import { ConfirmImportDto, PreviewImportRequestDto } from './dto/journal-entry-import.dto';
-import { TemporalValidityGuard } from 'src/financial-reporting/guards/temporal-validity.guard';
+import { TemporalValidityGuard } from '@univeex/financial-reporting/feature-api';
 
 @Controller('journal-entries')
 @UseGuards(JwtAuthGuard, PermissionsGuard)

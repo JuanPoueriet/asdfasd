@@ -1,7 +1,7 @@
 
 import { Entity, PrimaryColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
 import { Organization } from '@univeex/organizations/feature-api';
-import { Account } from 'src/chart-of-accounts/entities/account.entity';
+import { Account } from '@univeex/chart-of-accounts/feature-api';
 
 @Entity({ name: 'consolidation_maps' })
 export class ConsolidationMap {
