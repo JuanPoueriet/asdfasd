@@ -1,7 +1,7 @@
 
 import { Entity, PrimaryColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
 import { JournalEntryLine } from './journal-entry-line.entity';
-import { Ledger } from 'src/accounting/entities/ledger.entity';
+import { Ledger } from '@univeex/accounting/api-data-access';
 
 @Entity({ name: 'journal_entry_line_valuations' })
 export class JournalEntryLineValuation {

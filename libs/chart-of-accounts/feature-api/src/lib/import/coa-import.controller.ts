@@ -4,8 +4,8 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { CoaImportService } from './coa-import.service';
 
 import { ConfirmCoaImportDto, PreviewCoaImportDto } from './dto/coa-import.dto';
-import { JwtAuthGuard } from 'src/auth/guards/jwt/jwt.guard';
-import { CurrentUser } from 'src/auth/decorators/current-user.decorator';
+import { JwtAuthGuard } from '@univeex/auth/feature-api';
+import { CurrentUser } from '@univeex/auth/feature-api';
 import { User } from 'src/users/entities/user.entity/user.entity';
 
 @Controller('chart-of-accounts/import')

@@ -10,7 +10,7 @@ import { EventsGateway } from '../websockets/events.gateway';
 import { AuditTrailService } from '../audit/audit.service';
 import { ActionType } from '../audit/entities/audit-log.entity';
 import { MergeAccountsDto } from './dto/merge-accounts.dto';
-import { Ledger } from 'src/accounting/entities/ledger.entity';
+import { Ledger } from '@univeex/accounting/api-data-access';
 import { AccountBalance } from './entities/account-balance.entity';
 
 

@@ -5,7 +5,7 @@ import { JournalEntriesService } from 'src/journal-entries/journal-entries.servi
 import { BankTransfer } from './entities/bank-transfer.entity';
 import { CreateBankTransferDto } from './dto/create-bank-transfer.dto';
 import { Journal } from 'src/journal-entries/entities/journal.entity';
-import { Ledger } from 'src/accounting/entities/ledger.entity';
+import { Ledger } from '@univeex/accounting/api-data-access';
 import { CreateJournalEntryDto } from 'src/journal-entries/dto/create-journal-entry.dto';
 
 @Injectable()

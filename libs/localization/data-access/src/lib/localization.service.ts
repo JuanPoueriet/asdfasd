@@ -14,4 +14,12 @@ export class LocalizationApiService {
   getFiscalRegions(): Observable<FiscalRegion[]> {
     return this.http.get<FiscalRegion[]>(`${this.apiUrl}/fiscal-regions`);
   }
+
+  getInitialLanguage(): string {
+    return 'es';
+  }
+
+  setLanguage(lang: string): void {
+    console.log('Set language to', lang);
+  }
 }

@@ -1,5 +1,5 @@
 
-import { Organization } from 'src/organizations/entities/organization.entity';
+import { Organization } from '@univeex/organizations/feature-api';
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, Index } from 'typeorm';
 
 @Entity({ name: 'account_segment_definitions' })

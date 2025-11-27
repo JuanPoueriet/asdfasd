@@ -1,9 +1,9 @@
 
 import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, ParseUUIDPipe, HttpCode, HttpStatus } from '@nestjs/common';
 import { DimensionsService } from './dimensions.service';
-import { JwtAuthGuard } from 'src/auth/guards/jwt/jwt.guard';
-import { CurrentUser } from 'src/auth/decorators/current-user.decorator';
-import { User } from 'src/users/entities/user.entity/user.entity';
+import { JwtAuthGuard } from '@univeex/auth/feature-api';
+import { CurrentUser } from '@univeex/auth/feature-api';
+import { User } from '@univeex/users/api-data-access';
 import { CreateDimensionDto, UpdateDimensionDto } from './dto/dimension.dto';
 import { CreateDimensionRuleDto } from './dto/dimension-rule.dto';
 

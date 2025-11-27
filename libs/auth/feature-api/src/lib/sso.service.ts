@@ -2,7 +2,7 @@ import { Injectable, NotFoundException, BadRequestException } from '@nestjs/comm
 import { InjectRepository } from '@nestjs/typeorm';
 import { DeepPartial, Repository } from 'typeorm'; // <-- Importar DeepPartial
 import { SsoConfig, SsoProviderType } from './sso-config.entity';
-import { Organization } from 'src/organizations/entities/organization.entity';
+import { Organization } from '@univeex/organizations/feature-api';
 import { CreateSsoConfigDto, UpdateSsoConfigDto } from './dto/sso-config.dto';
 import { User, UserStatus } from '@univeex/users/feature-api';
 import { Role } from 'src/roles/entities/role.entity';

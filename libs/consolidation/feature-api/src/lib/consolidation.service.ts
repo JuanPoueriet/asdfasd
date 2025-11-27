@@ -7,12 +7,12 @@ import {
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, DataSource, LessThanOrEqual } from 'typeorm';
-import { Organization } from 'src/organizations/entities/organization.entity';
-import { Account, AccountType } from 'src/chart-of-accounts/entities/account.entity';
-import { FinancialReportingService } from 'src/financial-reporting/financial-reporting.service';
+import { Organization } from '@univeex/organizations/feature-api';
+import { Account, AccountType } from '@univeex/chart-of-accounts/feature-api';
+import { FinancialReportingService } from '@univeex/financial-reporting/feature-api';
 import { ConsolidationMap } from './entities/consolidation-map.entity';
-import { OrganizationSettings } from 'src/organizations/entities/organization-settings.entity';
-import { ExchangeRate } from 'src/currencies/entities/exchange-rate.entity';
+import { OrganizationSettings } from '@univeex/organizations/feature-api';
+import { ExchangeRate } from '@univeex/currencies/feature-api';
 
 @Injectable()
 export class ConsolidationService {

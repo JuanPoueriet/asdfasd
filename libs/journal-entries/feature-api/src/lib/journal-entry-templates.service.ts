@@ -6,7 +6,7 @@ import { JournalEntryTemplate } from './entities/journal-entry-template.entity';
 import { CreateJournalEntryTemplateDto, UpdateJournalEntryTemplateDto, CreateJournalEntryFromTemplateDto } from './dto/recurring-and-templates.dto';
 import { JournalEntriesService } from './journal-entries.service';
 import { JournalEntry } from './entities/journal-entry.entity';
-import { Ledger } from 'src/accounting/entities/ledger.entity';
+import { Ledger } from '@univeex/accounting/api-data-access';
 import { CreateJournalEntryDto } from './dto/create-journal-entry.dto';
 
 @Injectable()

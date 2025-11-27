@@ -1,9 +1,9 @@
 import { Controller, Post, Body, UseGuards } from '@nestjs/common';
 import { CustomerPaymentsService } from './customer-payments.service';
 import { CreateCustomerPaymentDto } from './dto/create-customer-payment.dto';
-import { JwtAuthGuard } from 'src/auth/guards/jwt/jwt.guard';
-import { CurrentUser } from 'src/auth/decorators/current-user.decorator';
-import { User } from 'src/users/entities/user.entity/user.entity';
+import { JwtAuthGuard } from '@univeex/auth/feature-api';
+import { CurrentUser } from '@univeex/auth/feature-api';
+import { User } from '@univeex/users/api-data-access';
 
 @Controller('customer-payments')
 @UseGuards(JwtAuthGuard)

@@ -2,10 +2,10 @@
 import { Controller, Post, Body, UseGuards, HttpCode, HttpStatus, Query } from '@nestjs/common';
 import { AnalyticalReportingService } from './analytical-reporting.service';
 import { AnalyticalQueryDto, PaginationOptionsDto } from './dto/analytical-query.dto';
-import { JwtAuthGuard } from 'src/auth/guards/jwt/jwt.guard';
-import { CurrentUser } from 'src/auth/decorators/current-user.decorator';
+import { JwtAuthGuard } from '@univeex/auth/feature-api';
+import { CurrentUser } from '@univeex/auth/feature-api';
 import { User } from 'src/users/entities/user.entity/user.entity';
-import { HasPermission } from 'src/auth/decorators/permissions.decorator';
+import { HasPermission } from '@univeex/auth/feature-api';
 import { PERMISSIONS } from 'src/shared/permissions';
 
 @Controller('analytical-reporting')

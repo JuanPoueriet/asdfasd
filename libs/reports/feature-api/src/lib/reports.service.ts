@@ -8,7 +8,7 @@ import { Account } from 'src/chart-of-accounts/entities/account.entity';
 import { GeneralLedgerReportDto } from 'src/journal-entries/dto/general-ledger-report.dto';
 import { JournalReportDto } from 'src/journal-entries/dto/journal-report.dto';
 import { JournalEntryStatus } from 'src/journal-entries/entities/journal-entry.entity';
-import { Ledger } from 'src/accounting/entities/ledger.entity';
+import { Ledger } from '@univeex/accounting/api-data-access';
 import { CustomerPaymentLine } from 'src/customers/entities/customer-payment-line.entity';
 import { OrganizationSettings } from 'src/organizations/entities/organization-settings.entity';
 

@@ -1,8 +1,8 @@
 import { Component, ChangeDetectionStrategy, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LucideAngularModule, TrendingUp, TrendingDown, Minus, DollarSign } from 'lucide-angular';
-import { Kpi } from '../@univeex/dashboard/domain';
-import { DashboardApiService } from '../@univeex/dashboard/data-access';
+import { Kpi } from '@univeex/dashboard/domain';
+import { DashboardApiService } from '@univeex/dashboard/data-access';
 import { Observable, map } from 'rxjs';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -28,10 +28,10 @@ export class KpiEbitdaComponent implements OnInit {
     this.kpi$ = this.dashboardApiService.getEBITDA().pipe(
       map(data => ({
         title: 'DASH.WIDGET.KPI_EBITDA.TITLE',
-        value: data.ebitda.toFixed(2),
+        value: (data as any).ebitda.toFixed(2),
         comparisonValue: '', // El backend no provee comparación aún
         comparisonPeriod: 'DASH.WIDGET.KPI_EBITDA.COMP_PERIOD',
-        isPositive: data.ebitda > 0,
+        isPositive: (data as any).ebitda > 0,
         iconName: 'DollarSign',
         color: 'purple'
       }))

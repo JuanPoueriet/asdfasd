@@ -13,7 +13,7 @@ interface EnhancedSearchResultGroup extends SearchResultGroup {
 
 @Component({
   selector: 'app-global-search-page',
-  standalone: true,,
+  standalone: true,
   imports: [CommonModule, RouterLink, LucideAngularModule],
   templateUrl: './global-search.page.html',
   styleUrls: ['./global-search.page.scss'],

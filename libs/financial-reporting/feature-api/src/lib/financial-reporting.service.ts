@@ -7,7 +7,7 @@ import { JournalEntryLine } from 'src/journal-entries/entities/journal-entry-lin
 import { OrganizationSettings } from 'src/organizations/entities/organization-settings.entity';
 import { MonthlyAccountBalance } from 'src/reporting/entities/monthly-account-balance.entity';
 import { subDays } from 'date-fns';
-import { Ledger } from 'src/accounting/entities/ledger.entity';
+import { Ledger } from '@univeex/accounting/api-data-access';
 
 export type DimensionFilters = Record<string, string>;
 

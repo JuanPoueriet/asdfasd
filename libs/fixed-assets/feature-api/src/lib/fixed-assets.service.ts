@@ -6,10 +6,10 @@ import { FixedAsset, FixedAssetStatus } from './entities/fixed-asset.entity';
 import { CreateFixedAssetDto } from './dto/create-fixed-asset.dto';
 import { UpdateFixedAssetDto } from './dto/update-fixed-asset.dto';
 import { DisposeAssetDto } from './dto/dispose-asset.dto';
-import { JournalEntriesService } from 'src/journal-entries/journal-entries.service';
-import { Journal } from 'src/journal-entries/entities/journal.entity';
-import { Ledger } from 'src/accounting/entities/ledger.entity';
-import { CreateJournalEntryDto } from 'src/journal-entries/dto/create-journal-entry.dto';
+import { JournalEntriesService } from '@univeex/journal-entries/feature-api';
+import { Journal } from '@univeex/journal-entries/feature-api';
+import { Ledger } from '@univeex/accounting/api-data-access';
+import { CreateJournalEntryDto } from '@univeex/journal-entries/feature-api';
 
 @Injectable()
 export class FixedAssetsService {

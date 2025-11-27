@@ -13,7 +13,7 @@ import {
 import { InvoiceLineItem } from './invoice-line-item.entity';
 import { Customer } from 'src/customers/entities/customer.entity';
 import { Currency } from 'src/currencies/entities/currency.entity';
-import { Organization } from 'src/organizations/entities/organization.entity';
+import { Organization } from '@univeex/organizations/feature-api';
 
 export enum InvoiceStatus {
     DRAFT = 'Draft',

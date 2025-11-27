@@ -7,7 +7,7 @@ import { CreateDimensionDto, UpdateDimensionDto } from './dto/dimension.dto';
 import { DimensionValue } from './entities/dimension-value.entity';
 import { DimensionRule } from './entities/dimension-rule.entity';
 import { CreateDimensionRuleDto } from './dto/dimension-rule.dto';
-import { Account } from 'src/chart-of-accounts/entities/account.entity';
+import { Account } from '@univeex/chart-of-accounts/feature-api';
 
 @Injectable()
 export class DimensionsService {

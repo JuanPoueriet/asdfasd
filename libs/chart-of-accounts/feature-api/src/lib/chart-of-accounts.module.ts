@@ -5,7 +5,7 @@ import { Account } from './entities/account.entity';
 import { JournalEntriesModule } from 'src/journal-entries/journal-entries.module';
 import { ChartOfAccountsService } from './chart-of-accounts.service';
 import { ChartOfAccountsController } from './chart-of-accounts.controller';
-import { AuthModule } from 'src/auth/auth.module';
+import { AuthModule } from '@univeex/auth/feature-api';
 import { JournalEntryLine } from 'src/journal-entries/entities/journal-entry-line.entity';
 import { BalanceUpdateService } from './balance-update.service';
 import { BalanceUpdateProcessor } from './balance-update.processor';

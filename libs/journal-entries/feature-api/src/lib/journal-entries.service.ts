@@ -38,9 +38,9 @@ import { BalanceUpdateService } from 'src/chart-of-accounts/balance-update.servi
 import {
   AccountingPeriod,
   PeriodStatus,
-} from 'src/accounting/entities/accounting-period.entity';
+} from '@univeex/accounting/api-data-access';
 import { Journal } from './entities/journal.entity';
-import { Ledger } from 'src/accounting/entities/ledger.entity';
+import { Ledger } from '@univeex/accounting/api-data-access';
 import { WorkflowsService } from 'src/workflows/workflows.service';
 import { DocumentTypeForApproval } from 'src/workflows/entities/approval-policy.entity';
 import { EventEmitter2, OnEvent } from '@nestjs/event-emitter';
@@ -48,7 +48,7 @@ import { Readable } from 'stream';
 import { DimensionRule } from 'src/dimensions/entities/dimension-rule.entity';
 import { OrganizationSettings } from 'src/organizations/entities/organization-settings.entity';
 import { JournalEntryLineValuation } from './entities/journal-entry-line-valuation.entity';
-import { LedgerMappingRule } from 'src/accounting/entities/ledger-mapping-rule.entity';
+import { LedgerMappingRule } from '@univeex/accounting/api-data-access';
 
 @Injectable()
 export class JournalEntriesService {

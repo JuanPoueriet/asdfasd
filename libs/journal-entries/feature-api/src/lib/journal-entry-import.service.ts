@@ -20,7 +20,7 @@ import {
 import { FileParserService } from './parsers/file-parser.service';
 import { EventsGateway } from 'src/websockets/events.gateway';
 import { Journal } from './entities/journal.entity';
-import { Ledger } from 'src/accounting/entities/ledger.entity';
+import { Ledger } from '@univeex/accounting/api-data-access';
 
 interface ImportBatch {
   id: string;

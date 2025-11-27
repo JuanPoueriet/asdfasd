@@ -1,7 +1,7 @@
 
 import { Controller, Get, Param, Post } from '@nestjs/common';
 import { LocalizationService } from '../services/localization.service';
-import { Organization } from 'src/organizations/entities/organization.entity';
+import { Organization } from '@univeex/organizations/feature-api';
 import { FiscalRegion } from '../entities/fiscal-region.entity';
 
 @Controller('localization')

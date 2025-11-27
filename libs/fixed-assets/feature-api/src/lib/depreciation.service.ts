@@ -4,13 +4,13 @@ import { Injectable, Logger, BadRequestException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, DataSource, EntityManager } from 'typeorm';
 import { FixedAsset, FixedAssetStatus } from './entities/fixed-asset.entity';
-import { JournalEntriesService } from 'src/journal-entries/journal-entries.service';
-import { OrganizationSettings } from 'src/organizations/entities/organization-settings.entity';
-import { Journal } from 'src/journal-entries/entities/journal.entity';
+import { JournalEntriesService } from '@univeex/journal-entries/feature-api';
+import { OrganizationSettings } from '@univeex/organizations/feature-api';
+import { Journal } from '@univeex/journal-entries/feature-api';
 import { Cron, CronExpression } from '@nestjs/schedule';
-import { Organization } from 'src/organizations/entities/organization.entity';
-import { Ledger } from 'src/accounting/entities/ledger.entity';
-import { CreateJournalEntryDto } from 'src/journal-entries/dto/create-journal-entry.dto';
+import { Organization } from '@univeex/organizations/feature-api';
+import { Ledger } from '@univeex/accounting/api-data-access';
+import { CreateJournalEntryDto } from '@univeex/journal-entries/feature-api';
 
 @Injectable()
 export class DepreciationService {

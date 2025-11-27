@@ -2,14 +2,14 @@
 import { Module } from '@nestjs/common';
 import { DashboardService } from './dashboard.service';
 import { DashboardController } from './dashboard.controller';
-import { ChartOfAccountsModule } from 'src/chart-of-accounts/chart-of-accounts.module';
-import { InventoryModule } from 'src/inventory/inventory.module';
-import { AuthModule } from 'src/auth/auth.module';
+import { ChartOfAccountsModule } from '@univeex/chart-of-accounts/feature-api';
+import { InventoryModule } from '@univeex/inventory/feature-api';
+import { AuthModule } from '@univeex/auth/feature-api';
 import { CacheModule } from '@nestjs/cache-manager';
 
-import { FinancialReportingModule } from 'src/financial-reporting/financial-reporting.module';
+import { FinancialReportingModule } from '@univeex/financial-reporting/feature-api';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Organization } from 'src/organizations/entities/organization.entity';
+import { Organization } from '@univeex/organizations/feature-api';
 
 @Module({
   imports: [

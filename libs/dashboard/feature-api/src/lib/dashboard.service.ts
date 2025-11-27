@@ -2,9 +2,9 @@
 import { Injectable, Inject, BadRequestException, NotFoundException } from '@nestjs/common';
 import { CACHE_MANAGER } from '@nestjs/cache-manager';
 import * as cacheManager_1 from 'cache-manager';
-import { ChartOfAccountsService } from 'src/chart-of-accounts/chart-of-accounts.service';
-import { InventoryService } from 'src/inventory/inventory.service';
-import { AccountType, AccountCategory } from 'src/chart-of-accounts/enums/account-enums';
+import { ChartOfAccountsService } from '@univeex/chart-of-accounts/feature-api';
+import { InventoryService } from '@univeex/inventory/feature-api';
+import { AccountType, AccountCategory } from '@univeex/chart-of-accounts/feature-api';
 import { QuickRatioDto } from './dto/quick-ratio.dto';
 import { WorkingCapitalDto } from './dto/working-capital.dto';
 import { CurrentRatioDto } from './dto/current-ratio.dto';
@@ -14,11 +14,11 @@ import { LeverageDto } from './dto/leverage.dto';
 import { NetMarginDto } from './dto/net-margin.dto';
 import { EbitdaDto } from './dto/ebitda.dto';
 import { FcfDto } from './dto/fcf.dto';
-import { Ledger } from 'src/accounting/entities/ledger.entity';
+import { Ledger } from '@univeex/accounting/api-data-access';
 import { DataSource, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Organization } from 'src/organizations/entities/organization.entity';
-import { FinancialReportingService } from 'src/financial-reporting/financial-reporting.service';
+import { Organization } from '@univeex/organizations/feature-api';
+import { FinancialReportingService } from '@univeex/financial-reporting/feature-api';
 import { CashFlowWaterfallDto } from './dto/cash-flow-waterfall.dto';
 import { startOfYear, endOfDay } from 'date-fns';
 
