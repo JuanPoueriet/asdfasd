@@ -4,14 +4,14 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConsolidationService } from './consolidation.service';
 import { ConsolidationController } from './consolidation.controller';
 import { Organization } from '@univeex/organizations/feature-api';
-import { OrganizationSubsidiary } from 'src/organizations/entities/organization-subsidiary.entity';
-import { FinancialReportingModule } from 'src/financial-reporting/financial-reporting.module';
+import { OrganizationSubsidiary } from '@univeex/organizations/feature-api';
+import { FinancialReportingModule } from '@univeex/financial-reporting/feature-api';
 import { AuthModule } from '@univeex/auth/feature-api';
 import { ConsolidationMap } from './entities/consolidation-map.entity';
 
 
-import { OrganizationSettings } from 'src/organizations/entities/organization-settings.entity';
-import { ExchangeRate } from 'src/currencies/entities/exchange-rate.entity';
+import { OrganizationSettings } from '@univeex/organizations/feature-api';
+import { ExchangeRate } from '@univeex/currencies/feature-api';
 import { ConsolidationMappingController } from './consolidation-mapping.controller';
 import { ConsolidationMappingService } from './consolidation-mapping.service';
 

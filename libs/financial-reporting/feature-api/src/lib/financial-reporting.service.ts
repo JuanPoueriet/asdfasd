@@ -2,10 +2,10 @@
 import { Injectable, BadRequestException, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, In, DataSource, LessThanOrEqual } from 'typeorm';
-import { Account, AccountType, AccountCategory } from 'src/chart-of-accounts/entities/account.entity';
-import { JournalEntryLine } from 'src/journal-entries/entities/journal-entry-line.entity';
-import { OrganizationSettings } from 'src/organizations/entities/organization-settings.entity';
-import { MonthlyAccountBalance } from 'src/reporting/entities/monthly-account-balance.entity';
+import { Account, AccountType, AccountCategory } from '@univeex/chart-of-accounts/feature-api';
+import { JournalEntryLine } from '@univeex/journal-entries/feature-api';
+import { OrganizationSettings } from '@univeex/organizations/feature-api';
+import { MonthlyAccountBalance } from '@univeex/reporting/feature-api';
 import { subDays } from 'date-fns';
 import { Ledger } from '@univeex/accounting/api-data-access';
 

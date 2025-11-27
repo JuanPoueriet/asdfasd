@@ -3,9 +3,9 @@ import { Controller, Get, UseGuards, Query } from '@nestjs/common';
 import { FinancialReportingService, DimensionFilters } from './financial-reporting.service';
 import { JwtAuthGuard } from '@univeex/auth/feature-api';
 import { CurrentUser } from '@univeex/auth/feature-api';
-import { User } from 'src/users/entities/user.entity/user.entity';
+import { User } from '@univeex/users/api-data-access';
 import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth, ApiQuery } from '@nestjs/swagger';
-import { PERMISSIONS } from 'src/shared/permissions';
+import { PERMISSIONS } from '@univeex/shared/util-common';
 import { HasPermission } from '@univeex/auth/feature-api';
 
 @ApiTags('Financial Reporting')
