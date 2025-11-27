@@ -27,26 +27,26 @@ import {
   CreateJournalEntryDto,
   CreateJournalEntryLineDto,
 } from './dto/create-journal-entry.dto';
-import { Account } from 'src/chart-of-accounts/entities/account.entity';
+import { Account } from '@univeex/chart-of-accounts/feature-api';
 import {
   UpdateJournalEntryDto,
   ReverseJournalEntryDto,
 } from './dto/journal-entry-actions.dto';
-import { StorageService } from 'src/storage/storage.service';
+import { StorageService } from '@univeex/storage/feature-api';
 import { JournalEntryAttachment } from './entities/journal-entry-attachment.entity';
-import { BalanceUpdateService } from 'src/chart-of-accounts/balance-update.service';
+import { BalanceUpdateService } from '@univeex/chart-of-accounts/feature-api';
 import {
   AccountingPeriod,
   PeriodStatus,
 } from '@univeex/accounting/api-data-access';
 import { Journal } from './entities/journal.entity';
 import { Ledger } from '@univeex/accounting/api-data-access';
-import { WorkflowsService } from 'src/workflows/workflows.service';
-import { DocumentTypeForApproval } from 'src/workflows/entities/approval-policy.entity';
+import { WorkflowsService } from '@univeex/workflows/feature-api';
+import { DocumentTypeForApproval } from '@univeex/workflows/feature-api';
 import { EventEmitter2, OnEvent } from '@nestjs/event-emitter';
 import { Readable } from 'stream';
-import { DimensionRule } from 'src/dimensions/entities/dimension-rule.entity';
-import { OrganizationSettings } from 'src/organizations/entities/organization-settings.entity';
+import { DimensionRule } from '@univeex/dimensions/feature-api';
+import { OrganizationSettings } from '@univeex/organizations/feature-api';
 import { JournalEntryLineValuation } from './entities/journal-entry-line-valuation.entity';
 import { LedgerMappingRule } from '@univeex/accounting/api-data-access';
 

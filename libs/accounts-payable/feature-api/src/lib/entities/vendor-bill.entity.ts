@@ -11,8 +11,8 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { VendorBillLine } from './vendor-bill-line.entity';
-import { Supplier } from 'src/suppliers/entities/supplier.entity';
-import { Currency } from 'src/currencies/entities/currency.entity';
+import { Supplier } from '@univeex/suppliers/api-data-access';
+import { Currency } from '@univeex/currencies/feature-api';
 import { Organization } from '@univeex/organizations/feature-api';
 
 export enum VendorBillStatus {

@@ -4,8 +4,8 @@ import { DeepPartial, Repository } from 'typeorm'; // <-- Importar DeepPartial
 import { SsoConfig, SsoProviderType } from './sso-config.entity';
 import { Organization } from '@univeex/organizations/feature-api';
 import { CreateSsoConfigDto, UpdateSsoConfigDto } from './dto/sso-config.dto';
-import { User, UserStatus } from '@univeex/users/feature-api';
-import { Role } from 'src/roles/entities/role.entity';
+import { User, UserStatus } from '@univeex/users/api-data-access';
+import { Role } from '@univeex/roles/api-feature';
 
 @Injectable()
 export class SsoService {

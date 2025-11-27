@@ -1,7 +1,7 @@
 import { Controller, Post, Body, UseGuards, Get, Res, HttpCode, HttpStatus, ForbiddenException, NotFoundException } from '@nestjs/common';
 import { JwtAuthGuard } from './guards/jwt/jwt.guard';
 import { CurrentUser } from './decorators/current-user.decorator';
-import { User } from '@univeex/users/feature-api';
+import { User } from '@univeex/users/api-data-access';
 import { MfaService } from './mfa.service';
 import { EnableMfaDto, DisableMfaDto } from './dto/mfa.dto';
 import { InjectRepository } from '@nestjs/typeorm';

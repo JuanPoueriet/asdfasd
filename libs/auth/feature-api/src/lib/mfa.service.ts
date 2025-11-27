@@ -2,7 +2,7 @@ import { Injectable, InternalServerErrorException, Logger } from '@nestjs/common
 import { ConfigService } from '@nestjs/config';
 import * as speakeasy from 'speakeasy';
 import * as qrcode from 'qrcode';
-import { User } from '@univeex/users/feature-api';
+import { User } from '@univeex/users/api-data-access';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
