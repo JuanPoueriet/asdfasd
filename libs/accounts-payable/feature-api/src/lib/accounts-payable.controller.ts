@@ -1,24 +1,21 @@
 
-
 import {
   Controller,
-  Get,
   Post,
   Body,
-  Patch,
-  Param,
-  Delete,
   UseGuards,
+  Get,
+  Param,
+  Patch,
+  Delete,
   ParseUUIDPipe,
-  HttpCode,
-  HttpStatus,
 } from '@nestjs/common';
 import { AccountsPayableService } from './accounts-payable.service';
 import { CreateVendorBillDto } from './dto/create-vendor-bill.dto';
 import { UpdateVendorBillDto } from './dto/update-vendor-bill.dto';
 import { JwtAuthGuard } from '@univeex/auth/feature-api';
 import { CurrentUser } from '@univeex/auth/feature-api';
-import { User } from 'src/users/entities/user.entity/user.entity';
+import { User } from '@univeex/users/api-data-access';
 
 @Controller('accounts-payable')
 @UseGuards(JwtAuthGuard)
@@ -27,8 +24,8 @@ export class AccountsPayableController {
     private readonly accountsPayableService: AccountsPayableService,
   ) {}
 
-  @Post()
-  create(
+  @Post('bills')
+  createBill(
     @Body() createVendorBillDto: CreateVendorBillDto,
     @CurrentUser() user: User,
   ) {
@@ -38,18 +35,32 @@ export class AccountsPayableController {
     );
   }
 
-  @Get()
-  findAll(@CurrentUser() user: User) {
+  @Post('bills/:id/submit-approval')
+  submitForApproval(
+    @Param('id', ParseUUIDPipe) id: string,
+    @CurrentUser() user: User,
+  ) {
+    return this.accountsPayableService.submitForApproval(
+      id,
+      user.organizationId,
+    );
+  }
+
+  @Get('bills')
+  findAllBills(@CurrentUser() user: User) {
     return this.accountsPayableService.findAll(user.organizationId);
   }
 
-  @Get(':id')
-  findOne(@Param('id', ParseUUIDPipe) id: string, @CurrentUser() user: User) {
+  @Get('bills/:id')
+  findOneBill(
+    @Param('id', ParseUUIDPipe) id: string,
+    @CurrentUser() user: User,
+  ) {
     return this.accountsPayableService.findOne(id, user.organizationId);
   }
 
-  @Patch(':id')
-  update(
+  @Patch('bills/:id')
+  updateBill(
     @Param('id', ParseUUIDPipe) id: string,
     @Body() updateVendorBillDto: UpdateVendorBillDto,
     @CurrentUser() user: User,
@@ -61,8 +72,15 @@ export class AccountsPayableController {
     );
   }
 
-  @Post(':id/void')
-  @HttpCode(HttpStatus.OK)
+  @Delete('bills/:id')
+  removeBill(
+    @Param('id', ParseUUIDPipe) id: string,
+    @CurrentUser() user: User,
+  ) {
+    return this.accountsPayableService.remove(id, user.organizationId);
+  }
+
+  @Post('bills/:id/void')
   voidBill(
     @Param('id', ParseUUIDPipe) id: string,
     @Body('reason') reason: string,
@@ -75,20 +93,20 @@ export class AccountsPayableController {
     );
   }
 
-  @Delete(':id')
-  remove(@Param('id', ParseUUIDPipe) id: string, @CurrentUser() user: User) {
-
-    return this.accountsPayableService.remove(id, user.organizationId);
-  }
-
-  @Post(':id/submit-for-approval')
-  @HttpCode(HttpStatus.OK)
-  submitForApproval(
-    @Param('id', ParseUUIDPipe) id: string,
+  @Post('payment-batches')
+  createPaymentBatch(
+    @Body()
+    body: {
+      billIds: string[];
+      paymentDate: Date;
+      bankAccountId: string;
+    },
     @CurrentUser() user: User,
   ) {
-    return this.accountsPayableService.submitForApproval(
-      id,
+    return this.accountsPayableService.createPaymentBatch(
+      body.billIds,
+      body.paymentDate,
+      body.bankAccountId,
       user.organizationId,
     );
   }

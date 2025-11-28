@@ -8,13 +8,13 @@ import { VendorBillLine } from './entities/vendor-bill-line.entity';
 import { VendorPayment } from './entities/vendor-payment.entity';
 import { VendorDebitNote } from './entities/vendor-debit-note.entity';
 import { PaymentBatch } from './entities/payment-batch.entity';
-import { OrganizationSettings } from 'src/organizations/entities/organization-settings.entity';
-import { JournalEntriesModule } from 'src/journal-entries/journal-entries.module';
-import { InventoryModule } from 'src/inventory/inventory.module';
-import { WorkflowsModule } from 'src/workflows/workflows.module';
-import { ExchangeRate } from 'src/currencies/entities/exchange-rate.entity';
-import { CurrenciesModule } from 'src/currencies/currencies.module';
-import { BudgetsModule } from 'src/budgets/budgets.module';
+import { OrganizationSettings } from '@univeex/organizations/feature-api';
+import { JournalEntriesModule } from '@univeex/journal-entries/feature-api';
+import { InventoryModule } from '@univeex/inventory/feature-api';
+import { WorkflowsModule } from '@univeex/workflows/feature-api';
+import { ExchangeRate } from '@univeex/currencies/feature-api';
+import { CurrenciesModule } from '@univeex/currencies/feature-api';
+import { BudgetsModule } from '@univeex/budgets/feature-api';
 import { VendorDebitNotesController } from './vendor-debit-notes.controller';
 import { VendorDebitNotesService } from './vendor-debit-notes.service';
 
@@ -37,5 +37,6 @@ import { VendorDebitNotesService } from './vendor-debit-notes.service';
   ],
   controllers: [AccountsPayableController, VendorDebitNotesController],
   providers: [AccountsPayableService, VendorDebitNotesService],
+  exports: [AccountsPayableService, VendorDebitNotesService],
 })
 export class AccountsPayableModule {}

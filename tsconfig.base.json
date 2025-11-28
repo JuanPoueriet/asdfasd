@@ -292,40 +292,40 @@
       "@univeex/contacts/feature-api": [
         "libs/contacts/feature-api/src/index.ts"
       ],
-      "@univeex/web-data-access": ["accounting/web-data-access/src/index.ts"],
-      "@univeex/feature-chart-of-accounts": [
-        "accounting/feature-chart-of-accounts/src/index.ts"
+      "@univeex/accounting/web-data-access": ["libs/accounting/web-data-access/src/index.ts"],
+      "@univeex/accounting/feature-chart-of-accounts": [
+        "libs/accounting/api-feature-chart-of-accounts/src/index.ts"
       ],
-      "@univeex/feature-daily-journal": [
-        "accounting/feature-daily-journal/src/index.ts"
+      "@univeex/accounting/feature-daily-journal": [
+        "libs/accounting/feature-daily-journal/src/index.ts"
       ],
-      "@univeex/feature-general-ledger": [
-        "accounting/feature-general-ledger/src/index.ts"
+      "@univeex/accounting/feature-general-ledger": [
+        "libs/accounting/feature-general-ledger/src/index.ts"
       ],
-      "@univeex/feature-journal-entries": [
-        "accounting/feature-journal-entries/src/index.ts"
+      "@univeex/accounting/feature-journal-entries": [
+        "libs/accounting/feature-journal-entries/src/index.ts"
       ],
-      "@univeex/feature-journal-entry-form": [
-        "accounting/feature-journal-entry-form/src/index.ts"
+      "@univeex/accounting/feature-journal-entry-form": [
+        "libs/accounting/feature-journal-entry-form/src/index.ts"
       ],
-      "@univeex/feature-journal-form": [
-        "accounting/feature-journal-form/src/index.ts"
+      "@univeex/accounting/feature-journal-form": [
+        "libs/accounting/feature-journal-form/src/index.ts"
       ],
-      "@univeex/feature-journal-list": [
-        "accounting/feature-journal-list/src/index.ts"
+      "@univeex/accounting/feature-journal-list": [
+        "libs/accounting/feature-journal-list/src/index.ts"
       ],
-      "@univeex/feature-ledger-form": [
-        "accounting/feature-ledger-form/src/index.ts"
+      "@univeex/accounting/feature-ledger-form": [
+        "libs/accounting/feature-ledger-form/src/index.ts"
       ],
-      "@univeex/feature-ledger-list": [
-        "accounting/feature-ledger-list/src/index.ts"
+      "@univeex/accounting/feature-ledger-list": [
+        "libs/accounting/feature-ledger-list/src/index.ts"
       ],
-      "@univeex/feature-periods": ["accounting/feature-periods/src/index.ts"],
-      "@univeex/feature-reconciliation": [
-        "accounting/feature-reconciliation/src/index.ts"
+      "@univeex/accounting/feature-periods": ["libs/accounting/feature-periods/src/index.ts"],
+      "@univeex/accounting/feature-reconciliation": [
+        "libs/accounting/feature-reconciliation/src/index.ts"
       ],
-      "@univeex/api-feature": ["accounting/api-feature/src/index.ts"],
-      "@univeex/api-core": ["accounting/api-core/src/index.ts"],
+      "@univeex/accounting/api-feature": ["libs/accounting/api-feature/src/index.ts"],
+      "@univeex/accounting/api-core": ["libs/accounting/api-core/src/index.ts"],
       "@univeex/webapp/environments": ["apps/webapp/src/environments/environment.ts"],
       "@univeex/shared/util-types": ["libs/shared/util-types/src/index.ts"]
     }
