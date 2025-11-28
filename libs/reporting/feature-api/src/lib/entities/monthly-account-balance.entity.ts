@@ -1,35 +1,35 @@
 
-import { Account } from 'src/chart-of-accounts/entities/account.entity';
+import { Account } from '@univeex/chart-of-accounts/feature-api';
 import { Entity, PrimaryColumn, Column, ManyToOne, JoinColumn, Index } from 'typeorm';
 
 @Entity({ name: 'monthly_account_balances' })
-@Index(['organizationId', 'year', 'month'])
+@Index(['organizationId', 'period'])
 export class MonthlyAccountBalance {
-  @PrimaryColumn({ type: 'uuid' })
-  accountId: string;
+  @PrimaryColumn('uuid')
+  id: string;
 
-  @PrimaryColumn({ type: 'int' })
-  year: number;
-
-  @PrimaryColumn({ type: 'int' })
-  month: number;
-
-  @PrimaryColumn({ type: 'uuid' })
+  @Column({ name: 'organization_id' })
   organizationId: string;
 
-  @ManyToOne(() => Account, { onDelete: 'CASCADE' })
+  @Column({ name: 'account_id' })
+  accountId: string;
+
+  @ManyToOne(() => Account)
   @JoinColumn({ name: 'account_id' })
   account: Account;
 
-  @Column({ type: 'decimal', precision: 18, scale: 2, default: 0.0 })
-  totalDebit: number;
+  @Column({ length: 7 }) // Format: YYYY-MM
+  period: string;
 
-  @Column({ type: 'decimal', precision: 18, scale: 2, default: 0.0 })
-  totalCredit: number;
+  @Column('decimal', { precision: 18, scale: 2, default: 0 })
+  beginningBalance: number;
 
-  @Column({ type: 'decimal', precision: 18, scale: 2, default: 0.0 })
-  endBalance: number;
+  @Column('decimal', { precision: 18, scale: 2, default: 0 })
+  debitAmount: number;
 
-  @Column({ type: 'decimal', precision: 18, scale: 2, default: 0.0 })
-  netChange: number;
+  @Column('decimal', { precision: 18, scale: 2, default: 0 })
+  creditAmount: number;
+
+  @Column('decimal', { precision: 18, scale: 2, default: 0 })
+  endingBalance: number;
 }

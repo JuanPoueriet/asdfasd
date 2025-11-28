@@ -1,6 +1,6 @@
 export interface GeneralLedgerLine {
   id: string;
-  date: string | Date;
+  date: string;
   reference: string;
   description: string;
   debit: number | null;
@@ -13,9 +13,8 @@ export interface GeneralLedger {
   finalBalance: number;
   lines: GeneralLedgerLine[];
   account: {
+    id: string;
     code: string;
     name: string;
   };
-  startDate: string;
-  endDate: string;
 }

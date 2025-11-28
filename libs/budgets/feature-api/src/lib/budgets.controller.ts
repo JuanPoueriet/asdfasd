@@ -14,7 +14,7 @@ import { CreateBudgetDto } from './dto/create-budget.dto';
 import { UpdateBudgetDto } from './dto/update-budget.dto';
 import { JwtAuthGuard } from '@univeex/auth/feature-api';
 import { CurrentUser } from '@univeex/auth/feature-api';
-import { User } from 'src/users/entities/user.entity/user.entity';
+import { User } from '@univeex/users/api-data-access';
 
 @Controller('budgets')
 @UseGuards(JwtAuthGuard)

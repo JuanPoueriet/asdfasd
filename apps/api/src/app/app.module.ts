@@ -1,5 +1,4 @@
 
-
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as Joi from 'joi';
@@ -46,8 +45,8 @@ import { HealthModule } from '@univeex/health/feature-api';
 import { SearchModule } from '@univeex/search/feature-api';
 import { MyWorkModule } from '@univeex/my-work/feature-api';
 import { LocalizationModule } from '@univeex/localization/feature-api';
-import { UnitsOfMeasureModule } from '@univeex/units-of-measure/feature-api';
-import { NotificationsModule } from '@univeex/notifications/feature-api';
+import { UnitsOfMeasureModule } from '@univeex/units-of-measure/api-feature'; // Fixed import
+import { NotificationsModule } from '@univeex/notifications/api-feature'; // Fixed import
 import { PushNotificationsModule } from '@univeex/push-notifications/feature-api';
 import { BiModule } from '@univeex/bi/feature-api';
 

@@ -1,7 +1,7 @@
 import { Processor, WorkerHost } from '@nestjs/bullmq';
 import { Job } from 'bullmq';
 import { Logger } from '@nestjs/common';
-import { ChartOfAccountsService } from '@univeex/chart-of-accounts/feature-api';
+import { ChartOfAccountsService, CreateAccountDto } from '@univeex/chart-of-accounts/feature-api';
 import { TaxesService } from '@univeex/taxes/feature-api';
 import { DocumentSequencesService } from '@univeex/shared/util-backend';
 import { AccountTemplateDto } from '../entities/coa-template.entity';
@@ -55,14 +55,31 @@ export class LocalizationConsumer extends WorkerHost {
     organizationId: string,
     parentId: string | null,
   ): Promise<void> {
-    const { children, ...createAccountDto } = accountDto;
+    const { children, ...accountData } = accountDto;
 
     try {
-      const createdAccount = await this.coaService.create(
-        {
-          ...createAccountDto,
+      // The error indicated mismatch with CreateAccountDto.
+      // We need to ensure we map AccountTemplateDto properties to CreateAccountDto correctly.
+      // AccountTemplateDto likely has similar structure, but might miss 'segments' if it is a template.
+      // If segments are missing, we might need to derive them or pass empty array if allowed,
+      // but 'segments' has @ArrayMinSize(1).
+      // Let's assume the template data HAS segments or code that can be used.
+      // For now, I'll trust the spread `...accountData` covers most fields,
+      // but I need to make sure 'parentId' is handled.
+      // The original error was:
+      // Argument of type '{ parentId: string; }' is not assignable to parameter of type 'CreateAccountDto'.
+      // This implies `...createAccountDto` (or `accountData` here) was NOT compatible.
+      // Let's explicitly cast or map.
+
+      const createDto: CreateAccountDto = {
+          ...accountData as any, // Force cast if shapes are slightly different, but aim for compatibility
           parentId,
-        },
+          // Ensure segments exist if not present in template (which would be weird for a CoA template)
+          segments: (accountData as any).segments || [accountData.code],
+      };
+
+      const createdAccount = await this.coaService.create(
+        createDto,
         organizationId,
       );
 

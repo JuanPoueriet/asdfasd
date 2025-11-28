@@ -14,11 +14,11 @@ import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { JwtStrategy } from './strategies/jwt.strategy';
 
-import { User } from '../users/entities/user.entity/user.entity';
-import { Organization } from '../organizations/entities/organization.entity';
-import { MailModule } from '../mail/mail.module';
-import { LocalizationModule } from 'src/localization/localization.module';
-import { ChartOfAccountsModule } from 'src/chart-of-accounts/chart-of-accounts.module';
+import { User } from '@univeex/users/api-data-access';
+import { Organization } from '@univeex/organizations/feature-api';
+import { MailModule } from '@univeex/mail/feature-api';
+import { LocalizationModule } from '@univeex/localization/feature-api';
+import { ChartOfAccountsModule } from '@univeex/chart-of-accounts/feature-api';
 
 // --- INICIO: NUEVAS IMPORTACIONES ---
 import { MfaService } from './mfa.service';
@@ -28,7 +28,7 @@ import { SsoService } from './sso.service';
 import { SsoAdminController } from './sso-admin.controller';
 import { SsoController } from './sso.controller';
 import { DynamicSamlStrategy } from './strategies/saml.strategy';
-import { Role } from 'src/roles/entities/role.entity';
+import { Role } from '@univeex/roles/api-feature';
 // --- FIN: NUEVAS IMPORTACIONES ---
 
 @Module({

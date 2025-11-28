@@ -1,31 +1,19 @@
 import { NestFactory } from '@nestjs/core';
-import { SeederModule } from './bi/seeder.module';
-import { BiService } from './bi/bi.service';
+import { SeederModule, BiService } from '@univeex/bi/feature-api';
 
 async function bootstrap() {
   const app = await NestFactory.createApplicationContext(SeederModule, {
-    logger: ['error', 'warn', 'log'],
+    logger: ['error', 'warn', 'log', 'debug'],
   });
 
-  const biService = app.get(BiService);
-
-  console.log('Iniciando el proceso de seeding para la dimensión de tiempo...');
-
+  const seeder = app.get(BiService);
   try {
-    if (process.env.DB_SYNCHRONIZE !== 'true') {
-        console.warn(
-            'ADVERTENCIA: DB_SYNCHRONIZE no está en "true". El script podría fallar si la tabla "dim_time" no existe.',
-        );
-    }
-
-    await biService.populateTimeDimension('2020-01-01', '2025-12-31');
-    console.log('✅ Seeding de la dimensión de tiempo completado exitosamente.');
+    await seeder.seed();
+    console.log('Seeding complete!');
   } catch (error) {
-    console.error('❌ Error durante el proceso de seeding:', error);
-    process.exit(1);
+    console.error('Seeding failed!', error);
   } finally {
     await app.close();
-    process.exit(0);
   }
 }
 

@@ -1,7 +1,7 @@
 
 import { Injectable, CanActivate, ExecutionContext, ForbiddenException } from '@nestjs/common';
 import { DataSource } from 'typeorm';
-import { Account } from 'src/chart-of-accounts/entities/account.entity';
+import { Account } from '@univeex/chart-of-accounts/feature-api';
 
 @Injectable()
 export class TemporalValidityGuard implements CanActivate {
@@ -9,31 +9,30 @@ export class TemporalValidityGuard implements CanActivate {
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const request = context.switchToHttp().getRequest();
-    const { body } = request;
+    const body = request.body;
 
-    const transactionDateStr = body.date || body.issueDate;
-    if (!transactionDateStr || !body.lines) {
-      return true;
-    }
-
-    const transactionDate = new Date(transactionDateStr);
-    const accountIds = [...new Set(body.lines.map((line: any) => line.accountId).filter(Boolean))];
-
-    if (accountIds.length === 0) {
-      return true;
-    }
-
-    const accounts = await this.dataSource.getRepository(Account).findByIds(accountIds);
-
-    for (const account of accounts) {
-      if (account.effectiveFrom && transactionDate < new Date(account.effectiveFrom)) {
-        throw new ForbiddenException(`La cuenta ${account.code} no es válida hasta ${account.effectiveFrom}.`);
-      }
-      if (account.effectiveTo && transactionDate > new Date(account.effectiveTo)) {
-        throw new ForbiddenException(`La cuenta ${account.code} expiró el ${account.effectiveTo}.`);
-      }
+    // Check if the request involves accounts (e.g. creating a journal entry)
+    if (body.lines && Array.isArray(body.lines)) {
+        const accountIds = body.lines.map((l: any) => l.accountId).filter((id: string) => !!id);
+        if (accountIds.length > 0) {
+            const date = body.date ? new Date(body.date) : new Date();
+            await this.validateAccounts(accountIds, date);
+        }
     }
 
     return true;
+  }
+
+  private async validateAccounts(accountIds: string[], date: Date): Promise<void> {
+      const accounts = await this.dataSource.getRepository(Account).findByIds(accountIds);
+
+      for (const account of accounts) {
+          if (account.effectiveFrom && new Date(account.effectiveFrom) > date) {
+              throw new ForbiddenException(`La cuenta ${account.code} no es válida antes de ${account.effectiveFrom}.`);
+          }
+          if (account.effectiveTo && new Date(account.effectiveTo) < date) {
+              throw new ForbiddenException(`La cuenta ${account.code} ha expirado el ${account.effectiveTo}.`);
+          }
+      }
   }
 }

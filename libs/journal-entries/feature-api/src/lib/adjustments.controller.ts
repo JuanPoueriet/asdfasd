@@ -2,13 +2,13 @@
 import { Body, Controller, Post, UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from '@univeex/auth/feature-api';
 import { CurrentUser } from '@univeex/auth/feature-api';
-import { User } from 'src/users/entities/user.entity/user.entity';
+import { User } from '@univeex/users/api-data-access';
 import { AdjustmentsService } from './adjustments.service';
 import { CreateReclassificationEntryDto } from './dto/reclassification-entry.dto';
 import { CreatePeriodEndAdjustmentDto } from './dto/period-end-adjustment.dto';
-import { PeriodLockGuard } from 'src/accounting/guards/period-lock.guard';
+import { PeriodLockGuard } from '@univeex/accounting/api-feature-chart-of-accounts';
 import { HasPermission } from '@univeex/auth/feature-api';
-import { PERMISSIONS } from 'src/shared/permissions';
+import { PERMISSIONS } from '@univeex/shared/util-common';
 
 @Controller('journal-entries/adjustments')
 @UseGuards(JwtAuthGuard, PeriodLockGuard)

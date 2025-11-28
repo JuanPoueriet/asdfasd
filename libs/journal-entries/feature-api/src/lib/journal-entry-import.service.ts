@@ -1,226 +1,239 @@
 
-import {
-  Injectable,
-  BadRequestException,
-  NotFoundException,
-  Logger,
-} from '@nestjs/common';
+import { Injectable, BadRequestException, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, DataSource, In } from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
-import { Account } from 'src/chart-of-accounts/entities/account.entity';
+import { Account } from '@univeex/chart-of-accounts/feature-api';
 import { JournalEntriesService } from './journal-entries.service';
 import { CreateJournalEntryDto } from './dto/create-journal-entry.dto';
 import {
+  ImportJournalEntryBatchStatus,
+  JournalEntryImportBatch,
+} from './entities/journal-entry-import-batch.entity';
+import {
   PreviewImportResponseDto,
-  ConfirmImportDto,
-  PreviewImportRequestDto,
-  PreviewedJournalEntryDto,
+  ImportedEntryDto,
 } from './dto/journal-entry-import.dto';
 import { FileParserService } from './parsers/file-parser.service';
-import { EventsGateway } from 'src/websockets/events.gateway';
+import { EventsGateway } from '@univeex/websockets/feature-api';
 import { Journal } from './entities/journal.entity';
 import { Ledger } from '@univeex/accounting/api-data-access';
-
-interface ImportBatch {
-  id: string;
-  organizationId: string;
-  status: 'PENDING' | 'CONFIRMED' | 'FAILED';
-  entries: CreateJournalEntryDto[];
-  createdAt: Date;
-}
-const importBatchCache = new Map<string, ImportBatch>();
 
 @Injectable()
 export class JournalEntryImportService {
   private readonly logger = new Logger(JournalEntryImportService.name);
 
   constructor(
+    @InjectRepository(JournalEntryImportBatch)
+    private batchRepository: Repository<JournalEntryImportBatch>,
     @InjectRepository(Account)
-    private readonly accountRepository: Repository<Account>,
-    private readonly journalEntriesService: JournalEntriesService,
-    private readonly dataSource: DataSource,
-    private readonly fileParser: FileParserService,
-    private readonly eventsGateway: EventsGateway,
+    private accountRepository: Repository<Account>,
+    @InjectRepository(Journal)
+    private journalRepository: Repository<Journal>,
+    private journalEntriesService: JournalEntriesService,
+    private fileParserService: FileParserService,
+    private dataSource: DataSource,
+    private eventsGateway: EventsGateway,
   ) {}
 
-  async getFileHeaders(file: Express.Multer.File): Promise<string[]> {
-    const { headers } = await this.fileParser.parse(file);
-    return headers;
-  }
-
-  async preview(
+  async previewImport(
     file: Express.Multer.File,
-    mapping: PreviewImportRequestDto,
     organizationId: string,
   ): Promise<PreviewImportResponseDto> {
-    const { data } = await this.fileParser.parse(file);
-    if (data.length === 0) throw new BadRequestException('El archivo no contiene datos.');
+    const rawData = await this.fileParserService.parse(file);
+    const accounts = await this.accountRepository.find({
+      where: { organizationId },
+      select: ['id', 'code', 'name'],
+    });
+    const journals = await this.journalRepository.find({
+        where: { organizationId },
+        select: ['id', 'code', 'name'],
+    });
 
-    const accountsInDb = await this.accountRepository.find({ where: { organizationId } });
-    const accountCodeMap = new Map(accountsInDb.map((acc) => [acc.code, acc]));
-    
-    const generalJournal = await this.dataSource.getRepository(Journal).findOneBy({ organizationId, code: 'GENERAL' });
-    if (!generalJournal) {
-        throw new BadRequestException('Diario General (GENERAL) no encontrado, necesario para la importación.');
-    }
-    
-    const defaultLedger = await this.dataSource.getRepository(Ledger).findOneBy({ organizationId, isDefault: true });
-    if (!defaultLedger) {
-        throw new BadRequestException('No se ha configurado un libro contable por defecto para la organización.');
-    }
+    const accountMap = new Map(accounts.map((a) => [a.code, a]));
+    const journalMap = new Map(journals.map((j) => [j.code, j]));
 
-    const groupedEntries = this.groupCsvRows(data, mapping.columnMapping.entryId);
-    const previewResponse: PreviewImportResponseDto = {
-      batchId: uuidv4(),
-      totalEntries: 0,
-      validEntriesCount: 0,
-      invalidEntriesCount: 0,
-      previews: [],
-    };
-    const validEntriesToCache: CreateJournalEntryDto[] = [];
+    const validEntries: ImportedEntryDto[] = [];
+    const errors: string[] = [];
 
-    for (const entryId in groupedEntries) {
-      const entryData = groupedEntries[entryId];
-      let isEntryValid = true;
+    // Agrupar líneas por un identificador de asiento (ej: ExternalRef)
+    const groupedLines = this.groupBy(rawData, 'ExternalRef');
+
+    for (const [ref, lines] of Object.entries(groupedLines)) {
+      const firstLine = lines[0];
+      const journalCode = firstLine['JournalCode'];
+      const journal = journalMap.get(journalCode);
+
+      if (!journal) {
+          errors.push(`Referencia ${ref}: Diario con código '${journalCode}' no encontrado.`);
+          continue;
+      }
+
+      const entryDto: ImportedEntryDto = {
+        externalRef: ref,
+        date: firstLine['Date'],
+        description: firstLine['Description'] || `Importación ref: ${ref}`,
+        journalId: journal.id,
+        lines: [],
+        isValid: true,
+        errors: [],
+      };
+
       let totalDebit = 0;
       let totalCredit = 0;
 
-      const validatedRows = entryData.rows.map((row, index) => {
-        const debitValue = parseFloat(row[mapping.columnMapping.debit] || '0');
-        const creditValue = parseFloat(row[mapping.columnMapping.credit] || '0');
-        const accountCode = row[mapping.columnMapping.accountCode]?.toString();
-        let isValid = true;
-        let errorMessage: string | undefined;
+      for (const line of lines) {
+        const accountCode = line['AccountCode'];
+        const account = accountMap.get(accountCode);
 
-        if (isNaN(debitValue) || isNaN(creditValue)) {
-            isValid = false;
-            errorMessage = 'El débito o crédito no es un número válido.';
-        } else if (!accountCodeMap.has(accountCode)) {
-            isValid = false;
-            errorMessage = `La cuenta con código '${accountCode}' no existe.`;
+        if (!account) {
+          entryDto.isValid = false;
+          entryDto.errors.push(`Cuenta '${accountCode}' no encontrada.`);
         }
 
-        if(!isValid) isEntryValid = false;
+        const debit = parseFloat(line['Debit'] || '0');
+        const credit = parseFloat(line['Credit'] || '0');
 
-        totalDebit += debitValue;
-        totalCredit += creditValue;
-        return { lineNumber: index + 1, isValid, errorMessage, data: row };
-      });
+        totalDebit += debit;
+        totalCredit += credit;
 
-      const isBalanced = Math.abs(totalDebit - totalCredit) < 0.01;
-      if (!isBalanced) {
-        isEntryValid = false;
-        validatedRows.push({ lineNumber: -1, isValid: false, errorMessage: 'El asiento no está balanceado.', data: {} });
+        entryDto.lines.push({
+          accountId: account?.id || '',
+          accountCode: accountCode,
+          debit,
+          credit,
+          description: line['LineDescription'] || entryDto.description,
+        });
       }
 
-      previewResponse.totalEntries++;
-      if (isEntryValid) {
-        previewResponse.validEntriesCount++;
-        const firstRow = entryData.rows[0];
-        
-        validEntriesToCache.push({
-          date: new Date(firstRow[mapping.columnMapping.date]).toISOString(),
-          description: firstRow[mapping.columnMapping.description],
-          journalId: generalJournal.id,
-          lines: validatedRows.map((r) => {
-            const debit = parseFloat(r.data[mapping.columnMapping.debit] || '0');
-            const credit = parseFloat(r.data[mapping.columnMapping.credit] || '0');
-            return {
-              accountId: accountCodeMap.get(r.data[mapping.columnMapping.accountCode].toString())!.id,
-              debit: debit,
-              credit: credit,
-              description: r.data[mapping.columnMapping.lineDescription!] || '',
-              valuations: [{
-                ledgerId: defaultLedger.id,
-                debit: debit,
-                credit: credit
-              }]
-            };
-          }),
-        });
+      if (Math.abs(totalDebit - totalCredit) > 0.01) {
+        entryDto.isValid = false;
+        entryDto.errors.push(
+          `Asiento desbalanceado. Débito: ${totalDebit}, Crédito: ${totalCredit}`,
+        );
+      }
+
+      if (!entryDto.isValid) {
+        errors.push(...entryDto.errors.map((e) => `Ref ${ref}: ${e}`));
       } else {
-        previewResponse.invalidEntriesCount++;
+        validEntries.push(entryDto);
       }
-      previewResponse.previews.push({ entryId, isBalanced, totalDebit, totalCredit, rows: validatedRows });
     }
 
-    importBatchCache.set(previewResponse.batchId, {
-      id: previewResponse.batchId,
+    // Crear un lote temporal
+    const batch = this.batchRepository.create({
       organizationId,
-      status: 'PENDING',
-      entries: validEntriesToCache,
-      createdAt: new Date(),
+      fileName: file.originalname,
+      status: ImportJournalEntryBatchStatus.PENDING_CONFIRMATION,
+      totalEntries: validEntries.length,
+      previewData: validEntries,
     });
-
-    this.cleanupExpiredBatches();
-    return previewResponse;
-  }
-
-  async confirm(
-    confirmDto: ConfirmImportDto,
-    organizationId: string,
-    userId: string,
-  ): Promise<{ message: string; createdEntriesCount: number }> {
-    const batch = importBatchCache.get(confirmDto.batchId);
-    if (!batch || batch.organizationId !== organizationId || batch.status !== 'PENDING') {
-      throw new NotFoundException('Lote de importación no encontrado, expirado o ya procesado.');
-    }
-
-    const totalEntries = batch.entries.length;
-    let processedCount = 0;
-
-    await this.dataSource.transaction(async (manager) => {
-      for (const entryDto of batch.entries) {
-        if (!manager.queryRunner) {
-            throw new Error('Transaction query runner not available');
-        }
-        await this.journalEntriesService.createWithQueryRunner(manager.queryRunner, entryDto, organizationId);
-        processedCount++;
-        
-        this.eventsGateway.sendToUser(userId, 'import-progress', {
-          batchId: confirmDto.batchId,
-          progress: Math.round((processedCount / totalEntries) * 100),
-          processed: processedCount,
-          total: totalEntries,
-        });
-      }
-    });
-
-    batch.status = 'CONFIRMED';
-    this.logger.log(`Lote de importación ${confirmDto.batchId} confirmado. Creados ${totalEntries} asientos.`);
-
-    this.eventsGateway.sendToUser(userId, 'import-complete', {
-      batchId: confirmDto.batchId,
-      status: 'SUCCESS',
-      message: `Importación completada. Se crearon ${totalEntries} asientos.`,
-    });
+    const savedBatch = await this.batchRepository.save(batch);
 
     return {
-      message: 'Importación confirmada y procesada exitosamente.',
-      createdEntriesCount: totalEntries,
+      batchId: savedBatch.id,
+      totalParsed: Object.keys(groupedLines).length,
+      validCount: validEntries.length,
+      errors,
+      preview: validEntries.slice(0, 5), // Retornar solo una muestra
     };
   }
 
-  private groupCsvRows(rows: any[], entryIdColumn: string): Record<string, { rows: any[] }> {
-    return rows.reduce((acc, row) => {
-      const entryId = row[entryIdColumn];
-      if (!acc[entryId]) {
-        acc[entryId] = { rows: [] };
-      }
-      acc[entryId].rows.push(row);
-      return acc;
-    }, {});
+  async confirmImport(
+    batchId: string,
+    organizationId: string,
+    userId: string
+  ): Promise<void> {
+    const batch = await this.batchRepository.findOneBy({
+      id: batchId,
+      organizationId,
+    });
+
+    if (!batch) throw new BadRequestException('Lote de importación no encontrado.');
+    if (batch.status !== ImportJournalEntryBatchStatus.PENDING_CONFIRMATION) {
+      throw new BadRequestException('El lote no está en estado pendiente de confirmación.');
+    }
+
+    batch.status = ImportJournalEntryBatchStatus.PROCESSING;
+    await this.batchRepository.save(batch);
+
+    // Procesar asíncronamente (simulado)
+    this.processImportBatch(batch, userId).catch((err) => {
+      this.logger.error(`Error procesando lote ${batchId}`, err);
+      batch.status = ImportJournalEntryBatchStatus.FAILED;
+      this.batchRepository.save(batch);
+    });
   }
 
-  private cleanupExpiredBatches(): void {
-    const expirationTime = 30 * 60 * 1000;
-    const now = new Date().getTime();
-    for (const [key, batch] of importBatchCache.entries()) {
-      if (now - batch.createdAt.getTime() > expirationTime) {
-        importBatchCache.delete(key);
-        this.logger.log(`Lote de importación expirado y eliminado: ${key}`);
+  private async processImportBatch(batch: JournalEntryImportBatch, userId: string) {
+    const queryRunner = this.dataSource.createQueryRunner();
+    await queryRunner.connect();
+    await queryRunner.startTransaction();
+
+    try {
+      let importedCount = 0;
+      const entries: ImportedEntryDto[] = batch.previewData;
+
+      for (const entryData of entries) {
+        const createDto: CreateJournalEntryDto = {
+          date: new Date(entryData.date).toISOString(),
+          description: entryData.description,
+          journalId: entryData.journalId,
+          lines: entryData.lines.map((l) => ({
+            accountId: l.accountId,
+            debit: l.debit,
+            credit: l.credit,
+            description: l.description,
+          })),
+        };
+
+        // Usamos el servicio existente, pero necesitamos pasar el queryRunner para que sea atómico
+        // Ojo: JournalEntriesService.create usa su propia transacción.
+        // Para hacerlo en una sola transacción grande, necesitaríamos un método createWithQueryRunner en el servicio.
+        // Por simplicidad, llamaremos a create uno por uno, si falla uno, el lote queda parcialmente importado o fallido.
+        // Mejor opción: Implementar createWithQueryRunner en JournalEntriesService (Hecho en el plan anterior)
+
+        await this.journalEntriesService.createWithQueryRunner(
+          queryRunner,
+          createDto,
+          batch.organizationId,
+        );
+        importedCount++;
       }
+
+      await queryRunner.commitTransaction();
+
+      batch.status = ImportJournalEntryBatchStatus.COMPLETED;
+      batch.importedEntries = importedCount;
+      await this.batchRepository.save(batch);
+
+      this.eventsGateway.emitToUser(userId, 'import.completed', {
+          batchId: batch.id,
+          count: importedCount
+      });
+
+    } catch (error) {
+      await queryRunner.rollbackTransaction();
+      this.logger.error(`Error importando lote ${batch.id}`, error);
+      batch.status = ImportJournalEntryBatchStatus.FAILED;
+      batch.errorMessage = error.message;
+      await this.batchRepository.save(batch);
+
+      this.eventsGateway.emitToUser(userId, 'import.failed', {
+          batchId: batch.id,
+          error: error.message
+      });
+    } finally {
+      await queryRunner.release();
     }
+  }
+
+  private groupBy(array: any[], key: string) {
+    return array.reduce((result, currentValue) => {
+      (result[currentValue[key]] = result[currentValue[key]] || []).push(
+        currentValue,
+      );
+      return result;
+    }, {});
   }
 }

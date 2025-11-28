@@ -23,7 +23,8 @@ export class SearchService {
     const invoices = allInvoices.filter(
       (i) =>
         i.invoiceNumber.toLowerCase().includes(lowerCaseQuery) ||
-        i.customerName.toLowerCase().includes(lowerCaseQuery),
+        // Check if customer exists and has name, or fall back to empty string
+        (i.customer?.companyName || '').toLowerCase().includes(lowerCaseQuery),
     );
 
     const products = allProducts.filter(
@@ -44,7 +45,7 @@ export class SearchService {
         results: invoices.map((i) => ({
           id: i.id,
           title: `Factura #${i.invoiceNumber}`,
-          description: `Cliente: ${i.customerName}`,
+          description: `Cliente: ${i.customer?.companyName || 'Desconocido'}`,
           link: `/app/invoices/${i.id}`,
         })),
       },

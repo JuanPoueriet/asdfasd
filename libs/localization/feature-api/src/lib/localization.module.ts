@@ -1,21 +1,16 @@
-import { Module, forwardRef } from '@nestjs/common';
+
+import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { BullModule } from '@nestjs/bullmq';
 import { LocalizationService } from './services/localization.service';
-import { LocalizationAdminController } from './controllers/localization-admin.controller';
+import { LocalizationConsumer } from './consumers/localization.consumer';
 import { FiscalRegion } from './entities/fiscal-region.entity';
 import { TaxScheme } from './entities/tax-scheme.entity';
 import { ChartOfAccountsModule } from '@univeex/chart-of-accounts/feature-api';
-import { TaxesModule } from '@univeex/taxes/feature-api';
+import { TaxesModule } from '@univeex/taxes/backend/feature';
 import { LocalizationTemplate } from './entities/localization-template.entity';
 import { CoaTemplate } from './entities/coa-template.entity';
 import { TaxTemplate } from './entities/tax-template.entity';
-import { LocalizationConsumer } from './consumers/localization.consumer';
-import { SharedModule } from '@univeex/shared/util-backend';
-import { TaxGroup } from './entities/tax-group.entity';
-import { ReportDefinition } from './entities/report-definition.entity';
-import { EInvoiceProviderConfig } from './entities/einvoice-provider-config.entity';
-import { LocalizationController } from './controllers/localization.controller';
+import { SharedUtilBackendModule } from '@univeex/shared/util-backend'; // For DocumentSequencesService
 
 @Module({
   imports: [
@@ -25,19 +20,12 @@ import { LocalizationController } from './controllers/localization.controller';
       LocalizationTemplate,
       CoaTemplate,
       TaxTemplate,
-      TaxGroup,
-      ReportDefinition,
-      EInvoiceProviderConfig,
     ]),
-    BullModule.registerQueue({
-      name: 'localization',
-    }),
-    forwardRef(() => ChartOfAccountsModule),
+    ChartOfAccountsModule,
     TaxesModule,
-    SharedModule,
+    SharedUtilBackendModule,
   ],
   providers: [LocalizationService, LocalizationConsumer],
-  controllers: [LocalizationAdminController, LocalizationController],
   exports: [LocalizationService],
 })
 export class LocalizationModule {}

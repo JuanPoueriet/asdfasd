@@ -8,16 +8,16 @@ export class TaxScheme {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
+  @Column({ name: 'name' })
   name: string;
 
   @Column({ name: 'fiscal_region_id' })
   fiscalRegionId: string;
 
-  @ManyToOne(() => FiscalRegion, region => region.taxSchemes)
+  @ManyToOne(() => FiscalRegion)
   @JoinColumn({ name: 'fiscal_region_id' })
   fiscalRegion: FiscalRegion;
-  
-  @Column({ type: 'jsonb' })
-  configurations: Partial<TaxConfiguration>[];
+
+  @Column('jsonb')
+  configurations: TaxConfiguration[];
 }

@@ -4,35 +4,34 @@ import {
   Get,
   Post,
   Body,
-  Param,
-  UseGuards,
-  ParseUUIDPipe,
-  UseInterceptors,
-  UploadedFile,
-  UploadedFiles,
-  ParseFilePipe,
-  MaxFileSizeValidator,
-  FileTypeValidator,
   Patch,
+  Param,
   Delete,
-  StreamableFile,
-  HttpCode,
-  HttpStatus,
+  UseGuards,
+  Query,
+  Res,
+  UploadedFile,
+  UseInterceptors,
+  ParseUUIDPipe,
 } from '@nestjs/common';
-import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
-import { JournalEntriesService } from './journal-entries.service';
-import { CreateJournalEntryDto } from './dto/create-journal-entry.dto';
+import { JournalsService } from './journals.service';
+import { CreateJournalDto } from './dto/journal.dto';
+import { UpdateJournalDto } from './dto/update-journal.dto';
 import { JwtAuthGuard } from '@univeex/auth/feature-api';
 import { CurrentUser } from '@univeex/auth/feature-api';
 import { User } from '@univeex/users/api-data-access';
 import { PermissionsGuard } from '@univeex/auth/feature-api';
 import { HasPermission } from '@univeex/auth/feature-api';
-import { PERMISSIONS } from '@univeex/shared/util-types';
-import { PeriodLockGuard } from '@univeex/accounting/feature-shell';
+import { PERMISSIONS } from '@univeex/shared/util-common';
+import { PeriodLockGuard } from '@univeex/accounting/api-feature-chart-of-accounts';
 import {
   UpdateJournalEntryDto,
   ReverseJournalEntryDto,
 } from './dto/journal-entry-actions.dto';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { Response } from 'express';
+import { JournalEntriesService } from './journal-entries.service';
+import { CreateJournalEntryDto } from './dto/create-journal-entry.dto';
 import { JournalEntryImportService } from './journal-entry-import.service';
 import { ConfirmImportDto, PreviewImportRequestDto } from './dto/journal-entry-import.dto';
 import { TemporalValidityGuard } from '@univeex/financial-reporting/feature-api';
@@ -42,7 +41,7 @@ import { TemporalValidityGuard } from '@univeex/financial-reporting/feature-api'
 export class JournalEntriesController {
   constructor(
     private readonly journalEntriesService: JournalEntriesService,
-    private readonly importService: JournalEntryImportService,
+    private readonly journalEntryImportService: JournalEntryImportService,
   ) {}
 
   @Post()
@@ -71,18 +70,22 @@ export class JournalEntriesController {
   }
 
   @Patch(':id')
-  @UseGuards(PeriodLockGuard)
+  @UseGuards(PeriodLockGuard, TemporalValidityGuard)
   @HasPermission(PERMISSIONS.JOURNAL_ENTRIES_EDIT)
   update(
     @Param('id', ParseUUIDPipe) id: string,
-    @Body() updateDto: UpdateJournalEntryDto,
+    @Body() updateJournalEntryDto: UpdateJournalEntryDto,
     @CurrentUser() user: User,
   ) {
-    return this.journalEntriesService.update(id, user.organizationId, updateDto);
+    return this.journalEntriesService.update(
+      id,
+      user.organizationId,
+      updateJournalEntryDto,
+    );
   }
 
   @Post(':id/reverse')
-  @UseGuards(PeriodLockGuard)
+  @UseGuards(PeriodLockGuard, TemporalValidityGuard)
   @HasPermission(PERMISSIONS.JOURNAL_ENTRIES_CREATE)
   reverse(
     @Param('id', ParseUUIDPipe) id: string,
@@ -95,100 +98,92 @@ export class JournalEntriesController {
       reverseDto,
     );
   }
-  
-  @Post(':id/create-reversal')
-  @HttpCode(HttpStatus.CREATED)
-  @HasPermission(PERMISSIONS.JOURNAL_ENTRIES_CREATE)
-  createReversal(@Param('id', ParseUUIDPipe) id: string, @CurrentUser() user: User) {
-      return this.journalEntriesService.createReversalEntry(id, user.organizationId);
-  }
-
-
-  @Post('import/preview')
-  @UseInterceptors(FileInterceptor('file'))
-  @HasPermission(PERMISSIONS.JOURNAL_ENTRIES_CREATE)
-  previewImportFromCsv(
-    @UploadedFile(
-      new ParseFilePipe({
-        validators: [
-          new MaxFileSizeValidator({ maxSize: 2 * 1024 * 1024 }),
-          new FileTypeValidator({ fileType: /(text\/csv|spreadsheetml\.sheet)/ }),
-        ],
-      }),
-    )
-    file: Express.Multer.File,
-    @Body() mapping: PreviewImportRequestDto,
-    @CurrentUser() user: User,
-  ) {
-    return this.importService.preview(file, mapping, user.organizationId);
-  }
-
-  @Post('import/confirm')
-  @HasPermission(PERMISSIONS.JOURNAL_ENTRIES_CREATE)
-  confirmImport(
-    @Body() confirmDto: ConfirmImportDto,
-    @CurrentUser() user: User,
-  ) {
-    return this.importService.confirm(confirmDto, user.organizationId, user.id);
-  }
 
   @Post(':id/attachments')
-  @UseInterceptors(FilesInterceptor('files', 10, { limits: { fileSize: 10 * 1024 * 1024 } }))
+  @UseInterceptors(FileInterceptor('file'))
   @HasPermission(PERMISSIONS.JOURNAL_ENTRIES_EDIT)
-  uploadAttachments(
+  addAttachment(
     @Param('id', ParseUUIDPipe) id: string,
-    @CurrentUser() user: User,
-    @UploadedFiles() files: Array<Express.Multer.File>,
-  ) {
-    const uploadPromises = files.map((file) =>
-
-      this.journalEntriesService.addAttachment(id, file, user.organizationId, user.id),
-    );
-    return Promise.all(uploadPromises);
-  }
-
-  @Get(':id/attachments')
-  @HasPermission(PERMISSIONS.JOURNAL_ENTRIES_VIEW)
-  async getAttachments(
-    @Param('id', ParseUUIDPipe) id: string,
+    @UploadedFile() file: Express.Multer.File,
     @CurrentUser() user: User,
   ) {
-    const entry = await this.journalEntriesService.findOne(
+    return this.journalEntriesService.addAttachment(
       id,
+      file,
       user.organizationId,
+      user.id,
     );
-    return entry.attachments;
   }
 
-  @Get('attachments/:attachmentId/download')
+  @Get('attachments/:attachmentId')
   @HasPermission(PERMISSIONS.JOURNAL_ENTRIES_VIEW)
-  async downloadAttachment(
+  async getAttachment(
     @Param('attachmentId', ParseUUIDPipe) attachmentId: string,
     @CurrentUser() user: User,
-  ): Promise<StreamableFile> {
-    const { metadata, streamable } =
+    @Res() res: Response,
+  ) {
+    const { streamable, metadata } =
       await this.journalEntriesService.getAttachment(
         attachmentId,
         user.organizationId,
       );
 
-    return new StreamableFile(streamable.stream, {
-      type: streamable.mimeType,
-      disposition: `attachment; filename="${metadata.fileName}"`,
-      length: streamable.fileSize,
+    res.set({
+      'Content-Type': streamable.mimeType,
+      'Content-Length': streamable.fileSize,
+      'Content-Disposition': `inline; filename="${metadata.fileName}"`,
     });
+
+    streamable.stream.pipe(res);
   }
 
   @Delete('attachments/:attachmentId')
   @HasPermission(PERMISSIONS.JOURNAL_ENTRIES_EDIT)
-  async deleteAttachment(
+  deleteAttachment(
     @Param('attachmentId', ParseUUIDPipe) attachmentId: string,
     @CurrentUser() user: User,
   ) {
-    await this.journalEntriesService.deleteAttachment(
+    return this.journalEntriesService.deleteAttachment(
       attachmentId,
       user.organizationId,
     );
-    return { message: 'Adjunto eliminado exitosamente.' };
+  }
+
+  @Post(':id/submit-approval')
+  @HasPermission(PERMISSIONS.JOURNAL_ENTRIES_CREATE)
+  submitForApproval(
+    @Param('id', ParseUUIDPipe) id: string,
+    @CurrentUser() user: User,
+  ) {
+    return this.journalEntriesService.submitForApproval(
+      id,
+      user.organizationId,
+    );
+  }
+
+  @Post('import/preview')
+  @UseInterceptors(FileInterceptor('file'))
+  @HasPermission(PERMISSIONS.JOURNAL_ENTRIES_CREATE)
+  previewImport(
+    @UploadedFile() file: Express.Multer.File,
+    @CurrentUser() user: User,
+  ) {
+    return this.journalEntryImportService.previewImport(
+      file,
+      user.organizationId,
+    );
+  }
+
+  @Post('import/confirm/:batchId')
+  @HasPermission(PERMISSIONS.JOURNAL_ENTRIES_CREATE)
+  confirmImport(
+    @Param('batchId') batchId: string,
+    @CurrentUser() user: User,
+  ) {
+    return this.journalEntryImportService.confirmImport(
+      batchId,
+      user.organizationId,
+      user.id
+    );
   }
 }

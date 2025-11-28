@@ -1,42 +1,40 @@
-import { Component, ChangeDetectionStrategy, signal, inject } from '@angular/core';
+
+import { Component, OnInit, signal, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { LucideAngularModule, UploadCloud, ChevronLeft } from 'lucide-angular';
-import { JournalEntries } from '../@univeex/journal-entries/data-access';
-import { NotificationService } from '../@univeex/notifications/data-access';
+import { JournalEntries } from '@univeex/journal-entries/data-access';
+import { NotificationService } from '@univeex/notifications/data-access';
 
 @Component({
   selector: 'app-journal-entry-import-page',
   standalone: true,
   imports: [CommonModule, RouterLink, LucideAngularModule],
   templateUrl: './import.page.html',
-  styleUrls: ['./import.page.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  styles: [],
 })
 export class JournalEntryImportPage {
-  protected readonly BackIcon = ChevronLeft;
-  protected readonly UploadIcon = UploadCloud;
-
   private journalEntriesService = inject(JournalEntries);
   private notificationService = inject(NotificationService);
   private router = inject(Router);
 
   selectedFile = signal<File | null>(null);
-  previewData = signal<any | null>(null);
-  batchId = signal<string | null>(null);
   isLoading = signal(false);
   error = signal<string | null>(null);
+  previewData = signal<any | null>(null);
+  batchId = signal<string | null>(null); // To store the batch ID returned by preview
 
-  onFileSelected(event: Event): void {
+  onFileSelected(event: Event) {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
       this.selectedFile.set(input.files[0]);
       this.error.set(null);
       this.previewData.set(null);
+      this.batchId.set(null);
     }
   }
 
-  previewImport(): void {
+  onUpload() {
     const file = this.selectedFile();
     if (!file) {
       this.notificationService.showError('Por favor, selecciona un fichero para importar.');
@@ -60,7 +58,7 @@ export class JournalEntryImportPage {
     });
   }
 
-  confirmImport(): void {
+  confirmImport() {
     const batch = this.batchId();
     if (!batch) {
       this.notificationService.showError('No hay una importación para confirmar.');
